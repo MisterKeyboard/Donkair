@@ -112,14 +112,14 @@ if($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST)){
         $flightTime = $_POST['flightTime'];
 
 //Insert les villes de départ et d'arrivée dans la table destination
-    $city = $objetPdo->prepare("INSERT INTO destination (flightNbr, departureCity, arrivalCity) VALUES (:departureCity, :arrivalCity)");
+    $city = $objetPdo->prepare("INSERT INTO destination (flightNbr, departureCity, arrivalCity, flightTime) VALUES (:flightNbr, :departureCity, :arrivalCity, :flightTime)");
 
-    $city->execute(array( 'flightNbr' => $flightNbr, ':departureCity' => $departureCity, ':arrivalCity' => $arrivalCity));
+    $city->execute(array( ':flightNbr' => $flightNbr, ':departureCity' => $departureCity, ':arrivalCity' => $arrivalCity, ':flightTime' => $flightTime));
 
 //Insert le modele d'avion et autre information dans tab Flight
-    $flight = $objetPdo->prepare("INSERT INTO flight (model, takeOff, landing, date, flightTime) VALUES (:plane_id, :takeOff, :landing, :date, :flightTime)");
+    $flight = $objetPdo->prepare("INSERT INTO flight (plane_id, takeOff, landing, date) VALUES (:plane_id, :takeOff, :landing, :date )");
 
-    $flight->execute(array(':plane_id' => $model, ':takeOff' => $takeOff, ':landing' => $landing, ':date' => $datab, ':flightTime' => $flightTime));
+    $flight->execute(array(':plane_id' => $model, ':takeOff' => $takeOff, ':landing' => $landing, ':date' => $date));
 
     }
 }
