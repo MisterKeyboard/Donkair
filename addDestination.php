@@ -1,43 +1,19 @@
 <?php
-require "addCity.php";
+require "config.php";
 ?>
 
-<html>
-
-<h1> Ajouter une Route </h1>
-
-<h2> Ajouter une ville de destination et/ou une ville de départ </h2>
-<p> Si les villes de destinations ou de départs sont déja renseignées, merci de ne pas remplir de vous rendre directement </p>
-<a href="#addDestination"> Ici </a>
-
-<!-- Inserer une ville & airport -->
-
-    <form method="POST">
-        
-        <label for="town"> Entrée le nom de la ville </label>
-        <input type="text" name="town" id="town">
-
-        <label for="airport"> Entrée le nom de l'aréoport </label>
-        <input type="text" name="airport" id="airport">
-
-        <label for="country"> Entrée le Pays </label>
-        <input type="text" name="country" id="country">
-
-        <input type="submit" value="ajouter une ville"/>
-
-    </form>
-
-    
-
 <!-- AJOUTER UNE DESTINATION / ROUTE -->
-    <h2 id="addDestination"> Formulaire pour ajouter une route </h2>
+    <h2> Formulaire pour ajouter une route </h2>
 
     <form method="POST">
+
+        <label for="flightNbr"> Numéro de Vol </label>
+        <input type="text" name="flightNbr" id="flightNbr">
 
         <!-- select from db city -->
 
-        <label for="toGo"> Selectionner une Ville de Départ </label>
-        <select name="toGo" id="toGo">
+        <label for="departureCity"> Selectionner une Ville de Départ </label>
+        <select name="departureCity" id="departureCity">
 
                 <?php 
                     //modifier la query
@@ -53,8 +29,8 @@ require "addCity.php";
     
         </select>            
 
-        <label for="return"> Selectionner une Ville d'arrivée </label>
-        <select name="return" id="return">
+        <label for="arrivalCity"> Selectionner une Ville d'arrivée </label>
+        <select name="arrivalCity" id="arrivalCity">
 
                 <?php 
                     //modifier la query
@@ -101,8 +77,8 @@ require "addCity.php";
         <label for="date"> Date du vol </label>
         <input type="date" name="date" id="date"/>
 
-        <label for="price"> Prix </label>
-        <input type="number" name="price" id="price" step=".01"/>
+        <label for="flightTime"> Durée du Vol </label>
+        <input type="time" name="flightTime" id="flightTime"/>
 
         <input type="submit" value="Ajouter un vol"/>
 
@@ -116,3 +92,34 @@ require "addCity.php";
 <?php
 
 // INSERT LES DONNEES DANS DATABASE
+
+//Récuperer les info pour add une route
+
+if($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST)){
+    echo   $_POST['flightNbr'] . $_POST['departureCity']   . $_POST['arrivalCity']  . $_POST['model'] . $_POST['takeOff']  . $_POST['landing']  . $_POST['date'] . $_POST['flightTime'];
+    
+
+    if(empty($_POST['departureCity']) || empty($_POST['arrivalCity']) || empty($_POST['model']) || empty($_POST['takeOff']) ||  empty($_POST['landing']) || empty($_POST['date']) || empty($_POST['flightTime'])) {
+        echo 'veuillez remplir tous les champs';
+    } else {
+        $flightNbr = $_POST['flightNbr'];
+        $departureCity = $_POST['departureCity'];
+        $arrivalCity = $_POST ['arrivalCity'];
+        $model = $_POST ['model'];
+        $takeOff = $_POST['takeOff'];
+        $landing = $_POST ['landing'];
+        $date = $_POST ['date'];
+        $flightTime = $_POST['flightTime'];
+
+//Insert les villes de départ et d'arrivée dans la table destination
+    $city = $objetPdo->prepare("INSERT INTO destination (flightNbr, departureCity, arrivalCity) VALUES (:departureCity, :arrivalCity)");
+
+    $city->execute(array( 'flightNbr' => $flightNbr, ':departureCity' => $departureCity, ':arrivalCity' => $arrivalCity));
+
+//Insert le modele d'avion et autre information dans tab Flight
+    $flight = $objetPdo->prepare("INSERT INTO flight (model, takeOff, landing, date, flightTime) VALUES (:plane_id, :takeOff, :landing, :date, :flightTime)");
+
+    $flight->execute(array(':plane_id' => $model, ':takeOff' => $takeOff, ':landing' => $landing, ':date' => $datab, ':flightTime' => $flightTime));
+
+    }
+}
