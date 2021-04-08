@@ -18,47 +18,45 @@
 <!-- PopUp -->
         <h1> Contactez-Nous </h1>
 
-            <form method="POST" action="getinfo.php">
+            <form action="getinfo.php" method="POST" >
 
                 <div class="container">
 
                     <label for="name"> Votre Nom </label>
-                    <input type="text" id="name" placeholder="Name"/>
+                    <input type="text" name="name" id="name" placeholder="Name"/>
 
                     <label for="mail"> Votre Mail </label>
-                    <input type="mail" id="mail" placeholder="donkair@hotmail.fr"/>
+                    <input type="mail" name="mail" id="mail" placeholder="donkair@hotmail.fr"/>
 
-                    <label for="sujet"> Sujet </label>
-                    <input type="texte" id="sujet"/>
+                    <label for="subject"> Sujet </label>
+                    <input type="texte" name="subject" id="subject"/>
 
                     <label for="message"> Votre Message </label>
-                    <input type="textarea" id="message" cols="40" rows="10"/>
+                    <input type="textarea" name="message" id="message" cols="40" rows="10"/>
 
-                    <input type="submit" name="Envoyer" value="Envoyer " />
-                    
-                    <p> Etre appelé <p>
 
                     <label for="sujet" > Sujet </label>
-                    <select name="sujet"> 
-                    <option valeur="">Annuler/Modifier une Reservation </option>
+                    <select name="subject"> 
+                        <option valeur="">Annuler/Modifier une Reservation </option>
                         <option valeur="">Bagage</option>
                         <option valeur="">Codes Promotionnels </option>
                         <option valeur="">Locations de voiture</option>
                         <option valeur="">Hotel</option>
                         <option valeur="">Remboursements</option>
                         <option valeur="">Autre </option>
-                        </select>
+                    </select>
 
-                        <label for="tel"> Votre numéro </label>
-                        <input type="tel" id="tel" maxlength="15" required/>
+                    <label for="tel"> Votre numéro </label>
+                    <input type="tel" name="tel" id="tel" maxlength="15" required/>
 
-                        <input type="submit" value="Envoyer"/> 
+                    <input type="submit"  name="Envoyer" value="Envoyer"/> 
 
                 </div>
                 
             </form>
 
-             <script>
+<!-----
+            <script>
 
                 var btnPopup = document.getElementById('btnPopup');
                 var btnClose = document.getElementById('btnClose');
@@ -77,7 +75,7 @@
                         overlay.styke.display = 'none';
                     }
 
-            </script> 
+            </script> ---->
 
     </body>
 
@@ -86,25 +84,25 @@
 <?php
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-// if (isset($_POST['name']) && isset($_POST['mail']) && isset($_POST['sujet']) && isset($_POST['message'])) {
 
-// } 
-// }
-$name = $_POST['name'];
-$mail = $_POST['mail'];
-$subject = $_POST['sujet'];
-$message = $_POST['message'];
-$headers = "From: $mail";
-$sent = mail('lenamartin@outlook.fr', $subject, $message, $mail);
+    if (isset($_POST['name']) && isset($_POST['mail']) && isset($_POST['subject']) && isset($_POST['message'])) {
 
-if ($sent) {
-    echo "Votre mail à bien été envoyé";
-} else { echo "Une erreur s'est produite";
+
+        $name = $_POST['name'];
+        $mail = $_POST['mail'];
+        $subject = $_POST['subject'];
+        $message = $_POST['message'];
+
+
+
+        $headers = "From:" . $mail;
+
+        $sent = mail("antoine.clavier@hotmail.fr", $subject, $message, $headers);
+
+        if ($sent){
+        echo "Votre Message a bien été envoyé, nous vous réponderons dans les plus brefs délais.";
+        } else { echo "Une erreur s'est produite";
+        }
+    }
 }
-}
-
-//isset
-
-// if ($sent) {
-//     echo 'Votre Message a bien été envoyé, nous vous réponderons dans les plus brefs délais.';
-// };
+?>
