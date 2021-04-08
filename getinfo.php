@@ -8,7 +8,7 @@
                 <script>
                     function myFunction() {
                     alert( "Notre service est disponible 7/7j 24/24h au 06 46 43 49 71" );
-                   }
+                    }
                 </script>
 <!-- FIN Alert -> Afficher Numéro -->
 <br/>
@@ -35,8 +35,10 @@
                     <input type="textarea" id="message" cols="40" rows="10"/>
 
                     <input type="submit" name="Envoyer" value="Envoyer " />
+                    
+                    <p> Etre appelé <p>
 
-                   <label for="sujet" > Sujet </label>
+                    <label for="sujet" > Sujet </label>
                     <select name="sujet"> 
                     <option valeur="">Annuler/Modifier une Reservation </option>
                         <option valeur="">Bagage</option>
