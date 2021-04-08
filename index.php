@@ -1,3 +1,5 @@
+<? include "getinfo.php" ?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -6,6 +8,7 @@
         <title>DonkAir</title>
         <link rel="icon" href="img/donkeysunglassesRemovebg.png" />
         <link rel="stylesheet" href="./css/stylepage.css" />
+        
     </head>
 
     <body>
@@ -24,11 +27,62 @@
                     <a href="#expert">Destinations</a>
                     <a href="#expert">A propos</a>
 
-                    <a href="" target="_blank">Contactez-moi
+                    <a href="http://localhost:8000/getinfo.php" target="_blank">Contact
                     </a>
                 </nav>
-
             </div>
+        
+        <!-- Insert contact's form-->
+
+            <div>
+
+                <button onclick="myFunction()"> Contactez-nous par téléphone</button>
+
+                <script>
+                        function myFunction() {
+                        alert( "Notre service est disponible 7/7j 24/24h au 06 46 43 49 71" );
+                        }
+                </script>
+        
+                    <br/>
+
+                <button id="btnPopup"> Contactez-nous par Mail</button>
+                <span id="btnClose" >&times; </span>
+                    <!-- PopUp -->
+                    <h1> Contactez-Nous </h1>
+
+                    <form action="getinfo.php" method="POST" >
+
+                        <div class="container">
+
+                            <label for="name"> Votre Nom </label>
+                            <input type="text" name="name" id="name" placeholder="Name"/>
+
+                            <label for="mail"> Votre Mail </label>
+                            <input type="mail" name="mail" id="mail" placeholder="donkair@hotmail.fr"/>
+
+                            <label for="sujet" > Sujet </label>
+                            <select name="subject"> 
+                                <option valeur="">Annuler/Modifier une Reservation </option>
+                                <option valeur="">Bagage</option>
+                                <option valeur="">Codes Promotionnels </option>
+                                <option valeur="">Locations de voiture</option>
+                                <option valeur="">Hotel</option>
+                                <option valeur="">Remboursements</option>
+                                <option valeur="">Autre </option>
+                            </select>
+
+                            <label for="message"> Votre Message </label>
+                            <input type="textarea" name="message" id="message" cols="40" rows="10"/>
+                            
+                            <input type="submit"  name="Envoyer" value="Envoyer"/> 
+
+                        </div>
+
+                    </form>
+                    
+                </div>
+
         </header>
 
         <main>
@@ -128,7 +182,7 @@
                 <a href="#planes">Nos modèles d'avions</a>
                 <a href="#expert">Nos destinations</a>
 
-                <a class="schedule" href="" target="_blank">Contactez-moi
+                <a class="schedule" href="http://localhost:8000/getinfo.php" target="_blank">Contact
                 </a>
             </nav>
 

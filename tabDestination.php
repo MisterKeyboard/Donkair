@@ -1,7 +1,7 @@
-<html>
-<!--  display  -->
 
-    <link >
+<!--  display 
+<html>
+   <link >
 
 <body>
 
@@ -18,8 +18,7 @@
                 <th> Ville d'arrivée </th>
                 <th> Date </th>
                 <th> Heure décollage</th>
-            </tr>
-                    
+            </tr> --> 
 <?php
 
 require "config.php";

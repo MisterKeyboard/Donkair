@@ -95,13 +95,9 @@ require "config.php";
 
 //Récuperer les info pour add une route
 
-if($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST)){
-    echo   $_POST['flightNbr'] . $_POST['departureCity']   . $_POST['arrivalCity']  . $_POST['model'] . $_POST['takeOff']  . $_POST['landing']  . $_POST['date'] . $_POST['flightTime'];
-    
-
-    if(empty($_POST['departureCity']) || empty($_POST['arrivalCity']) || empty($_POST['model']) || empty($_POST['takeOff']) ||  empty($_POST['landing']) || empty($_POST['date']) || empty($_POST['flightTime'])) {
+if($_SERVER['REQUEST_METHOD'] === 'POST' && empty($_POST['departureCity']) || empty($_POST['arrivalCity']) || empty($_POST['model']) || empty($_POST['takeOff']) ||  empty($_POST['landing']) || empty($_POST['date']) || empty($_POST['flightTime'])) {
         echo 'veuillez remplir tous les champs';
-    } else {
+    } else { 
         $flightNbr = $_POST['flightNbr'];
         $departureCity = $_POST['departureCity'];
         $arrivalCity = $_POST ['arrivalCity'];
@@ -110,6 +106,9 @@ if($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST)){
         $landing = $_POST ['landing'];
         $date = $_POST ['date'];
         $flightTime = $_POST['flightTime'];
+        
+                if(!empty($_POST)){
+                    echo   $_POST['flightNbr'] . $_POST['departureCity']   . $_POST['arrivalCity']  . $_POST['model'] . $_POST['takeOff']  . $_POST['landing']  . $_POST['date'] . $_POST['flightTime'];
 
 //Insert les villes de départ et d'arrivée dans la table destination
     $city = $objetPdo->prepare("INSERT INTO destination (flightNbr, departureCity, arrivalCity, flightTime) VALUES (:flightNbr, :departureCity, :arrivalCity, :flightTime)");
@@ -121,5 +120,36 @@ if($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST)){
 
     $flight->execute(array(':plane_id' => $model, ':takeOff' => $takeOff, ':landing' => $landing, ':date' => $date));
 
-    }
+    } echo "$flightNbr";
 }
+
+
+// if($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST)){
+//     echo   $_POST['flightNbr'] . $_POST['departureCity']   . $_POST['arrivalCity']  . $_POST['model'] . $_POST['takeOff']  . $_POST['landing']  . $_POST['date'] . $_POST['flightTime'];
+
+//     if(empty($_POST['departureCity']) || empty($_POST['arrivalCity']) || empty($_POST['model']) || empty($_POST['takeOff']) ||  empty($_POST['landing']) || empty($_POST['date']) || empty($_POST['flightTime'])) {
+//         echo 'veuillez remplir tous les champs';
+//     } else {
+//         $flightNbr = $_POST['flightNbr'];
+//         $departureCity = $_POST['departureCity'];
+//         $arrivalCity = $_POST ['arrivalCity'];
+//         $model = $_POST ['model'];
+//         $takeOff = $_POST['takeOff'];
+//         $landing = $_POST ['landing'];
+//         $date = $_POST ['date'];
+//         $flightTime = $_POST['flightTime'];
+
+// //Insert les villes de départ et d'arrivée dans la table destination
+//     $city = $objetPdo->prepare("INSERT INTO destination (flightNbr, departureCity, arrivalCity, flightTime) VALUES (:flightNbr, :departureCity, :arrivalCity, :flightTime)");
+
+//     $city->execute(array( ':flightNbr' => $flightNbr, ':departureCity' => $departureCity, ':arrivalCity' => $arrivalCity, ':flightTime' => $flightTime));
+
+// //Insert le modele d'avion et autre information dans tab Flight
+//     $flight = $objetPdo->prepare("INSERT INTO flight (plane_id, takeOff, landing, date) VALUES (:plane_id, :takeOff, :landing, :date )");
+
+//     $flight->execute(array(':plane_id' => $model, ':takeOff' => $takeOff, ':landing' => $landing, ':date' => $date));
+
+//     } echo "$flightNbr";
+// }
+
+
