@@ -20,6 +20,7 @@ echo "Session:",$_SESSION['admin'];
 
 <body>
     <header>
-
+        <a href="logout.php" >Déconnexion
+        </a>
     </header>
 </body>

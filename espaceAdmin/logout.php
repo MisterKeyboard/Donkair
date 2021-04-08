@@ -2,7 +2,7 @@
 session_start();
 $_SESSION = array();
 session_destroy();
-header('Location: espaceAdmin/connexion.php');
+header('Location: connexion.php');
 ?>
 
 
