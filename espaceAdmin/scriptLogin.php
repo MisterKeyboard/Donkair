@@ -1,22 +1,21 @@
 <?php
 session_start();
 if(isset($_POST['submit'])){ 
-    if(isset($_POST['pseudo']) AND !empty($_POST['pseudo'])){
+    if(isset($_POST['pseudo']) and !empty($_POST['pseudo'])){
         if(filter_var($_POST['pseudo'], FILTER_VALIDATE_EMAIL)){
-            if(isset($_POST['password']) AND !empty($_POST['password'])){ 
+            if(isset($_POST['password']) and !empty($_POST['password'])){ 
 
             require "config.php";
 
-            $password = sha1($_POST['password']);
 
-            $getdata = $objetPdo->prepare("SELECT email FROM admin WHERE email=? and password = ?");
-            $getdata->execute(array($_POST['pseudo'], $password));
+            $getdata = $objetPdo->prepare("SELECT email FROM admin WHERE email=? and password=?");
+            $getdata->execute(array($_POST['pseudo'], $_POST['password']));
 
             $rows = $getdata->rowCount();
 
             if($rows==true){
                 $_SESSION['admin'] = $_POST['pseudo'];
-                header("espaceAdmin/dashboard.php");
+                header("Location:/espaceAdmin/dashboard.php");
             }else{
                 $erreur = "Username ou mot de passe inconnu";
             }

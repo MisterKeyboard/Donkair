@@ -1,10 +1,6 @@
 <?php
 session_start();
-if(!$_SESSION['admin']){
-    header('Location: connexion.php');
-}else{ 
-echo "Bonjour",$_SESSION['admin'];
-}
+echo "Session:",$_SESSION['admin'];
 ?>
 
 
@@ -24,6 +20,6 @@ echo "Bonjour",$_SESSION['admin'];
 
 <body>
     <header>
-        
+
     </header>
 </body>
