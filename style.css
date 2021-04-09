@@ -47,10 +47,14 @@ body{
     height:300px;
     background-color: rgb(228,228,228);
     border-radius: 5px;
+<<<<<<< HEAD
     box-shadow:15px 20px 0   #bb8ee8b7;
 }
 
 .btnClose {
     cursor: pointer;
     float: right;
+=======
+    box-shadow:15px 20px 0 rgba(0,0,0,0.5);
+>>>>>>> a64593a3f124839a5c862cf15cfc5bc593e302a3
 }
