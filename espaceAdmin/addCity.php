@@ -5,7 +5,7 @@ require "config.php";
 
 <html>
 
-<h1> Ajouter une ville de destination et/ou une ville de départ  </h1>
+<h1> Ajouter une ville de destination ou une ville de départ  </h1>
 
 <!-- Inserer une ville & airport -->
 
