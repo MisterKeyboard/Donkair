@@ -7,7 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>DonkAir</title>
         <link rel="icon" href="img/donkeysunglassesRemovebg.png" />
-        <link rel="stylesheet" href="./css/stylepage.css" />
+        <link rel="stylesheet" href="./css/style.css" />
         
     </head>
 
@@ -36,7 +36,7 @@
 
             <div>
 
-                <button onclick="myFunction()"> Contactez-nous par téléphone</button>
+                <button class="contacttel" onclick="myFunction()"> Contactez-nous par téléphone</button>
 
                 <script>
                         function myFunction() {
@@ -46,49 +46,56 @@
         
                     <br/>
 
-                <button id="btnPopup"> Contactez-nous par Mail</button>
-                <span id="btnClose" >&times; </span>
+
                     <!-- PopUp -->
-                    <h1> Contactez-Nous </h1>
+                    <button id="btnPopup" class="btnPopup">Contactez-nous par Mail</button>
 
-                    <form action="getinfo.php" method="POST" >
+                    <div id="overlay" class="overlay">
 
-                        <div class="container">
+                        <div id="popup" class="popup">
 
-                            <label for="name"> Votre Nom </label>
-                            <input type="text" name="name" id="name" placeholder="Name"/>
 
-                            <label for="mail"> Votre Mail </label>
-                            <input type="mail" name="mail" id="mail" placeholder="donkair@hotmail.fr"/>
+                            <h2>Contactez-Nous:<span id="btnClose"
+                            class="btnClose">&times;</span>
 
-                            <label for="sujet" > Sujet </label>
-                            <select name="subject"> 
-                                <option valeur="">Annuler/Modifier une Reservation </option>
-                                <option valeur="">Bagage</option>
-                                <option valeur="">Codes Promotionnels </option>
-                                <option valeur="">Locations de voiture</option>
-                                <option valeur="">Hotel</option>
-                                <option valeur="">Remboursements</option>
-                                <option valeur="">Autre </option>
-                            </select>
 
-                            <label for="message"> Votre Message </label>
-                            <input type="textarea" name="message" id="message" cols="40" rows="10"/>
-                            
-                            <input type="submit"  name="Envoyer" value="Envoyer"/> 
 
+                            <form action="getinfo.php" method="POST" >
+
+
+                                <label for="name"> Votre Nom </label>
+                                <input type="text" name="name" id="name" placeholder="Name"/>
+
+                                <label for="mail"> Votre Mail </label>
+                                <input type="mail" name="mail" id="mail" placeholder="donkair@hotmail.fr"/>
+
+                                <label for="sujet" > Sujet </label>
+                                <select name="subject"> 
+                                    <option valeur="">Annuler/Modifier une Reservation </option>
+                                    <option valeur="">Bagage</option>
+                                    <option valeur="">Codes Promotionnels </option>
+                                    <option valeur="">Locations de voiture</option>
+                                    <option valeur="">Hotel</option>
+                                    <option valeur="">Remboursements</option>
+                                    <option valeur="">Autre </option>
+                                </select>
+
+                                <label for="message"> Votre Message </label>
+                                <input type="textarea" name="message" id="message" cols="40" rows="10"/>
+
+                                <input type="submit"  name="Envoyer" value="Envoyer"/> 
+
+
+                            </form>
                         </div>
-
-                    </form>
-                    
-                </div>
-
+                    </div>
+                    <script src="script.js"></script>
         </header>
 
         <main>
             <!-- *********       SECTION FORMULAIRE DE RECHERCHE DE VOLS             ********** -->
             <section class="flight">
-                <img src="img/planeclouds.jpg" alt="Un avion au dessus des nuages">
+                <img src="img/cirrus/cirrus10.jpg" alt="avion de type cirrus avec une chaine de montagnes en arrière plan">
                 <div>
                     <form method="post">
                         <label for="departure">Aéroport de départ</label>
