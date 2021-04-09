@@ -9,7 +9,7 @@
         <link rel="stylesheet" href="./css/stylepage.css" />
 </head>
 <body>
-    <form method="POST" action="" align="center">
+    <form method="POST" action="" >
         <input type="text" name="pseudo" autocomplete="off">
         <br/>
         <input type="password" name="mdp">

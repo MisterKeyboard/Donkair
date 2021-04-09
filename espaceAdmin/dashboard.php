@@ -1,6 +1,10 @@
 <?php
 session_start();
 echo "Session:",$_SESSION['admin'];
+
+require "../targetCity.php";
+require "../addDestination.php";
+require "../tabDestination.php";
 ?>
 
 
