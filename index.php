@@ -100,7 +100,7 @@
                     <form method="post">
                         <label for="departure">Aéroport de départ</label>
                         <input
-                        type="text"
+                        type="search"
                         name="departure"
                         id="departure"
                         placeholder="Courchevel,Genève..."
@@ -108,7 +108,7 @@
 
                         <label for="arrival">Aéroport d'arrivée</label>
                         <input
-                        type="text"
+                        type="search"
                         name="arrival"
                         id="arrival"
                         placeholder="Courchevel,Genève..."
