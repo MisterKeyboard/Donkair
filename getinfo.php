@@ -12,11 +12,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $message = $_POST['message'];
 
 
+        $headers = "From: cedric@donkeycode.fr\r\n";
+        $headers .= "Reply-to: " . $mail."\r\n";
 
-        $headers = "From:" . $mail;
-
-        $sent = mail("antoine.clavier@hotmail.fr", $subject, $message, $headers);
-
+        $sent = mail("nafemtn@gmail.com", $subject, $message, $headers);
+var_dump($sent);
         if ($sent){
         echo "Votre Message a bien été envoyé, nous vous réponderons dans les plus brefs délais.";
         } else { echo "Une erreur s'est produite";
