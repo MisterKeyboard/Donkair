@@ -11,6 +11,7 @@ require "config.php";
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Espace de connexion DonkAir admin</title>
         <link rel="icon" href="/img/donkeysunglassesRemovebg.png" />
+        <link rel="stylesheet" href="admin.css" />
 
 </head>
 
@@ -21,7 +22,10 @@ require "config.php";
     }
     ?>
 
+    
     <form method="POST" action="">
+
+    <div class="connexion">
 
         <label for="pseudo">Pseudo</label>
         <input type="text" name="pseudo" >
@@ -29,8 +33,13 @@ require "config.php";
         <label for="password">Password</label>
         <input type="password" name="password">
         
-        <input type="submit" name="submit">
+        <input type="submit" name="submit" class="envoyer">
+
+    </div>    
+
     </form>
+    
+
 </body>
 </html>
 

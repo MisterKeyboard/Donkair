@@ -2,11 +2,10 @@
 session_start();
 echo "Session:",$_SESSION['admin'];
 
-require "../targetCity.php";
-require "../addDestination.php";
-require "../tabDestination.php";
+require "targetCity.php";
+require "addRoute.php";
+//require "tabRoute.php";
 ?>
-
 
 
 
@@ -23,8 +22,8 @@ require "../tabDestination.php";
 
 
 <body>
-    <header>
-        <a href="logout.php" >Déconnexion
-        </a>
-    </header>
+    <div>
+        <a href="logout.php"> Déconnexion </a>
+        
+    </div>
 </body>

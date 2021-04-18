@@ -1,4 +1,8 @@
-<? include "getinfo.php" ?>
+
+<?php
+include "getinfo.php";
+require "config.php"; 
+?>
 
 <!DOCTYPE html>
 <html>
@@ -81,7 +85,8 @@
                                 </select>
 
                                 <label for="message"> Votre Message </label>
-                                <input type="textarea" name="message" id="message" cols="40" rows="10"/>
+
+                                <input type="textarea" name="message" id="message" />
 
                                 <input type="submit"  name="Envoyer" value="Envoyer"/> 
 
@@ -93,29 +98,32 @@
         </header>
 
         <main>
+
+
             <!-- *********       SECTION FORMULAIRE DE RECHERCHE DE VOLS             ********** -->
             <section class="flight">
                 <img src="img/cirrus/cirrus10.jpg" alt="avion de type cirrus avec une chaine de montagnes en arrière plan">
-                <div>
-                    <form method="post">
-                        <label for="departure">Aéroport de départ</label>
-                        <input
-                        type="text"
-                        name="departure"
-                        id="departure"
-                        placeholder="Courchevel,Genève..."
-                        />
 
-                        <label for="arrival">Aéroport d'arrivée</label>
-                        <input
-                        type="text"
-                        name="arrival"
-                        id="arrival"
-                        placeholder="Courchevel,Genève..."
-                        />
+                <form>
+                <p> Reserver votre vol <p>
+                
+                        <label for="departureCity"> Villde de départ </label>
+                        <select name="departureCity" id="departureCity">
+
+                            <?php
+                                $selection = $objetPdo->query('SELECT town, id FROM route');
+                                    while($donnees = $selection->fetchAll())
+                                    {
+                            ?>
+                                <option value= " <?= $donnees['id'] ?> "> <?= $donnees['town'] ?> </option>
+                            <?php
+                                    }
+                            ?>
+
+                        </select>
 
                         <label for="date">Date de départ</label>
-                        <input type="date" name="date" id="date" value="19/04/2021" />
+                        <input type="date" name="date" id="date" />
 
                         <label for="persons">Nombre de personnes</label>
                         <select name="persons" id="persons">
@@ -131,15 +139,11 @@
                             <option>10</option>
                         </select>
 
-                        <input
-                        type="submit"
-                        value="Lancer la recherche"
-                        name="recherche"
-                        id="recherche"
-                        />
-                    </form>
-                </div>
-            </section>
+
+
+                </form>
+
+
 
 
             <!-- *********       SECTION AVIONS/VIDEOS             ********** -->
