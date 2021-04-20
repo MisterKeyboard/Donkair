@@ -1,12 +1,13 @@
+<?php
+require "head.php";
+require "session.php";
 
-<!--  display --> 
-<html>
+?>
 
-    <!-- <link > -->
 
 <body>
 
-    <h1>Routes ajoutés</h1>
+    <h1>Routes ajoutées</h1>
 
     <table>
         <thead>
@@ -30,7 +31,7 @@
 <?php
 
 require "config.php";
-$objetPdo = new PDO('mysql:host=localhost;dbname=donkair','root',''); 
+$objetPdo = new PDO('mysql:host=localhost;dbname=donkair','root','BONJOUR2020µ£'); 
 
 $sql = ('SELECT destination.flightNbr, destination.flightTime, destination.departureCity, departureCity.town, destination.arrivalCity, arrivalCity.town FROM destination LEFT JOIN city departureCity ON destination.departureCity = departureCity.id LEFT JOIN city arrivalCity ON destination.arrivalCity = arrivalCity.id');
 

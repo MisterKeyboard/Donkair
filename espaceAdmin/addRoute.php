@@ -3,6 +3,7 @@ require "config.php";
 ?>
 
 <!-- AJOUTER UNE DESTINATION / ROUTE -->
+    <div>
     <h2> Formulaire pour ajouter une route </h2>
 
     <form method="POST">
@@ -78,7 +79,7 @@ require "config.php";
         <input type="submit" value="Ajouter un vol"/>
 
     </form>
-
+</div>
 
 </html>
 

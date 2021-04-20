@@ -8,8 +8,10 @@ if(isset($_POST['submit'])){
             require "config.php";
 
 
+            $password = sha1($_POST['password']);
+
             $getdata = $objetPdo->prepare("SELECT email FROM admin WHERE email=? and password=?");
-            $getdata->execute(array($_POST['pseudo'], $_POST['password']));
+            $getdata->execute(array($_POST['pseudo'], $password));
 
             $rows = $getdata->rowCount();
 
