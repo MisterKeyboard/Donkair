@@ -22,7 +22,7 @@ L - !! Faire le SELECT (mise en forme) !!
 L - addCity.php -> modifier le lien pour retourner à la page d'accueil. (le lien ouvre une nouvelle page, on souhaite retourner à la page d'accueil)
 A-ok - Ajouter les photos!!!
 L - voir pour le "remplir tous les champs" -> addCity.php
-A - routeTab tableau avec edit et delet
+A - routeTab tableau avec edit et deletn
 A-ok - sécuriser password  
 
 

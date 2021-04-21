@@ -1,32 +1,32 @@
 <?php
-require "config.php";
+require "db.php";
 require "session.php";
 require "head.php";
 ?>
 
 <body>
 
-<h1> Ajouter une ville de destination ou une ville de départ  </h1>
+    <h1> Ajouter une ville de destination ou une ville de départ  </h1>
 
-<!-- Inserer une ville & airport -->
+    <!-- Inserer une ville & airport -->
 
-    <form action="addCity.php" method="POST" enctype="multipart/form-data">
-        
-        <label for="town"> Entrée le nom de la ville </label>
-        <input type="text" name="town" id="town">
+        <form action="addCity.php" method="POST" enctype="multipart/form-data">
+            
+            <label for="town"> Entrez le nom de la ville </label>
+            <input type="text" name="town" id="town">
 
-        <lable>Choisissez l'image à sauvegarder</label>
-        <input type="file" name="image" />
+            <lable>Choisissez l'image à sauvegarder</label>
+            <input type="file" name="image" />
 
-        <label for="airport"> Entrée le nom de l'aréoport </label>
-        <input type="text" name="airport" id="airport">
+            <label for="airport"> Entrez le nom de l'aréoport </label>
+            <input type="text" name="airport" id="airport">
 
-        <label for="country"> Entrée le Pays </label>
-        <input type="text" name="country" id="country">
+            <label for="country"> Entrez le Pays </label>
+            <input type="text" name="country" id="country">
 
-        <input type="submit" value="ajouter une ville"/>
+            <input type="submit" value="ajouter une ville"/>
 
-    </form>
+        </form>
 
 
 
@@ -38,6 +38,7 @@ require "head.php";
 if($_SERVER['REQUEST_METHOD'] === 'POST' && empty($_POST['town']) || empty($_POST['airport']) || empty($_POST['country'])) {
     echo 'Veuillez remplir tous les champs';
 } else {
+    $objetPdo = openPDO();
     $town = $_POST['town'];
     $airport = $_POST ['airport'];
     $country = $_POST ['country'];

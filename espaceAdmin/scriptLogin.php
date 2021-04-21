@@ -5,10 +5,11 @@ if(isset($_POST['submit'])){
         if(filter_var($_POST['pseudo'], FILTER_VALIDATE_EMAIL)){
             if(isset($_POST['password']) and !empty($_POST['password'])){ 
 
-            require "config.php";
+            require "db.php";
 
 
             $password = sha1($_POST['password']);
+            $objetPdo=openPDO();
 
             $getdata = $objetPdo->prepare("SELECT email FROM admin WHERE email=? and password=?");
             $getdata->execute(array($_POST['pseudo'], $password));

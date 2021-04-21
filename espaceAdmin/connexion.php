@@ -1,6 +1,5 @@
 <?php
-    require "config.php";
-    require "header.php";
+    require "head.php";
     include_once "scriptLogin.php";
     
     if (isset($erreur)){
