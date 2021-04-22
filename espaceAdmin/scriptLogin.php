@@ -19,17 +19,17 @@ if(isset($_POST['submit'])){
             if($rows==true){
                 $_SESSION['admin'] = $_POST['pseudo'];
                 header("Location:/espaceAdmin/dashboard.php");
-            }else{
+                }else{
                 $erreur = "Username ou mot de passe inconnu";
-            }
-        }else{
-            $erreur = "Veuillez saisir votre mot de passe";
-        }
-    }else{
-        $erreur = "Veuillez saisir un email valide";
-    }
-}else{
-    $erreur = "Veuillez saisir votre pseudo";
+                    }
+                }else{
+                $erreur = "Veuillez saisir votre mot de passe";
+                }
+                }else{
+                $erreur = "Veuillez saisir un email valide";
+                }
+                } else{
+                $erreur = "Veuillez saisir votre pseudo";
 }
 }
 ?>
