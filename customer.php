@@ -5,6 +5,7 @@ require "db.php";
 
 <!DOCTYPE html>
 
+
 <html>
     <head>
         <meta charset="UTF-8" />
@@ -14,8 +15,8 @@ require "db.php";
         <link rel="stylesheet" href="public/assets/css/global.css" crossorigin="anonymous">
         <!-- JavaScript Bundle with Popper -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
-
         <link rel="icon" href="img/donkeysunglassesRemovebg.png" />
+        
     </head>
 
     <body>
@@ -39,8 +40,6 @@ require "db.php";
                 alert( "Notre service est disponible 7/7j 24/24h au 06 46 43 49 71" );
                 }
                 </script>
-
-
 
                 <!-- PopUp -->
                 <button id="btnPopup" class="btn btn-primary pb-1">Contactez-nous par Mail</button>
@@ -87,10 +86,8 @@ require "db.php";
         </form>
 
 
-
-    
 <?php 
-
+require "espaceAdmin/config.php";
 
 if (isset($_POST) && (!empty($_POST))) {
     $objetPdo=openPDO();
@@ -99,14 +96,20 @@ if (isset($_POST) && (!empty($_POST))) {
     $mail = $_POST['mail'];
     $tel = $_POST['tel'];
 
+if (isset($_POST['name']) && isset($_POST['firstname']) && isset($_POST['mail']) && isset($_POST['tel']))
 
-    for ($i = 0; $i < $_SESSION['nbrPassenger']; $i++ ) 
-    {  
+    for ($i = 0; $i < $_SESSION['nbrPassenger']; $i++ ) {
+
+
+        $name = $_POST['name'][$i];
+        $firstname = $_POST['firstname'][$i];
+        $mail = $_POST['mail'][$i];
+        $tel = $_POST['tel'][$i];
+
         $sql = $objetPdo->prepare('INSERT INTO customer (name, firstname, mail, tel) VALUES (:name, :firstname, :mail, :tel)');
         $sql->execute(array(':name' => $name, ':firstname' => $firstname, ':mail' => $mail, ':tel' => $tel));
-    } 
-
-}
+    
+    }
 
 ?>
 
