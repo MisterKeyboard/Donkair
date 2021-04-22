@@ -1,5 +1,5 @@
 {
-  "name": "4-donkair",
+  "name": "donkair",
   "version": "1.0.0",
   "description": "Donkair",
   "main": "script.js",
@@ -17,6 +17,6 @@
   },
   "homepage": "https://github.com/MisterKeyboard/Donkair#readme",
   "dependencies": {
-    "bootstrap": "^4.6.0"
+    "bootstrap": "^5.0.0-beta3"
   }
 }
