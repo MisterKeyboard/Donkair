@@ -1,7 +1,11 @@
 
 <?php
 include "getinfo.php";
+<<<<<<< HEAD
 require "espaceAdmin/config.php"; 
+=======
+require "./espaceAdmin/db.php"; 
+>>>>>>> sécurisation des pages admin par password
 ?>
 
 <!DOCTYPE html>
@@ -17,7 +21,7 @@ require "espaceAdmin/config.php";
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>DonkAir</title>
         <link rel="icon" href="img/donkeysunglassesRemovebg.png" />
-        <link rel="stylesheet" href="style.css" />
+        <link rel="stylesheet" href="public/assets/css/custom.css" />
         
     </head>
 
@@ -202,6 +206,57 @@ require "espaceAdmin/config.php";
 
         <main>
 
+<<<<<<< HEAD
+=======
+
+            <!-- *********       SECTION FORMULAIRE DE RECHERCHE DE VOLS             ********** -->
+            <section class="flight">
+                <img src="img/cirrus/cirrus10.jpg" alt="avion de type cirrus avec une chaine de montagnes en arrière plan">
+
+                <form>
+                <p> Reserver votre vol <p>
+                
+                        <label for="departureCity"> Ville de départ </label>
+                        <select name="departureCity" id="departureCity">
+
+                            <?php
+                                $objetPdo = openPDO();
+                                $selection = $objetPdo->query('SELECT town, id FROM route');
+                                    while($donnees = $selection->fetchAll())
+                                    {
+                            ?>
+                                <option value= " <?= $donnees['id'] ?> "> <?= $donnees['town'] ?> </option>
+                            <?php
+                                    }
+                            ?>
+
+                        </select>
+
+                        <label for="date">Date de départ</label>
+                        <input type="date" name="date" id="date" />
+
+                        <label for="persons">Nombre de personnes</label>
+                        <select name="persons" id="persons">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                            <option>6</option>
+                            <option>7</option>
+                            <option>8</option>
+                            <option>9</option>
+                            <option>10</option>
+                        </select>
+
+
+
+                </form>
+
+
+
+
+>>>>>>> sécurisation des pages admin par password
             <!-- *********       SECTION AVIONS/VIDEOS             ********** -->
             <!-- <section class="planes">
                 <div>

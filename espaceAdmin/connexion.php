@@ -1,28 +1,13 @@
-
 <?php
-require "config.php";
-?>
-
-<!DOCTYPE html>
-<html>
-<head>
+    require "head.php";
+    include_once "scriptLogin.php";
     
-    <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Espace de connexion DonkAir admin</title>
-        <link rel="icon" href="/img/donkeysunglassesRemovebg.png" />
-        <link rel="stylesheet" href="admin.css" />
-
-</head>
-
-<body>
-    <?php include_once "scriptLogin.php"?>
-    <?php if (isset($erreur)){
+    if (isset($erreur)){
         echo $erreur;
     }
-    ?>
+?>
 
-    
+    <body>
     <form method="POST" action="">
 
     <div class="connexion">

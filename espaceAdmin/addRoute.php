@@ -1,90 +1,99 @@
 <?php
-require "config.php";
+require "db.php";
 ?>
 
 <!-- AJOUTER UNE DESTINATION / ROUTE -->
-    <h2> Formulaire pour ajouter une route </h2>
+    <div>
+        <h2> Formulaire pour ajouter une route </h2>
 
-    <form method="POST">
+        <form method="POST">
 
-        <label for="flightNbr"> Numéro de Vol </label>
-        <input type="text" name="flightNbr" id="flightNbr">
+            <label for="flightNbr"> Numéro de Vol </label>
+            <input type="text" name="flightNbr" id="flightNbr">
 
-        <!-- select from db city -->
+            <!-- select from db city -->
 
-        <label for="departureCity"> Selectionner une Ville de Départ </label>
-        <select name="departureCity" id="departureCity">
+            <label for="departureCity"> Selectionner une Ville de Départ </label>
+            <select name="departureCity" id="departureCity">
 
-                <?php 
-                    //modifier la query
-                        $select = $objetPdo->query('SELECT town, id FROM route');
-                            while ($data = $select->fetch()) {
-                ?>               
+
+<?php 
+
+    $objetPdo = openPDO();
+    $select = $objetPdo->query('SELECT town, id FROM route');
+
+    while ($data = $select->fetch()) {
+?>               
         
-            <option value = "<?php echo $data['id']?>" >  <?php echo $data['town']?> </option>
-
-                <?php                
-                    }
-                ?>
+            <option value = "<?php echo $data['id']?>" >  
+            <?php echo $data['town']?> </option>
+            <?php                
+                }
+            ?>
     
-        </select>            
+            </select>            
 
-        <label for="arrivalCity"> Selectionner une Ville d'arrivée </label>
-        <select name="arrivalCity" id="arrivalCity">
 
-                <?php 
-                    //modifier la query
-                        $selection = $objetPdo->query('SELECT town, id FROM route');
-                            while ($datab = $selection->fetch()) {
-                ?>               
+            <label for="arrivalCity"> Selectionner une Ville d'arrivée </label>
+            <select name="arrivalCity" id="arrivalCity">
+
+<?php 
+    
+    $selection = $objetPdo->query('SELECT town, id FROM route');
+        while ($datab = $selection->fetch()) {
+?>               
         
-            <option value = "<?php echo $datab['id']?>"> <?php echo $datab['town']?> </option>
+        <option value = "<?php echo $datab['id']?>"> 
+        <?php echo $datab['town']?> </option>
 
-                <?php                
-                    }
-                ?>
+        <?php                
+        }
+        ?>
 
-        </select>  
+            </select>  
 
-        <label for="model"> Selectionner le modèle d'avion </label>
-        <select name="model" id="model"> 
-        <!-- select from db plane  -->
 
-                <?php  
-                    //modifier la query
-                        $selection = $objetPdo->query('SELECT model, id FROM plane');
+            <label for="model"> Selectionner le modèle d'avion </label>
+            <select name="model" id="model"> 
+            <!-- select from db plane  -->
 
-                            while ($datab = $selection->fetch()) {
-                ?>               
+<?php  
+
+        $selection = $objetPdo->query('SELECT model, id FROM plane');
+
+        while ($datab = $selection->fetch()) {
+        ?>               
         
-            <option value = "<?php echo $datab['id']?>">  <?php echo $datab['model']?> </option>
+        <option value = "<?php echo $datab['id']?>">  
+        <?php echo $datab['model']?> </option>
 
-                <?php                
-                    }
-                ?>
-        </select>  
+        <?php                
+            }
+        ?>
+            </select>  
 
         <!-- Insert d'autre information -->
 
-        <label for="departureTime"> Heure de décollage </label>
-        <input type="time" name="departureTime" id="departureTime">
+            <label for="departureTime"> Heure de décollage </label>
+            <input type="time" name="departureTime" id="departureTime">
 
-        <label for="arrivalTime"> Heure d'arrivée </label>
-        <input type="time" name="arrivalTime" id="arrivalTime">
+            <label for="arrivalTime"> Heure d'arrivée </label>
+            <input type="time" name="arrivalTime" id="arrivalTime">
 
-        <label for="date"> Date de départ </label>
-        <input type="date" name="date" id="date"/>
+            <label for="date"> Date de départ </label>
+            <input type="date" name="date" id="date"/>
 
-        <input type="submit" value="Ajouter un vol"/>
+            <input type="submit" value="Ajouter un vol"/>
 
-    </form>
-
+        </form>
+    </div>
 
 </html>
 
 <?php
 
 require_once "config.php";
+
 
 $objetPdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
@@ -110,6 +119,6 @@ $objetPdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 //     $sql->debugDumpParams();
 
 if(!empty($_POST)){
-    echo 'La numéro de vol ' .  $_POST['flightNbr']  . ' dépar de ' . $_POST['departureCity'] . ' pour ' . $_POST['arrivalCity'] . ' le ' . $_POST['date'] . ' a bien été ajouté à votre base de donnée.';
+    echo 'Le numéro de vol ' .  $_POST['flightNbr']  . ' départ de ' . $_POST['departureCity'] . ' pour ' . $_POST['arrivalCity'] . ' le ' . $_POST['date'] . ' a bien été ajouté à votre base de donnée.';
     }
 
