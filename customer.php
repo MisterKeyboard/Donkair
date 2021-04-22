@@ -66,12 +66,8 @@ if ($_SESSION['nbrPassenger'] > $capacity) {
             </div>
         </form>
 
-
-
-    
-
 <?php 
-
+require "espaceAdmin/config.php";
 
 if (isset($_POST['name']) && isset($_POST['firstname']) && isset($_POST['mail']) && isset($_POST['tel']))
 
@@ -88,6 +84,9 @@ if (isset($_POST['name']) && isset($_POST['firstname']) && isset($_POST['mail'])
     }
 
 }
+    //     $sql->execute(array(':name' => $name, ':firstname' => $firstname, ':mail' => $mail, ':tel' => $tel));
+    
+    // }
 
 
 require "footer.php";  
