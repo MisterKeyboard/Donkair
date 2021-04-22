@@ -6,7 +6,7 @@ require "espaceAdmin/config.php";
 
 <form method="POST" action="">
 
-        <h2> Merci de bien vouloir vous enregistrer</h2>
+        <h2> Merci de bien vouloir vous enregistrer </h2>
 
     <?php
 
@@ -38,26 +38,23 @@ require "espaceAdmin/config.php";
 </form>
 
 
-
-    
 <?php 
 
 require "espaceAdmin/config.php";
 
-if (isset($_POST) && (!empty($_POST)) {
-
-    $name = $_POST['name'];
-    $firstname = $_POST['firstname'];
-    $mail = $_POST['mail'];
-    $tel = $_POST['tel'];
 
 
-    for ($i = 0; $i < $_SESSION['nbrPassenger']; $i++ ) 
-    {
+if (isset($_POST['name']) && isset($_POST['firstname']) && isset($_POST['mail']) && isset($_POST['tel']))
+
+    for ($i = 0; $i < $_SESSION['nbrPassenger']; $i++ ) {
+
+        $name = $_POST['name'][$i];
+        $firstname = $_POST['firstname'][$i];
+        $mail = $_POST['mail'][$i];
+        $tel = $_POST['tel'][$i];
 
         $sql = $objetPdo->prepare('INSERT INTO customer (name, firstname, mail, tel) VALUES (:name, :firstname, :mail, :tel)');
         $sql->execute(array(':name' => $name, ':firstname' => $firstname, ':mail' => $mail, ':tel' => $tel));
-    } 
-
-}
+    
+    }
 
