@@ -1,36 +1,20 @@
 Donkair
-<<<<<<< HEAD
 
 #  Admin
-<<<<<<< HEAD
-A - Mise en page -SACC - library pour mettre en forme
-L - !! Faire le SELECT (mise en forme) !!
-L - addCity.php -> modifier le lien pour retourner à la page d'accueil. (le lien ouvre une nouvelle page, on souhaite retourner à la page d'accueil)
-A - Ajouter les photos!!!
-L - voir pour le "remplir tous les champs" -> addCity.php
-A - sécuriser password  
-=======
+
 - A - Mise en page -SACC - library pour mettre en forme
-- L - !! Faire le SELECT (mise en forme) !!
-- L - addCity.php -> modifier le lien pour retourner à la page d'accueil. (le lien ouvre une nouvelle page, on souhaite retourner à la page d'accueil)
+- L - mise en forme !!
 - A - Ajouter les photos!!!
 - L - voir pour le "remplir tous les champs" -> addCity.php
-- A - sécuriser password  
->>>>>>> a64593a3f124839a5c862cf15cfc5bc593e302a3
 
 # Formulaire de Contact
 - SASS
 
 # HTML
 - Mise en page  SASS (bon courage lol)
-<<<<<<< HEAD
-
-# Fiches
-=======
 - Modal = AJAX (afficher msg de 'bien reçu' sur la PopUp)
 
 # Fiches -html
->>>>>>> a64593a3f124839a5c862cf15cfc5bc593e302a3
 - Photos
 - Avis client
 - destination

@@ -110,6 +110,6 @@ $objetPdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 //     $sql->debugDumpParams();
 
 if(!empty($_POST)){
-    echo 'La numéro de vol ' .  $_POST['flightNbr']  . ' dépar de ' . $_POST['departureCity'] . ' pour ' . $_POST['arrivalCity'] . ' le ' . $_POST['date'] . 'a bien été ajouté à votre base de donée.';
+    echo 'La numéro de vol ' .  $_POST['flightNbr']  . ' dépar de ' . $_POST['departureCity'] . ' pour ' . $_POST['arrivalCity'] . ' le ' . $_POST['date'] . ' a bien été ajouté à votre base de donnée.';
     }
 

@@ -24,6 +24,5 @@ require "addRoute.php";
 <body>
     <div>
         <a href="logout.php"> Déconnexion </a>
-        
     </div>
 </body>
