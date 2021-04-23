@@ -33,7 +33,6 @@ A-ok - sécuriser password
 - Mise en page  SASS (bon courage lol)
 
 
-
 # Fiches -html
 - Photos
 - Avis client
@@ -44,9 +43,6 @@ A-ok - sécuriser password
 - pagination
 
 # Client -> Selectionner un vol 
-- To do
-- Base de donnée -> Done
-- Relier la base de donnée (INSERT des infos du client ) !! le client peut ajouter plusieurs personne en même temps -ajouter un bouton qui rajoute le formulaire en fonctionne du nombre du de passager-
 - Un client ne peut s'enregistrer qu'une fois (if !==)
 - Fiche
 

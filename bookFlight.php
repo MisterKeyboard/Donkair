@@ -9,7 +9,6 @@ abstract class plane
     abstract protected function getNbPlaces(): int;
     public function addPassenger(Passenger $passenger)
     
-    
         if ($this->isFull() {
             throw new Execption("Avions complet")
         })

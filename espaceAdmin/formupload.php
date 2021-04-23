@@ -1,4 +1,5 @@
 
+<<<<<<< HEAD
 
 
 
@@ -23,7 +24,8 @@
 
 
 <?php
-include "db.php";
+
+include "config.php";
 
 if(isset($_POST['submit']))
 {
