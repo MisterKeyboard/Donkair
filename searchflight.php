@@ -5,6 +5,7 @@ session_start();
 // <!-- QUERY POUR RECHERER UN VOL  -->
 
 if (!empty($_POST)) {
+
     $request = '
         SELECT
             f.id,
@@ -88,6 +89,6 @@ if (!empty($_POST)) {
     }
 }
 
-// $_SESSION["nbrPassenger"] = [
-//     $_GET['persons']
-// ];
+
+
+
