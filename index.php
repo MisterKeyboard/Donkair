@@ -1,37 +1,42 @@
 
 <?php
 include "getinfo.php";
-<<<<<<< HEAD
-require "espaceAdmin/config.php"; 
-=======
-require "./espaceAdmin/db.php"; 
->>>>>>> sécurisation des pages admin par password
+require "db.php";
 ?>
+
 
 <!DOCTYPE html>
 <!-- CSS only -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+<link href="public\assets\css\custom.css" crossorigin="anonymous">
 <!-- JavaScript Bundle with Popper -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
 
 <html>
-
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>DonkAir</title>
         <link rel="icon" href="img/donkeysunglassesRemovebg.png" />
         <link rel="stylesheet" href="public/assets/css/custom.css" />
-        
     </head>
 
     <body>
 
         <!-- *********     HEADER     ********** -->
         <header>
+        <nav class="navbar navbar-light bg-light">
+  <div class="container">
+    <a class="navbar-brand" href="_self">
+      <img src="img/donkeysunglassesRemovebgw.png" alt="logo" width="10%">
+    </a>
+  </div>
+</nav>
+
+
+
             <div>
                 <a class="logo" href="" target="_self">
-                    <img src="img/donkeysunglassesRemovebgw.png" alt="logo">
+                    <img src="img/donkeysunglassesRemovebgw.png" alt="logo" width="10%">
                 </a>
             </div>
             <div>
@@ -40,17 +45,73 @@ require "./espaceAdmin/db.php";
                     <a href="#planes">Avions</a>
                     <a href="#expert">Destinations</a>
                     <a href="#expert">A propos</a>
-
-                    <a href="http://localhost:8000/getinfo.php" target="_blank">Contact
-                    </a>
                 </nav>
             </div>
-        
+            
 
+            <div>
+<button class="contacttel" onclick="myFunction()"> Contactez-nous par téléphone</button>
+
+<script>
+        function myFunction() {
+        alert( "Notre service est disponible 7/7j 24/24h au 06 46 43 49 71" );
+        }
+</script>
+
+    <br/>
+
+
+    <!-- PopUp -->
+    <button id="btnPopup" class="btnPopup">Contactez-nous par Mail</button>
+
+    <div id="overlay" class="overlay">
+
+        <div id="popup" class="popup">
+
+
+            <h2>Contactez-Nous:<span id="btnClose"
+            class="btnClose">&times;</span>
+
+
+            <form action="getinfo.php" method="POST" >
+
+
+                <label for="name"> Votre Nom </label>
+                <input type="text" name="name" id="name" placeholder="Name"/>
+
+                <label for="mail"> Votre Mail </label>
+                <input type="mail" name="mail" id="mail" placeholder="donkair@hotmail.fr"/>
+
+                <label for="sujet" > Sujet </label>
+                <select name="subject"> 
+                    <option valeur="">Annuler/Modifier une Reservation </option>
+                    <option valeur="">Bagage</option>
+                    <option valeur="">Codes Promotionnels </option>
+                    <option valeur="">Locations de voiture</option>
+                    <option valeur="">Hotel</option>
+                    <option valeur="">Remboursements</option>
+                    <option valeur="">Autre </option>
+                </select>
+
+                <label for="message"> Votre Message </label>
+
+                <input type="textarea" name="message" id="message" />
+
+                <input type="submit"  name="Envoyer" value="Envoyer"/> 
+
+
+            </form>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</header>
+
+
+<main>
             <!-- *********       SECTION FORMULAIRE DE RECHERCHE DE VOLS      ********** -->
             <section class="flight">
 
-            <p> Reserver votre vol <p>
+            <p> Reservez votre vol <p>
             
             <form name="form" method="POST">
 
@@ -58,6 +119,7 @@ require "./espaceAdmin/db.php";
                 <select name="departureCity" id="departureCity">
 
                     <?php
+                        $objetPdo=openPDO();
                         $selection = $objetPdo->query('SELECT town, id FROM route');
                             while($donnees = $selection->fetch())
                             {
@@ -113,152 +175,30 @@ require "./espaceAdmin/db.php";
     }
 
     ?>
-            <img src="img/cirrus/cirrus10.jpg" alt="avion de type cirrus avec une chaine de montagnes en arrière plan">
-            
-<!-- Essaie Carrousel -->
 
-<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-  <div class="carousel-indicators">
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-  </div>
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img src="img/planeclouds.jpg" class="d-block w-100" alt="...">
+            
+<!-- Carrousel ---->
+<div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="img/cirrus/cirrus10.jpg" class="d-block w-100" alt="avion de type cirrus avec une chaine de montagnes en arrière plan">
+        </div>
+        <div class="carousel-item">
+            <img src="..." class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+            <img src="..." class="d-block w-100" alt="...">
+        </div>
     </div>
-    <div class="carousel-item">
-      <img src="img/bg.jpg" class="d-block w-100" alt="...">
-    </div>
-    <div class="carousel-item">
-      <img src="img/planeclouds.jpg" class="d-block w-100" alt="...">
-    </div>
-  </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
 </div>
+
 
         <!-- Insert contact's form-->
 
-            <div>
-
-                <button class="contacttel" onclick="myFunction()"> Contactez-nous par téléphone</button>
-
-                <script>
-                        function myFunction() {
-                        alert( "Notre service est disponible 7/7j 24/24h au 06 46 43 49 71" );
-                        }
-                </script>
-        
-                    <br/>
 
 
-                    <!-- PopUp -->
-                    <button id="btnPopup" class="btnPopup">Contactez-nous par Mail</button>
-
-                    <div id="overlay" class="overlay">
-
-                        <div id="popup" class="popup">
-
-
-                            <h2>Contactez-Nous:<span id="btnClose"
-                            class="btnClose">&times;</span>
-
-
-                            <form action="getinfo.php" method="POST" >
-
-
-                                <label for="name"> Votre Nom </label>
-                                <input type="text" name="name" id="name" placeholder="Name"/>
-
-                                <label for="mail"> Votre Mail </label>
-                                <input type="mail" name="mail" id="mail" placeholder="donkair@hotmail.fr"/>
-
-                                <label for="sujet" > Sujet </label>
-                                <select name="subject"> 
-                                    <option valeur="">Annuler/Modifier une Reservation </option>
-                                    <option valeur="">Bagage</option>
-                                    <option valeur="">Codes Promotionnels </option>
-                                    <option valeur="">Locations de voiture</option>
-                                    <option valeur="">Hotel</option>
-                                    <option valeur="">Remboursements</option>
-                                    <option valeur="">Autre </option>
-                                </select>
-
-                                <label for="message"> Votre Message </label>
-
-                                <input type="textarea" name="message" id="message" />
-
-                                <input type="submit"  name="Envoyer" value="Envoyer"/> 
-
-
-                            </form>
-                        </div>
-                    </div>
-                    <script src="script.js"></script>
-        </header>
-
-        <main>
-
-<<<<<<< HEAD
-=======
-
-            <!-- *********       SECTION FORMULAIRE DE RECHERCHE DE VOLS             ********** -->
-            <section class="flight">
-                <img src="img/cirrus/cirrus10.jpg" alt="avion de type cirrus avec une chaine de montagnes en arrière plan">
-
-                <form>
-                <p> Reserver votre vol <p>
-                
-                        <label for="departureCity"> Ville de départ </label>
-                        <select name="departureCity" id="departureCity">
-
-                            <?php
-                                $objetPdo = openPDO();
-                                $selection = $objetPdo->query('SELECT town, id FROM route');
-                                    while($donnees = $selection->fetchAll())
-                                    {
-                            ?>
-                                <option value= " <?= $donnees['id'] ?> "> <?= $donnees['town'] ?> </option>
-                            <?php
-                                    }
-                            ?>
-
-                        </select>
-
-                        <label for="date">Date de départ</label>
-                        <input type="date" name="date" id="date" />
-
-                        <label for="persons">Nombre de personnes</label>
-                        <select name="persons" id="persons">
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
-                            <option>6</option>
-                            <option>7</option>
-                            <option>8</option>
-                            <option>9</option>
-                            <option>10</option>
-                        </select>
-
-
-
-                </form>
-
-
-
-
->>>>>>> sécurisation des pages admin par password
             <!-- *********       SECTION AVIONS/VIDEOS             ********** -->
-            <!-- <section class="planes">
+            <section class="planes">
                 <div>
                     <h2>Cirrus SR22 3 places</h2>
                     <iframe width="560" height="315" src="https://www.youtube.com/embed/aZgqMxM6HJE?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -268,7 +208,7 @@ require "./espaceAdmin/db.php";
                     <h2>Cessna Citation Mustang C510 4 places</h2>
                     <iframe width="560" height="315" src="https://www.youtube.com/embed/mXSgenTN0Kk?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
-            </section> -->
+            </section>
 
 
             <!-- *********       NOS DESTINATIONS            ********** -->
@@ -279,10 +219,7 @@ require "./espaceAdmin/db.php";
 
 
             <!-- *********       UN MOT DU PRESIDENT DE DONKAIR             ********** -->
-            <section class="president">
-                <div>
-
-                </div>
+            <section class="president">>
 
                 <div>
                     <h2>Un mot de notre président</h2>
@@ -291,7 +228,12 @@ require "./espaceAdmin/db.php";
 
                 <div>
                     <p>
-
+                        <span>"</span>
+                        YES 
+                    </br>
+                        NO 
+                    </br>
+                        MAYBE
                     </p>
                 </div>
             </section>
@@ -300,7 +242,7 @@ require "./espaceAdmin/db.php";
         <!-- *********       FOOTER             ********** -->
         <footer>
             <nav>
-                <a href="#flight">Réserver un vol</a>
+                <a href="#flight">Réservez votre vol</a>
                 <a href="#planes">Nos modèles d'avions</a>
                 <a href="#expert">Nos destinations</a>
 

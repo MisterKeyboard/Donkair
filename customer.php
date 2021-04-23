@@ -1,6 +1,6 @@
 <?php
 session_start();  
-require "espaceAdmin/config.php";
+require "./espaceAdmin/db.php";
 
 ?>
 
@@ -44,8 +44,8 @@ require "espaceAdmin/config.php";
 
 require "espaceAdmin/config.php";
 
-if (isset($_POST) && (!empty($_POST)) {
-
+if (isset($_POST) && (!empty($_POST))) {
+    $objetPdo=openPDO();
     $name = $_POST['name'];
     $firstname = $_POST['firstname'];
     $mail = $_POST['mail'];
@@ -53,8 +53,7 @@ if (isset($_POST) && (!empty($_POST)) {
 
 
     for ($i = 0; $i < $_SESSION['nbrPassenger']; $i++ ) 
-    {
-
+    {  
         $sql = $objetPdo->prepare('INSERT INTO customer (name, firstname, mail, tel) VALUES (:name, :firstname, :mail, :tel)');
         $sql->execute(array(':name' => $name, ':firstname' => $firstname, ':mail' => $mail, ':tel' => $tel));
     } 

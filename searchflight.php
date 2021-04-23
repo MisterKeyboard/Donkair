@@ -1,6 +1,5 @@
 <?php
 session_start();
-require_once "espaceAdmin/config.php";
 
 // <!-- QUERY POUR RECHERER UN VOL  -->
 
@@ -22,6 +21,7 @@ if (!empty($_POST)) {
 
     $keyConditions = [];
     $valConditions = [];
+
 
     if (isset($_POST['departureCity'])) {
         $keyConditions[] = 'f.departureCity = ?';
