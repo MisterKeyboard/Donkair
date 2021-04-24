@@ -10728,6 +10728,8 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
+
+
 * {
   margin: 0;
   padding: 0;
@@ -10762,5 +10764,15 @@ textarea.form-control-lg {
 .btnClose {
   cursor: pointer;
   float: right;
-  box-shadow: 15px 20px 0 #6f42c1;
 }/*# sourceMappingURL=global.css.map */
+
+
+.st0 {
+    width: 5%;
+    fill:#6f42c1;
+}
+
+footer nav{
+  padding-left: 5%;
+  padding-bottom: 0px;
+}

@@ -57,7 +57,7 @@ if (!empty($_POST)) {
 
 ?> 
         <div class="card" style="width: 18rem;">
-        <img src=" <?php    ?> " class="card-img-top" alt="...">
+        <img src=" <?php    ?> " class="card-img-top" alt="photo ville">
 
         <div class="card-body">
             <h5 class="card-title"> </h5>

@@ -3,19 +3,18 @@ require "db.php";
 ?>
 
 <!-- AJOUTER UNE DESTINATION / ROUTE -->
-    <div>
-        <h2> Formulaire pour ajouter une route </h2>
+    <div class="container pt-5">
+        <h2 class="text-primary"> Formulaire pour ajouter une route </h2>
 
         <form method="POST">
 
-            <label for="flightNbr"> Numéro de Vol </label>
+            <label class="text-primary" for="flightNbr"> Numéro de Vol </label>
             <input type="text" name="flightNbr" id="flightNbr">
-
+            </br>
             <!-- select from db city -->
-
-            <label for="departureCity"> Selectionner une Ville de Départ </label>
+            <label class="text-primary" for="departureCity"> Selectionner une Ville de Départ </label>
             <select name="departureCity" id="departureCity">
-
+            </br>
 
 <?php 
 
@@ -34,9 +33,9 @@ require "db.php";
             </select>            
 
 
-            <label for="arrivalCity"> Selectionner une Ville d'arrivée </label>
+            <label class="text-primary" for="arrivalCity"> Selectionner une Ville d'arrivée </label>
             <select name="arrivalCity" id="arrivalCity">
-
+            </br>
 <?php 
     
     $selection = $objetPdo->query('SELECT town, id FROM route');
@@ -53,10 +52,10 @@ require "db.php";
             </select>  
 
 
-            <label for="model"> Selectionner le modèle d'avion </label>
+            <label class="text-primary" for="model"> Selectionner le modèle d'avion </label>
             <select name="model" id="model"> 
             <!-- select from db plane  -->
-
+            </br>
 <?php  
 
         $selection = $objetPdo->query('SELECT model, id FROM plane');
@@ -74,16 +73,16 @@ require "db.php";
 
         <!-- Insert d'autre information -->
 
-            <label for="departureTime"> Heure de décollage </label>
+            <label class="text-primary" for="departureTime"> Heure de décollage </label>
             <input type="time" name="departureTime" id="departureTime">
 
-            <label for="arrivalTime"> Heure d'arrivée </label>
+            <label class="text-primary" for="arrivalTime"> Heure d'arrivée </label>
             <input type="time" name="arrivalTime" id="arrivalTime">
 
-            <label for="date"> Date de départ </label>
+            <label class="text-primary" for="date"> Date de départ </label>
             <input type="date" name="date" id="date"/>
 
-            <input type="submit" value="Ajouter un vol"/>
+            <input class="btn btn-primary" type="submit" value="Ajouter un vol"/>
 
         </form>
     </div>

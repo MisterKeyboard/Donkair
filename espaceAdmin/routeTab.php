@@ -29,7 +29,7 @@ $result = $query->fetch();
 $nbFlights = (int) $result['nb_flights'];
 
 // On détermine le nombre de vols par page
-$parPage = 3;
+$parPage = 5;
 
 // On calcule le nombre de pages total
 $pages = ceil($nbFlights / $parPage);
@@ -69,20 +69,21 @@ $flights = $query->fetchAll(PDO::FETCH_ASSOC);
 
 
 
-<body>
+<body >
 
-    <h1>Liste des vols</h1>
+<section class="container pt-5">
+    <h1 class="text-primary">Liste des vols</h1>
 
-    <table>
+    <table class="table table-striped">
             <tr>
-                <th> Numéro de Vol </th>
-                <th> Ville de départ </th>
-                <th> Ville d'arrivée </th>
-                <th> Heure de décollage </th>
-                <th> Heure d'atterrisage </th>
-                <th> Date </th>
+                <th class="text-primary"> Numéro de Vol </th>
+                <th class="text-primary"> Ville de départ </th>
+                <th class="text-primary"> Ville d'arrivée </th>
+                <th class="text-primary"> Heure de décollage </th>
+                <th class="text-primary"> Heure d'atterrisage </th>
+                <th class="text-primary"> Date </th>
             </tr>     
-
+</section>
 
 
 <?php

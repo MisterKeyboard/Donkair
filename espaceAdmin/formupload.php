@@ -3,17 +3,17 @@
 
 
 <body>
-    <a href="dashboard.php" target="_blank">Revenir à la page principale</a>
+    <a class="text-primary" href="dashboard.php" target="_blank">Revenir à la page principale</a>
 
     <form action="formupload.php" method="POST" enctype="multipart/form-data">
     
-    <lable>Nom de la ville</lable>
+    <lable class="text-primary">Nom de la ville</lable>
     <input type="text" name="name">
 
-    <lable>Choisissez l'image à sauvegarder</label>
+    <lable class="text-primary">Choisissez l'image à sauvegarder</label>
     <input type="file" name="image" />
 
-    <input type="submit" name="submit" value="upload" />
+    <input class="btn btn-primary" type="submit" name="submit" value="upload" />
 </body>
 
 </html>

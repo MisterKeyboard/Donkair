@@ -26,9 +26,9 @@ require "db.php";
     <header>
         <nav class="navbar navbar-expand-lg">
             <div class="container-fluid">
-                <a class="navbar-brand " href="_self">
-                    <img src="img/donkeysunglassesRemovebgw.png" alt="logo" width="25%">
-                </a>
+                
+                    <img src="img/donkeysunglassesRemovebgw.png" alt="logo" width="10%">
+                
                 <a class="text-decoration-none" href="#flight">Réservez un vol</a>
                 <a class="text-decoration-none" href="#planes">Avions</a>
                 <a class="text-decoration-none" href="#expert">A propos</a>
@@ -107,7 +107,7 @@ require "db.php";
                             <option value="10" >10</option>
                         </select>
 <br>
-                        <input class="btn-primary" type="submit" name="search" value="Recherche"/>
+                        <input class="btn btn-primary" type="submit" name="search" value="Recherche"/>
                         </form>
 
                         <!-- QUERY POUR RECHERER UN VOL  -->
@@ -141,7 +141,7 @@ require "db.php";
 
 
 
-            <!-- *********       SECTION AVIONS/VIDEOS            
+            <!-- *********       SECTION AVIONS/VIDEOS    ********** -->         
             <section class="planes container py-5">
                 <h2 class="text-primary fw-bold pb-4"> Nos modèles d'avions:<h2>
                     <div class="row">
@@ -169,10 +169,10 @@ require "db.php";
                     </div>
             </section>
 
- ********** -->
 
 
-            <!-- *********       UN MOT DU PRESIDENT DE DONKAIR             ********** -->
+
+            <!-- *********       UN MOT DU PRESIDENT DE DONKAIR          ********** -->
             <section class="expert container py-5">
                 <div class="row">
                 <h2 class="text-primary fw-bold pb-4">Un mot de notre président</h2>
@@ -181,13 +181,22 @@ require "db.php";
                     </div>
 
                     <div class="col-4">
-                        <p class="fs-1 fst-italic">
-                            <span class="text-primary fs-1">"</span>
-                            YES 
-                        </br>
+<!----                      
+                        <span>
+                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
+                            version="1.1" x="0px" y="0px" viewBox="0 0 100 125" style="enable-background:new 0 0 100 100;" xml:space="preserve">
+                            <path class="st0" d="M75.6,40.5c11,0,19.9,9,19.9,20c0,11-9,20-20,20s-20-9-20-20c0-22.1,17.9-40,40-40  
+                            C95.5,20.5,82.4,25.4,75.6,40.5z M45.5,60.5c0,11-9,20-20,20s-20-9-20-20l0,0c0-22.1,17.9-40,40-40c0,0-13.1,4.9-19.9,20  
+                            C36.6,40.5,45.5,49.5,45.5,60.5z"/>
+                            </svg>
+                        </span>
+---->
+                        <p class="fs-1 fst-italic text-primary pt-4">
+                            "YES 
+                            </br>
                             NO 
-                        </br>
-                            MAYBE
+                            </br>
+                            MAYBE"
                         </p>
                     </div>
                 </div>
@@ -195,20 +204,28 @@ require "db.php";
         </main>
 
         <!-- *********       FOOTER             ********** -->
-        <footer>
-            <nav>
-                <a class="text-decoration-none" href="#flight">Réservez votre vol</a>
-                <a class="text-decoration-none" href="#planes">Nos modèles d'avions</a>
-                <a class="text-decoration-none" href="#expert">Nos destinations</a>
-
-                <a class="text-decoration-none" class="schedule" href="http://localhost:8000/getinfo.php" target="_blank">Contact
-                </a>
+        <footer class="bg-primary ">
+            <nav pl-5>
+                <ul class="list-unstyled">
+                    <li class="pt-3">
+                        <a class="text-decoration-none text-white ml-5" href="#flight">Réservez votre vol</a>
+                    </li>
+                    <li>
+                        <a class="text-decoration-none text-white ml-5" href="#planes">Nos modèles d'avions</a>
+                    <li>
+                        <a class="text-decoration-none text-white ml-5" href="#expert">Nos destinations</a>
+                    </li>
+                    <li class="pb-3">
+                        <a class="text-decoration-none text-white ml-5" class="schedule" href="http://localhost:8000/getinfo.php" target="_blank">Contact</a>
+                    </li>
+                </ul>
             </nav>
         </footer>
 
 
+
                 <!-- *********       MODALE             ********** -->
-        <div id="overlay" class="overlay zindex-modal-backdrop">
+        <div id="overlay" class="overlay">
 
                     <div id="popup" class="popup">
                         <h2 class="text-primary">Contactez-Nous:<span id="btnClose"
@@ -234,9 +251,9 @@ require "db.php";
                             </select>
 
                             <label class="pt-3" for="message"> Votre Message </label>
-                            <input type="textarea" name="message" id="message" />
+                            <input type="textarea" rows="10" cols="50" name="message" id="message" />
 
-                            <input class="pt-3 btn-primary" type="submit"  name="Envoyer" value="Envoyer"/> 
+                            <input class=" btn btn-primary" type="submit"  name="Envoyer" value="Envoyer"/> 
 
                         </form>
                     </div>

@@ -7,25 +7,30 @@
     }
 ?>
 
+
+
     <body>
-    <form method="POST" action="">
+        <form class="pt-5" method="POST" action="">
 
-    <div class="connexion">
+            <div class="connexion container-fluid card w-25">
+                <div class="text-center"> 
+                    <img src="/img/donkeysunglassesRemovebgw.png" alt="logo" width="50%">
+                </div>
 
-        <label for="pseudo">Pseudo</label>
-        <input type="text" name="pseudo" >
+                <label class="text-primary" for="pseudo">Pseudo</label>
+                <input type="text" name="pseudo" >
 
-        <label for="password">Password</label>
-        <input type="password" name="password">
-        
-        <input type="submit" name="submit" class="envoyer">
+                <label class="text-primary pt-3" for="password">Password</label>
+                <input type="password" name="password">
+                
+                <input class="btn btn-primary" type="submit" name="submit" class="envoyer">
 
-    </div>    
+            </div>    
 
-    </form>
+        </form>
     
 
-</body>
+    </body>
 </html>
 
 
