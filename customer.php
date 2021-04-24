@@ -4,6 +4,7 @@ require "./espaceAdmin/db.php";
 
 ?>
 
+
 <form method="POST" action="">
 
         <h2> Merci de bien vouloir vous enregistrer</h2>
@@ -42,7 +43,6 @@ require "./espaceAdmin/db.php";
     
 <?php 
 
-require "espaceAdmin/config.php";
 
 if (isset($_POST) && (!empty($_POST))) {
     $objetPdo=openPDO();

@@ -4,6 +4,7 @@ session_start();
 // <!-- QUERY POUR RECHERER UN VOL  -->
 
 if (!empty($_POST)) {
+
     $request = '
         SELECT
             f.id,
@@ -21,7 +22,6 @@ if (!empty($_POST)) {
 
     $keyConditions = [];
     $valConditions = [];
-
 
     if (isset($_POST['departureCity'])) {
         $keyConditions[] = 'f.departureCity = ?';
@@ -45,22 +45,31 @@ if (!empty($_POST)) {
     $searchFlight = $objetPdo->prepare($request);
     $searchFlight->execute($valConditions); 
 
-    
+
     while ($donnees = $searchFlight->fetch())
     {
         $departureCity = $donnees['departureTown'];
         $arrivalCity = $donnees['arrivalTown'];
         $date = $donnees['date'] . $donnees['departureTime'];
         $flightNbr = $donnees['flightNbr'];
-
-
-        echo " Ville de départ : " . $departureCity ; 
-        echo " Ville d'arrivée : " . $arrivalCity;
         $date1 = new DateTime($date);
-        echo " Date et Heure de départ : " . date_format($date1, ' d-m-Y H:i ');
-        echo  " Numéro de Vol : " . $flightNbr;
-        echo "<a href=\"customer.php\" target=_blank> Choisir ce vol </a>"; 
-        echo "<br>";
+        
+
+?> 
+        <div class="card" style="width: 18rem;">
+        <img src=" <?php    ?> " class="card-img-top" alt="...">
+
+        <div class="card-body">
+            <h5 class="card-title"> </h5>
+            Ville de départ : <?php echo $departureCity ?> <br>
+            Ville d'arrivée  : <?php echo $arrivalCity ?> <br>
+            Date et heure du départ : <?php echo $date1->format('d-m-Y à H:i') ?> <br>
+            Numéro de vol :  <?php echo $flightNbr ?> <br>
+        </div>
+        <a href="customer.php" class="btn btn-primary" target=_blank> Choisir ce vol </a>
+        </div>
+
+<?php 
     }
 }
 
