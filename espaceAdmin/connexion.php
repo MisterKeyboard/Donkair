@@ -22,9 +22,9 @@
 
                 <label class="text-primary pt-3" for="password">Password</label>
                 <input type="password" name="password">
-                
-                <input class="btn btn-primary" type="submit" name="submit" class="envoyer">
-
+                <div class="py-3">
+                    <input class="btn btn-primary w-100" type="submit" name="submit" class="envoyer" value="Connexion">
+                </div>
             </div>    
 
         </form>
