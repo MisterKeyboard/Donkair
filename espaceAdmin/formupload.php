@@ -1,7 +1,4 @@
 
-<<<<<<< HEAD
-
-
 
 <body>
     <a class="text-primary" href="dashboard.php" target="_blank">Revenir à la page principale</a>

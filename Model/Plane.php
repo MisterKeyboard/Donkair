@@ -1,4 +1,5 @@
 <?php
+require "espaceAdmin/config.php";
 
 class Plane 
 {
