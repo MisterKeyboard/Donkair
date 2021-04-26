@@ -1,6 +1,37 @@
 <?php
 session_start();  
+<<<<<<< HEAD
 require "db.php";
+=======
+require "espaceAdmin/config.php";
+require "Model/Plane.php";
+
+$flightId = $_GET['flightId']; 
+$statement = 'SELECT plane.model, plane.capacity FROM flight LEFT JOIN plane ON plane.id = flight.planeModel WHERE flight.id = ?'; 
+
+$getFlightId = $objetPdo->prepare($statement);
+$getFlightId->execute([$flightId]); 
+$getFlightId->setFetchMode(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE, 'Plane');
+$data = $getFlightId->fetch();
+
+if ($data->flightFull()) {
+    echo "Le nombre de place limité pour ce vol est de " . $data->getcapacity() . " places.";
+    die;
+}
+die("test");
+
+
+var_dump($data);
+die;
+$flightNbr= $data['flightNbr'];
+$capacity = $data['capacity'];
+
+if ($_SESSION['nbrPassenger'] > $capacity) {
+    
+} else {
+
+
+>>>>>>> final
 ?>
 
 <!DOCTYPE html>
@@ -107,10 +138,11 @@ if (isset($_POST['name']) && isset($_POST['firstname']) && isset($_POST['mail'])
         $tel = $_POST['tel'][$i];
 
         $sql = $objetPdo->prepare('INSERT INTO customer (name, firstname, mail, tel) VALUES (:name, :firstname, :mail, :tel)');
-        $sql->execute(array(':name' => $name, ':firstname' => $firstname, ':mail' => $mail, ':tel' => $tel));
+        
     
     }
 
+<<<<<<< HEAD
 ?>
 
 </main>
@@ -177,3 +209,7 @@ if (isset($_POST['name']) && isset($_POST['firstname']) && isset($_POST['mail'])
         </div>
     </body>
 </html>
+=======
+}
+
+>>>>>>> final
