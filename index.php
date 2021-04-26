@@ -33,20 +33,18 @@ require "db.php";
     <body>
 
         <!-- *********     HEADER     ********** -->
-    <header>
-        <nav class="navbar navbar-expand-lg pb-5 ">
-        
-            <div class="col-5">
-                <img src="img/donkeysunglassesRemovebgw.png" alt="logo" width="50%">
-            </div>
-            <div class="navbar">
-            <div class="col-7 navbar">
-                <a class="text-decoration-none " href="#flight">Réservez un vol</a>
-                <a class="text-decoration-none " href="#planes">Avions</a>
-                <a class="text-decoration-none pr-5" href="#expert">A propos</a>
-            </div>
-            <div >
-                <button class="btn btn-primary" onclick="myFunction()"> Contactez-nous par téléphone</button>
+        <header class="pb-3">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid">
+                <a class="navbar-brand col-2" href="_self">
+                    <img src="img/donkeysunglassesRemovebgw.png" alt="logo" width="100%">
+                </a>
+                <a class="text-decoration-none" href="#flight">Réservez un vol</a>
+                <a class="text-decoration-none" href="#planes">Avions</a>
+                <a class="text-decoration-none" href="#expert">A propos</a>
+            
+            <div>
+                <button class="btn btn-primary pb-1" onclick="myFunction()"> Contactez-nous par téléphone</button>
 
                 <script>
                 function myFunction() {
@@ -54,8 +52,11 @@ require "db.php";
                 }
                 </script>
 
+
+
                 <!-- PopUp -->
-                <button id="btnPopup" class="btn btn-primary">Contactez-nous par Mail</button>
+                <button id="btnPopup" class="btn btn-primary pb-1">Contactez-nous par Mail</button>
+                </div>
             </div>
         </nav>
     </header>
@@ -63,7 +64,7 @@ require "db.php";
 
     <main>
             <!-- *********       SECTION FORMULAIRE DE RECHERCHE DE VOLS      ********** -->
-            <section class="flight">
+            <section id="flight" class="flight">
                 <div class="col-8 container card py-3 border-primary bg-white">
                     <h2 class="text-primary fw-bold"> Reservez votre vol:<h2>
 
@@ -228,7 +229,7 @@ require "db.php";
                     <li>
                         <a class="text-decoration-none text-white ml-5 mt-5 fs-3 " href="#planes">Nos modèles d'avions</a>
                     <li>
-                        <a class="text-decoration-none text-white ml-5 mt-5 fs-3" href="#expert">Nos destinations</a>
+                        <a class="text-decoration-none text-white ml-5 mt-5 fs-3" href="#expert">A propos</a>
                     </li>
                     <li class="pb-3">
                         <a class="text-decoration-none text-white ml-5 mt-5 fs-3" class="schedule" href="#header" target="_blank">Contact</a>

@@ -21,16 +21,16 @@ require "db.php";
     <body>
 
         <!-- *********     HEADER     ********** -->
-    <header>
+    <header class="pb-3">
         <nav class="navbar navbar-expand-lg">
             <div class="container-fluid">
-                <a class="navbar-brand " href="_self">
-                    <img src="img/donkeysunglassesRemovebgw.png" alt="logo" width="25%">
+                <a class="navbar-brand col-2" href="_self">
+                    <img src="img/donkeysunglassesRemovebgw.png" alt="logo" width="100%">
                 </a>
                 <a class="text-decoration-none" href="index.php#flight">Réservez un vol</a>
                 <a class="text-decoration-none" href="index.php#planes">Avions</a>
                 <a class="text-decoration-none" href="index.php#expert">A propos</a>
-            </div>
+            
             <div>
                 <button class="btn btn-primary pb-1" onclick="myFunction()"> Contactez-nous par téléphone</button>
 
@@ -44,8 +44,8 @@ require "db.php";
 
                 <!-- PopUp -->
                 <button id="btnPopup" class="btn btn-primary pb-1">Contactez-nous par Mail</button>
-
-                
+                </div>
+            </div>
         </nav>
     </header>
 
@@ -61,7 +61,7 @@ require "db.php";
 
 
         for ($i = 0; $i < $_SESSION['nbrPassenger']; $i++ ) { ?>
-
+<div class="card container pb-3">
             <label class="text-primary pt-3" for="name_<?php echo $i; ?>" > Nom </label>
             <input type="text" name="name[]" id="name_<?php echo $i; ?>" value="<?php if (isset($_POST['name'])){echo $_POST['name'][$i];} ?>" />
 
@@ -73,7 +73,7 @@ require "db.php";
 
             <label class="text-primary pt-3" for="tel_<?php echo $i; ?>"> Numéro de téléphone </label>
             <input  type="text" name="tel[]" id="tel_<?php echo $i; ?>" maxlength="15" value="<?php if (isset($_POST['tel'])){echo $_POST['tel'][$i];} ?>" />
-
+        </div>
     <br/>  
 
             <input type="hidden" value="<?php echo $i; ?>" name="nbrP"/>
@@ -123,7 +123,7 @@ if (isset($_POST) && (!empty($_POST))) {
                     <li>
                         <a class="text-decoration-none text-white ml-5 mt-5 fs-3 " href="index.php#planes">Nos modèles d'avions</a>
                     <li>
-                        <a class="text-decoration-none text-white ml-5 mt-5 fs-3" href="index.php#expert">Nos destinations</a>
+                        <a class="text-decoration-none text-white ml-5 mt-5 fs-3" href="index.php#expert">A propos</a>
                     </li>
                     <li class="pb-3">
                         <a class="text-decoration-none text-white ml-5 mt-5 fs-3" class="schedule" href="index.php#header" >Contact</a>
