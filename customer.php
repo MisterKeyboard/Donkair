@@ -1,7 +1,6 @@
 <?php
 session_start();  
-require "./espaceAdmin/db.php";
-
+require "db.php";
 ?>
 
 <!DOCTYPE html>
@@ -28,9 +27,9 @@ require "./espaceAdmin/db.php";
                 <a class="navbar-brand " href="_self">
                     <img src="img/donkeysunglassesRemovebgw.png" alt="logo" width="25%">
                 </a>
-                <a class="text-decoration-none" href="#flight">Réservez un vol</a>
-                <a class="text-decoration-none" href="#planes">Avions</a>
-                <a class="text-decoration-none" href="#expert">A propos</a>
+                <a class="text-decoration-none" href="index.php#flight">Réservez un vol</a>
+                <a class="text-decoration-none" href="index.php#planes">Avions</a>
+                <a class="text-decoration-none" href="index.php#expert">A propos</a>
             </div>
             <div>
                 <button class="btn btn-primary pb-1" onclick="myFunction()"> Contactez-nous par téléphone</button>
@@ -51,15 +50,15 @@ require "./espaceAdmin/db.php";
     </header>
 
 
-<main>
+
     <body>
+        <main>
         <form class="container card col-6 pb-5" method="POST" action="">
 
         <h2 class="text-primary"> Merci de bien vouloir vous enregistrer</h2>
 
         <?php
 
-    //var_dump($_SESSION);
 
         for ($i = 0; $i < $_SESSION['nbrPassenger']; $i++ ) { ?>
 
@@ -82,8 +81,9 @@ require "./espaceAdmin/db.php";
     <?php
     }
     ?>
-            <input class="btn btn-primary pt-3" type="submit" name="send" value="Envoyer"/> 
-
+            <div class="pt-3">
+                <input class="btn btn-primary pt-3" type="submit" name="send" value="Envoyer"/> 
+            </div>
         </form>
 
 
@@ -110,20 +110,23 @@ if (isset($_POST) && (!empty($_POST))) {
 
 ?>
 
+</main>
+
+
         <!-- *********       FOOTER             ********** -->
-        <footer class="bg-primary pt-5">
+        <footer class="bg-primary ">
             <nav pl-5>
                 <ul class="list-unstyled">
                     <li class="pt-3">
-                        <a class="text-decoration-none text-white ml-5" href="#flight">Réservez votre vol</a>
+                        <a class="text-decoration-none text-white ml-5 mt-5 fs-3" href="index.php#flight">Réservez votre vol</a>
                     </li>
                     <li>
-                        <a class="text-decoration-none text-white ml-5" href="#planes">Nos modèles d'avions</a>
+                        <a class="text-decoration-none text-white ml-5 mt-5 fs-3 " href="index.php#planes">Nos modèles d'avions</a>
                     <li>
-                        <a class="text-decoration-none text-white ml-5" href="#expert">Nos destinations</a>
+                        <a class="text-decoration-none text-white ml-5 mt-5 fs-3" href="index.php#expert">Nos destinations</a>
                     </li>
                     <li class="pb-3">
-                        <a class="text-decoration-none text-white ml-5" class="schedule" href="http://localhost:8000/getinfo.php" target="_blank">Contact</a>
+                        <a class="text-decoration-none text-white ml-5 mt-5 fs-3" class="schedule" href="index.php#header" >Contact</a>
                     </li>
                 </ul>
             </nav>
@@ -133,8 +136,8 @@ if (isset($_POST) && (!empty($_POST))) {
 
                 <!-- *********       MODALE             ********** -->
                 <div id="overlay" class="overlay">
-
-                    <div id="popup" class="popup">
+            <div class="w-50 container">
+                <div id="popup" class="popup">
                         <h2 class="text-primary">Contactez-Nous:<span id="btnClose"
                         class="btnClose text-primary">&times;</span>
 
@@ -158,16 +161,16 @@ if (isset($_POST) && (!empty($_POST))) {
                             </select>
 
                             <label class="pt-3" for="message"> Votre Message </label>
-                            <input type="textarea" rows="10" cols="50" name="message" id="message" />
-
-                            <input class=" btn btn-primary" type="submit"  name="Envoyer" value="Envoyer"/> 
-
+                            <div class="input-group">
+                                <textarea class="form-control" aria-label="With textarea" name="message" id="message"></textarea>
+                            </div>
+                            <div class="pt-3">
+                                <input class=" btn btn-primary" type="submit"  name="Envoyer" value="Envoyer"/> 
+                            </div>
                         </form>
-                    </div>
                 </div>
-                <script src="script.js"></script>
             </div>
+            <script src="script.js"></script>
+        </div>
     </body>
 </html>
-
-

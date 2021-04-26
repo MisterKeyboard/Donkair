@@ -4,7 +4,7 @@ Donkair
 To install copy espaceAdmin/config.php.example to espaceAdmin/config.php and adapt to your settings.
 
 # Start
-Run php -S 0.0.0.0:8000 
+Run php -S 0.0.0.0:8000
 
  To access the site;go to this adress:
   http://localhost:8000/
@@ -32,9 +32,7 @@ A-ok - sécuriser password
 # HTML
 - Mise en page  SASS (bon courage lol)
 
-# Fiches
-=======
-- Modal = AJAX (afficher msg de 'bien reçu' sur la PopUp)
+
 
 # Fiches -html
 - Photos

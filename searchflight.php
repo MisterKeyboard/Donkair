@@ -1,10 +1,10 @@
 <?php
 session_start();
 
+
 // <!-- QUERY POUR RECHERER UN VOL  -->
 
 if (!empty($_POST)) {
-
     $request = '
         SELECT
             f.id,
@@ -56,17 +56,20 @@ if (!empty($_POST)) {
         
 
 ?> 
-        <div class="card" style="width: 18rem;">
-        <img src=" <?php    ?> " class="card-img-top" alt="photo ville">
+        
+        <div class="container card">
+            <img src=" <?php    ?> " class="card-img-top" alt="photo ville">
 
-        <div class="card-body">
-            <h5 class="card-title"> </h5>
-            Ville de départ : <?php echo $departureCity ?> <br>
-            Ville d'arrivée  : <?php echo $arrivalCity ?> <br>
-            Date et heure du départ : <?php echo $date1->format('d-m-Y à H:i') ?> <br>
-            Numéro de vol :  <?php echo $flightNbr ?> <br>
-        </div>
-        <a href="customer.php" class="btn btn-primary" target=_blank> Choisir ce vol </a>
+            <div class="card-body">
+                <h5 class="card-title"> </h5>
+                Ville de départ : <?php echo $departureCity ?> <br>
+                Ville d'arrivée  : <?php echo $arrivalCity ?> <br>
+                Date et heure du départ : <?php echo $date1->format('d-m-Y à H:i') ?> <br>
+                Numéro de vol :  <?php echo $flightNbr ?> <br>
+            </div>
+            <div class="pb-3">
+                <a href="customer.php" class="btn btn-primary"> Choisir ce vol </a>
+            </div>
         </div>
 
 <?php 

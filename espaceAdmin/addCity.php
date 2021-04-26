@@ -5,27 +5,29 @@ require "head.php";
 ?>
 
 <body>
-
-    <h1> Ajouter une ville de destination ou une ville de départ  </h1>
+    <section class="container">
+        <h1 class="text-primary pt-5"> Ajouter une ville de destination ou une ville de départ  </h1>
 
     <!-- Inserer une ville & airport -->
 
         <form action="addCity.php" method="POST" enctype="multipart/form-data">
             
-            <label for="town"> Entrez le nom de la ville </label>
-            <input type="text" name="town" id="town">
-
-            <lable>Choisissez l'image à sauvegarder</label>
-            <input type="file" name="image" />
-
-            <label for="airport"> Entrez le nom de l'aréoport </label>
-            <input type="text" name="airport" id="airport">
-
-            <label for="country"> Entrez le Pays </label>
-            <input type="text" name="country" id="country">
-
-            <input type="submit" value="ajouter une ville"/>
-
+            <label class="text-primary pt-4" for="town"> Entrez le nom de la ville </label>
+            <input class="form-control w-25" type="text" name="town" id="town">
+<br>
+            <lable class="text-primary pt-4">Choisissez l'image à sauvegarder</label>
+            <br>
+            <input class="btn btn-primary" type="file" name="image" />
+            <br>
+            <label class="text-primary pt-4" for="airport"> Entrez le nom de l'aréoport </label>
+            <input class="form-control w-25" type="text" name="airport" id="airport">
+            <br>
+            <label class="text-primary pt-4" for="country"> Entrez le Pays </label>
+            <input class="form-control w-25" type="text" name="country" id="country">
+            <br>
+            <div class="pt-4">
+                <input class="btn btn-primary" type="submit" value="ajouter la ville"/>
+            </div>      
         </form>
 
 
@@ -63,7 +65,8 @@ if(!empty($_POST)){
 
     <br>
     <!-- retourn page d'accueil -->
-    <a href="dashboard.php" target="_blank">Ajouter une route</a>
+    <a href="dashboard.php" target="_blank">Retour vers la page principale</a>
+    </section>
 </body>
 
 </html>

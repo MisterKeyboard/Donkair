@@ -21,5 +21,5 @@ $del->execute();
 //    $_GET["fnbr"]
 //]);
 
-header('Location: routeTab.php');
+header('Location:dashboard.php');
 

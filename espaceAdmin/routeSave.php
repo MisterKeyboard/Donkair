@@ -34,4 +34,4 @@ $save->bindValue(':date',$date);
 
 $save->execute();
 
-header('Location:routeTab.php');
+header('Location:dashboard.php');

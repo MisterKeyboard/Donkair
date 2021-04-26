@@ -1,8 +1,18 @@
 
 <?php
+session_start();
 include "getinfo.php";
 require "db.php";
+
+
+
+
+    if (isset($_POST['persons'])) {
+        $_SESSION["nbrPassenger"] =  $_POST['persons'];
+    }
+
 ?>
+
 
 
 <!DOCTYPE html>
@@ -24,16 +34,18 @@ require "db.php";
 
         <!-- *********     HEADER     ********** -->
     <header>
-        <nav class="navbar navbar-expand-lg">
-            <div class="container-fluid">
-                
-                    <img src="img/donkeysunglassesRemovebgw.png" alt="logo" width="10%">
-                
-                <a class="text-decoration-none" href="#flight">Réservez un vol</a>
-                <a class="text-decoration-none" href="#planes">Avions</a>
-                <a class="text-decoration-none" href="#expert">A propos</a>
+        <nav class="navbar navbar-expand-lg pb-5 ">
+        
+            <div class="col-5">
+                <img src="img/donkeysunglassesRemovebgw.png" alt="logo" width="50%">
             </div>
-            <div>
+            <div class="navbar">
+            <div class="col-7 navbar">
+                <a class="text-decoration-none " href="#flight">Réservez un vol</a>
+                <a class="text-decoration-none " href="#planes">Avions</a>
+                <a class="text-decoration-none pr-5" href="#expert">A propos</a>
+            </div>
+            <div >
                 <button class="btn btn-primary" onclick="myFunction()"> Contactez-nous par téléphone</button>
 
                 <script>
@@ -42,83 +54,86 @@ require "db.php";
                 }
                 </script>
 
-
-
                 <!-- PopUp -->
                 <button id="btnPopup" class="btn btn-primary">Contactez-nous par Mail</button>
-
-                
+            </div>
         </nav>
     </header>
 
 
-
-<main>
+    <main>
             <!-- *********       SECTION FORMULAIRE DE RECHERCHE DE VOLS      ********** -->
             <section class="flight">
-                <div class="container card col-6 py-3 border-primary bg-white">
+                <div class="col-8 container card py-3 border-primary bg-white">
                     <h2 class="text-primary fw-bold"> Reservez votre vol:<h2>
 
                     
                     <form name="form" method="POST">
 
-                        <label class="pt-3" for="departureCity"> Ville de départ </label>
-                        <select class="form-select" name="departureCity" id="departureCity">
+                        <div class="row">
+                            <div class="col-6">
+                                <label class="pt-3" for="departureCity"> Ville de départ </label>
+                                <select class="form-select" name="departureCity" id="departureCity">
 
-                            <?php
-                                $objetPdo=openPDO();
-                                $selection = $objetPdo->query('SELECT town, id FROM route');
+                                <?php
+                                    $objetPdo=openPDO();
+                                    $selection = $objetPdo->query('SELECT town, id FROM route');
                                     while($donnees = $selection->fetch())
                                     {
-                            ?>
+                                ?>
                                 <option value= " <?= $donnees['id'] ?> "> <?= $donnees['town'] ?> </option>
-                            <?php
-                                    }
-                            ?>
+                                <?php
+                                }
+                                ?>
+                                </select>
+                            </div>
+                            <div class="col-6">
+                                <label class="pt-3" for="arrivalCity"> Ville d'arrivée </label>
+                                <select class="form-select " name="arrivalCity" id="arrivalCity">
+                                    <?php
+                                        $selection = $objetPdo->query('SELECT town, id FROM route');
+                                            while($donnees = $selection->fetch())
+                                            {
+                                    ?>
+                                        <option value= " <?= $donnees['id'] ?> "> <?= $donnees['town'] ?> </option>
+                                    <?php
+                                            }
+                                    ?>
+                                </select>
+                            </div>
+                        </div>
 
-                        </select>
-                        <label class="pt-3" for="arrivalCity"> Ville d'arrivée </label>
-                        <select class="form-select" name="arrivalCity" id="arrivalCity">
-                            <?php
-                                $selection = $objetPdo->query('SELECT town, id FROM route');
-                                    while($donnees = $selection->fetch())
-                                    {
-                            ?>
-                                <option value= " <?= $donnees['id'] ?> "> <?= $donnees['town'] ?> </option>
-                            <?php
-                                    }
-                            ?>
-                        </select>
+                        <div class="row">
+                            <div class="col-6">
+                                <label class="pt-3" for="date">Date de départ</label>
+                                <input class="form-select " type="date" name="date" id="date" value="<?php if (isset($_POST['date'])){echo $_POST['date'];} ?>" />
+                            </div>
+                            <div class="col-6">
+                                <label class="pt-3" for="persons">Nombre de personnes</label>
+                                <select class="form-select " name="persons" id="persons" >
+                                    <option value="1" >1</option>
+                                    <option value="2" >2</option>
+                                    <option value="3" >3</option>
+                                    <option value="4" >4</option>
+                                    <option value="5" >5</option>
+                                    <option value="6" >6</option>
+                                    <option value="7" >7</option>
+                                    <option value="8" >8</option>
+                                    <option value="9" >9</option>
+                                    <option value="10" >10</option>
+                                </select>
+                            </div>
+                        </div>
 
-                        <label class="pt-3" for="date">Date de départ</label>
-                        <input class="form-select" type="date" name="date" id="date" value="<?php if (isset($_POST['date'])){echo $_POST['date'];} ?>" />
-
-                        <label for="persons">Nombre de personnes</label>
-                        <select class="form-select" name="persons" id="persons" >
-                            <option value="1" >1</option>
-                            <option value="2" >2</option>
-                            <option value="3" >3</option>
-                            <option value="4" >4</option>
-                            <option value="5" >5</option>
-                            <option value="6" >6</option>
-                            <option value="7" >7</option>
-                            <option value="8" >8</option>
-                            <option value="9" >9</option>
-                            <option value="10" >10</option>
-                        </select>
 <br>
-                        <input class="btn btn-primary" type="submit" name="search" value="Recherche"/>
-                        </form>
-
-                        <!-- QUERY POUR RECHERER UN VOL  -->
-            <?php require_once "searchflight.php"; 
-
-    if (isset($_POST['persons'])) {
-        $_SESSION["nbrPassenger"] =  $_POST['persons'];
-    }
-
-    ?>
+                        <div class="pb-3">               
+                            <input class="btn btn-primary" type="submit" name="search" value="Rechercher un Vol"/>
+                        </div>
+                    </form>
+                    <?php require_once "searchflight.php";
+                    ?>
                 </div>
+                                        </div>
             </section>
 
 
@@ -142,7 +157,7 @@ require "db.php";
 
 
             <!-- *********       SECTION AVIONS/VIDEOS    ********** -->         
-            <section class="planes container py-5">
+            <section id="planes" class="planes container py-5">
                 <h2 class="text-primary fw-bold pb-4"> Nos modèles d'avions:<h2>
                     <div class="row">
                         <div class="col-sm-6" >
@@ -173,14 +188,14 @@ require "db.php";
 
 
             <!-- *********       UN MOT DU PRESIDENT DE DONKAIR          ********** -->
-            <section class="expert container py-5">
+            <section class="expert container py-5" id="expert">
                 <div class="row">
                 <h2 class="text-primary fw-bold pb-4">Un mot de notre président</h2>
-                    <div class="col-8">
+                    <div class="col-7">
                         <img src="img/cedric.jpg" alt="Président Cédric" width="100%">
                     </div>
 
-                    <div class="col-4">
+                    <div class="col-5">
 <!----                      
                         <span>
                             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
@@ -204,19 +219,19 @@ require "db.php";
         </main>
 
         <!-- *********       FOOTER             ********** -->
-        <footer class="bg-primary ">
+        <footer class="bg-primary">
             <nav pl-5>
                 <ul class="list-unstyled">
                     <li class="pt-3">
-                        <a class="text-decoration-none text-white ml-5" href="#flight">Réservez votre vol</a>
+                        <a class="text-decoration-none text-white ml-5 mt-5 fs-3" href="#flight">Réservez votre vol</a>
                     </li>
                     <li>
-                        <a class="text-decoration-none text-white ml-5" href="#planes">Nos modèles d'avions</a>
+                        <a class="text-decoration-none text-white ml-5 mt-5 fs-3 " href="#planes">Nos modèles d'avions</a>
                     <li>
-                        <a class="text-decoration-none text-white ml-5" href="#expert">Nos destinations</a>
+                        <a class="text-decoration-none text-white ml-5 mt-5 fs-3" href="#expert">Nos destinations</a>
                     </li>
                     <li class="pb-3">
-                        <a class="text-decoration-none text-white ml-5" class="schedule" href="http://localhost:8000/getinfo.php" target="_blank">Contact</a>
+                        <a class="text-decoration-none text-white ml-5 mt-5 fs-3" class="schedule" href="#header" target="_blank">Contact</a>
                     </li>
                 </ul>
             </nav>
@@ -226,8 +241,8 @@ require "db.php";
 
                 <!-- *********       MODALE             ********** -->
         <div id="overlay" class="overlay">
-
-                    <div id="popup" class="popup">
+            <div class="w-50 container">
+                <div id="popup" class="popup">
                         <h2 class="text-primary">Contactez-Nous:<span id="btnClose"
                         class="btnClose text-primary">&times;</span>
 
@@ -251,14 +266,16 @@ require "db.php";
                             </select>
 
                             <label class="pt-3" for="message"> Votre Message </label>
-                            <input type="textarea" rows="10" cols="50" name="message" id="message" />
-
-                            <input class=" btn btn-primary" type="submit"  name="Envoyer" value="Envoyer"/> 
-
+                            <div class="input-group">
+                                <textarea class="form-control" aria-label="With textarea" name="message" id="message"></textarea>
+                            </div>
+                            <div class="pt-3">
+                                <input class=" btn btn-primary" type="submit"  name="Envoyer" value="Envoyer"/> 
+                            </div>
                         </form>
-                    </div>
                 </div>
-            <script src="script.js"></script>
             </div>
+            <script src="script.js"></script>
+        </div>
     </body>
 </html>

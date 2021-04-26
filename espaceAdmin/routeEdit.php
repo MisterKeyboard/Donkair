@@ -26,63 +26,75 @@ if(!$row){
 
 
     <body>
-        <div>
+        <div class="container">
 
-            <h2 class="text-primary">Modification du vol:</h2>
+            <h2 class="text-primary pt-5">Modification du vol:</h2>
 
             <form method="POST" action="routeSave.php">
                 <input type="hidden" name="id" value="<?php echo $row->id; ?>"/>
-                <label class="text-primary" for="flightNbr">Numéro de vol</label>
-                <input type="text" name="flightNbr" value="<?=$row->flightNbr?>">
 
-                <!-----SELECT DEPARTURE CITY ----->
-                <label class="text-primary" for="departureCity">Ville de départ</label>
-                <select name="departureCity" id="departureCity">
-                <?php
-                        foreach ($objetPDO->query('SELECT id,town FROM route') as $data) {
-                    ?>
-                            <option value="<?php echo $data['id']; ?>" 
+                <label class="text-primary pt-3" for="flightNbr">Numéro de vol</label>
+                <input class="form-control w-25" type="text" name="flightNbr" value="<?=$row->flightNbr?>">
+
+                <div class="row">
+                    <div class="col-4">
+                        <!-----SELECT DEPARTURE CITY ----->
+                        <label class="text-primary pt-3" for="departureCity">Ville de départ</label>
+                        <select class="form-select w-50" name="departureCity" id="departureCity">
+                        <?php
+                                foreach ($objetPDO->query('SELECT id,town FROM route') as $data) {
+                            ?>
+                                    <option value="<?php echo $data['id']; ?>" 
+                                    <?php
+                                    if ($data['id'] == $row->departureCity){
+                                        echo "selected";
+                                    }
+                                    ?>
+                                    ><?php echo $data['town'];?></option>;
                             <?php
-                            if ($data['id'] == $row->departureCity){
-                                echo "selected";
                             }
                             ?>
-                            ><?php echo $data['town'];?></option>;
-                    <?php
-                    }
-                    ?>
-                    </select>
+                        </select>
+                    </div>
 
-
-                <!-----SELECT ARRIVAL CITY ----->
-                <label class="text-primary" for="arrivalCity">Ville d'arrivée</label>
-                <select name="arrivalCity" id="arrivalCity">
-                <?php
-                        foreach ($objetPDO->query('SELECT id,town FROM route') as $data) {
-                    ?>
-                            <option value="<?php echo $data['id']; ?>" 
+                    <div class="col-4">
+                        <!-----SELECT ARRIVAL CITY ----->
+                        <label class="text-primary pt-3" for="arrivalCity">Ville d'arrivée</label>
+                        <select class="form-select w-50" name="arrivalCity" id="arrivalCity">
+                        <?php
+                                foreach ($objetPDO->query('SELECT id,town FROM route') as $data) {
+                            ?>
+                                    <option value="<?php echo $data['id']; ?>" 
+                                    <?php
+                                    if ($data['id'] == $row->arrivalCity){
+                                        echo "selected";
+                                    }
+                                    ?>
+                                    ><?php echo $data['town'];?></option>;
                             <?php
-                            if ($data['id'] == $row->arrivalCity){
-                                echo "selected";
                             }
                             ?>
-                            ><?php echo $data['town'];?></option>;
-                    <?php
-                    }
-                    ?>
-                    </select>
+                        </select>
+                    </div>
+                </div>
 
-            
+                <div class="row">
+                    <div class="col-4">
+                        <label class="text-primary pt-3" for="departureTime">Heure de décollage</label>
+                        <input class="form-control w-25" type="text" name="departureTime" value="<?=$row->departureTime?>">
+                    </div>
+                    <div class="col-4">
+                        <label class="text-primary pt-3" for="arrivalTime">Heure d'atterissage</label>
+                        <input class="form-control w-25" type="text" name="arrivalTime" value="<?=$row->arrivalTime?>">
+                    </div>
+                </div>
+                        <label class="text-primary pt-3" for="date">Date</label>
+                        <input class="form-control w-25" type="text" name="date" value="<?=$row->date?>">
+                    
+                
 
-                <label class="text-primary" for="departureTime">Heure de décollage</label>
-                <input type="text" name="departureTime" value="<?=$row->departureTime?>">
-
-                <label class="text-primary" for="arrivalTime">Heure d'atterissage</label>
-                <input type="text" name="arrivalTime" value="<?=$row->arrivalTime?>">
-
-                <label class="text-primary" for="date">Date</label>
-                <input type="text" name="date" value="<?=$row->date?>">
-
-                <button class="btn btn-primary" type="submit">Sauvegardez</button>
-
+                <div class="pt-3">
+                    <button class="btn btn-primary" type="submit">Sauvegarder</button>
+                </div>
             </form>
+        </div>
