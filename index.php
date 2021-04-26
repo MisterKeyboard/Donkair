@@ -33,7 +33,7 @@ require "db.php";
     <body>
 
         <!-- *********     HEADER     ********** -->
-        <header class="pb-3">
+        <header class="pb-3 px-3">
         <nav class="navbar navbar-expand-lg">
             <div class="container-fluid">
                 <a class="navbar-brand col-2" href="_self">
