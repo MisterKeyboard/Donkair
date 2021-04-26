@@ -231,7 +231,7 @@ require "db.php";
                     <li>
                         <a class="text-decoration-none text-white ml-5 mt-5 fs-3" href="#expert">A propos</a>
                     </li>
-                    <li class="pb-3">
+                    <li class="pb-1">
                         <a class="text-decoration-none text-white ml-5 mt-5 fs-3" class="schedule" href="#header" target="_blank">Contact</a>
                     </li>
                 </ul>

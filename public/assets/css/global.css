@@ -10733,6 +10733,7 @@ textarea.form-control-lg {
 * {
   margin: 0;
   padding: 0;
+  padding-bottom: 2px;
   box-sizing: border-box;
 }
 
