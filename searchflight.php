@@ -14,8 +14,11 @@ if (!empty($_POST)) {
             f.departureTime,
             f.flightNbr,
             departureRoute.town departureTown,
-            arrivalRoute.town arrivalTown
-        FROM flight f LEFT JOIN route departureRoute
+            arrivalRoute.town arrivalTown,
+            departureRoute.image departureImage,
+            arrivalRoute.image arrivalImage
+        FROM flight f 
+        LEFT JOIN route departureRoute
             ON departureRoute.id = f.departureCity
         LEFT JOIN route arrivalRoute
             ON arrivalRoute.id = f.arrivalCity';
@@ -52,13 +55,22 @@ if (!empty($_POST)) {
         $arrivalCity = $donnees['arrivalTown'];
         $date = $donnees['date'] . $donnees['departureTime'];
         $flightNbr = $donnees['flightNbr'];
+        $departureImage = $donnees['departureImage'];
+        $arrivalImage = $donnees['arrivalImage'];
         $date1 = new DateTime($date);
         
 
 ?> 
         
         <div class="container card">
-            <img src=" <?php    ?> " class="card-img-top" alt="photo ville">
+            <div class="row">
+                <div class="col-6">
+                    <img src="img/uploadtownsimages/<?php echo $departureImage ?> " class="card-img-top" alt="photo ville">
+                </div>
+                <div class="col-6">
+                    <img src="img/uploadtownsimages/<?php echo $arrivalImage ?> " class="card-img-top" alt="photo ville">
+                </div>
+            </div>
 
             <div class="card-body">
                 <h5 class="card-title"> </h5>
