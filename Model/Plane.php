@@ -1,5 +1,9 @@
 <?php
+<<<<<<< HEAD
 
+=======
+require "espaceAdmin/config.php";
+>>>>>>> final
 class Plane 
 {
 

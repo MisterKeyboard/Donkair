@@ -61,7 +61,7 @@ if (!empty($_POST)) {
         $arrivalImage = $donnees['arrivalImage'];
         $date1 = new DateTime($date);
         
-
+        
 ?> 
         
         <div class="container card">
@@ -90,6 +90,29 @@ if (!empty($_POST)) {
     }
 }
 
+// $id = $_GET['idd']; 
+
+// $sql = "SELECT flightNbr FROM flight WHERE id=?";
+
+// $stmt = $objetPdo->prepare($sql);
+
+// $stmt->bindValue(1, $id, PDO::PARAM_INT);
+
+// $stmt->execute();
+
+// $row = $stmt->fetch(PDO::FETCH_OBJ);
+    
+// $i = $_GET['idd'];
+
+// $i = $_GET['idd'];
+// $title = $_GET['title'];
+
+// $sql = "UPDATE flight SET flightNbr=:flightNbr, WHERE id=:i";
+
+// $sql= $objetPdo->prepare($sql);
 
 
+// $sql->bindValue('i', $i, PDO::PARAM_INT);
+// $sql->bindValue('flightNbr', $flightNbr, PDO::PARAM_STR);
 
+// $sql= $sql->execute();
