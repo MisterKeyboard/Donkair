@@ -2,25 +2,15 @@
 <?php
 session_start();
 include "getinfo.php";
-require "db.php";
-
-
+require "espaceAdmin/db.php";
 
     if (isset($_POST['persons'])) {
         $_SESSION["nbrPassenger"] =  $_POST['persons'];
     }
 
-
 require "headHeader.php";      
 
-
-
 ?>
-
-
-
-
-
 
     <main>
         <!-- *********       SECTION FORMULAIRE DE RECHERCHE DE VOLS      ********** -->
@@ -152,8 +142,8 @@ require "headHeader.php";
                     <div class="row rowChoice px-1">
                         <div class=" col-sm-12 col-md-6 col-lg-3">
                             <div class="container w-25 py-4 px-1">
-                                <?xml version="1.0" encoding="iso-8859-1"?>
-                                <!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+                                <xml version="1.0" encoding="iso-8859-1">
+                                <!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0  -->
                                 <svg class="st0" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                                     viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
                                 <g>
@@ -202,7 +192,7 @@ require "headHeader.php";
                         <div class="col-sm-12 col-md-6 col-lg-3 container">
                             <div class="container w-25 py-4 px-1">
                                 <?xml version="1.0" encoding="iso-8859-1"?>
-                                <!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+                                <!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0  -->
                                 <svg class="st0" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                                     viewBox="0 0 368 368" style="enable-background:new 0 0 368 368;" xml:space="preserve">
                                 <g>
@@ -274,7 +264,7 @@ require "headHeader.php";
                         <div class="col-sm-12 col-md-6 col-lg-3 container">
                             <div class="container w-25 py-4 px-1">
                                 <?xml version="1.0" encoding="iso-8859-1"?>
-                                <!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+                                <!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0 -->
                                 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
                                 <svg class="st0" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                                     viewBox="0 0 189.725 189.725" style="enable-background:new 0 0 189.725 189.725;"

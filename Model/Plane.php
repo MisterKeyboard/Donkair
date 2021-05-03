@@ -1,5 +1,6 @@
 <?php
-require "espaceAdmin/config.php";
+//require "espaceAdmin/config.php";
+require "espaceAdmin/db.php";
 
 class Plane 
 {
@@ -7,6 +8,7 @@ class Plane
     private $passenger= [];
     private $model; 
     private $capacity; 
+    public $flightNbr; 
 
     //function qui récupérer le nbr de passenger
     public  function getPassengerNbr(): int 
@@ -18,7 +20,7 @@ class Plane
     {
         if($this->flightFull())
         {
-            echo "Ce vol est complet, merci d'un choisir un autre."; 
+            echo "Ce vol est complet, merci d' choisir un autre."; 
         } else {
             array_push($this->passenger, $passenger); 
         }
@@ -53,5 +55,3 @@ class Plane
 
 }
 
-
-//PDO::query( string $objetPdo , int $fetch_style = PDO::FETCH_CLASS , string $Plane , array $passenger ) : PDOStatement; 
