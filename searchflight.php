@@ -1,6 +1,6 @@
 <?php
 session_start();
-
+require_once "db.php";
 
 // <!-- QUERY POUR RECHERER UN VOL  -->
 
@@ -50,7 +50,8 @@ if (!empty($_POST)) {
 
 
     while ($donnees = $searchFlight->fetch())
-    {
+    {   
+        $flightId = $donnees['id'];
         $departureCity = $donnees['departureTown'];
         $arrivalCity = $donnees['arrivalTown'];
         $date = $donnees['date'] . $donnees['departureTime'];
@@ -80,7 +81,7 @@ if (!empty($_POST)) {
                 Numéro de vol :  <?php echo $flightNbr ?> <br>
             </div>
             <div class="pb-3">
-                <a href="customer.php" class="btn btn-primary"> Choisir ce vol </a>
+            <a href="customer.php?flightId=<?php echo $flightId; ?>" class="btn btn-primary" target=_blank> Choisir ce vol </a>
             </div>
         </div>
 

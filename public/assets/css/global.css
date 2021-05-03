@@ -10737,12 +10737,12 @@ textarea.form-control-lg {
   box-sizing: border-box;
 }
 
-/* POP UP */
-.btnPopup:hover {
-  background-color: rgba(183, 43, 183, 0.082);
+/* MODAL*/
+.btnPopup1:hover, .btnPopup2:hover{
+  background-color: #6e42c154;
 }
 
-.overlay {
+.overlay1, .overlay2{
   position: fixed;
   left: 0px;
   top: 0px;
@@ -10752,7 +10752,7 @@ textarea.form-control-lg {
   display: none;
 }
 
-.popup, .form {
+.popup1, .form, .popup2{
   margin: 20% auto;
   padding: 1em;
   background-color: #e4e4e4;
@@ -10760,7 +10760,7 @@ textarea.form-control-lg {
   box-shadow: 15px 20px 0 #6e42c154;
 }
 
-.btnClose {
+.btnClose1, .btnClose2{
   cursor: pointer;
   float: right;
 }/*# sourceMappingURL=global.css.map */

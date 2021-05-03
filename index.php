@@ -44,18 +44,12 @@ require "db.php";
                 <a class="text-decoration-none" href="#expert">A propos</a>
             
             <div>
-                <button class="btn btn-primary pb-1" onclick="myFunction()"> Contactez-nous par téléphone</button>
-
-                <script>
-                function myFunction() {
-                alert( "Notre service est disponible 7/7j 24/24h au 06 46 43 49 71" );
-                }
-                </script>
+                <!-- Modale     phone number -->
+                <button class="modal2 btnPopup2 btn btn-primary pb-1"> Contactez-nous par téléphone</button>
 
 
-
-                <!-- PopUp -->
-                <button id="btnPopup" class="btn btn-primary pb-1">Contactez-nous par Mail</button>
+                <!-- Modale Mail -->
+                <button id="btnPopup" class="modal1 btnPopup1 btn btn-primary pb-1">Contactez-nous par Mail</button>
                 </div>
             </div>
         </nav>
@@ -240,12 +234,12 @@ require "db.php";
 
 
 
-                <!-- *********       MODALE             ********** -->
-        <div id="overlay" class="overlay">
+                <!-- *********       MODALE  1           ********** -->
+        <div id="overlay" class="overlay1">
             <div class="w-50 container">
-                <div id="popup" class="popup">
+                <div id="popup" class="popup1">
                         <h2 class="text-primary">Contactez-Nous:<span id="btnClose"
-                        class="btnClose text-primary">&times;</span>
+                        class="btnClose1 text-primary">&times;</span>
 
 
                         <form action="getinfo.php" method="POST" >
@@ -274,6 +268,18 @@ require "db.php";
                                 <input class=" btn btn-primary" type="submit"  name="Envoyer" value="Envoyer"/> 
                             </div>
                         </form>
+                </div>
+            </div>
+        </div>
+
+                       <!-- *********       MODALE  2          ********** -->
+        <div id="overlay2" class="overlay2">
+            <div class="w-50 container">
+                <div id="popup2" class="popup2">
+                        <h2 class="text-primary ">Contactez-Nous par téléphone:<span id="btnClose2"
+                        class="btnClose2 text-primary">&times;</span>
+                        
+                        <p>Nous sommes joignables 7/7j et 24/24h <br>au 01 76 38 10 19</p>
                 </div>
             </div>
             <script src="script.js"></script>
