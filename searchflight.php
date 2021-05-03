@@ -1,7 +1,6 @@
 <?php
-session_start();
-require_once "db.php";
-
+//session_start();
+require_once "espaceAdmin/db.php";
 // <!-- QUERY POUR RECHERER UN VOL  -->
 
 if (!empty($_POST)) {

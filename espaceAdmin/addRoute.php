@@ -90,11 +90,10 @@
 
 <?php
 
-
-
-
 $objetPdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
+if(isset($_POST['submit']))
+{
         $flightNbr = $_POST['flightNbr']; 
         $departureCity = $_POST['departureCity'];
         $arrivalCity = $_POST['arrivalCity'];
@@ -105,19 +104,9 @@ $objetPdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     $sql = $objetPdo->prepare('INSERT INTO flight (flightNbr, departureCity, arrivalCity, departureTime, arrivalTime, date, planemodel) VALUES (:flightNbr, :departureCity, :arrivalCity, :departureTime, :arrivalTime, :date, :model)');
     $sql->execute(array(':flightNbr' => $flightNbr, ':departureCity' => $departureCity, ':arrivalCity' => $arrivalCity, ':departureTime' => $departureTime, ':arrivalTime' => $arrivalTime, ':date' => $date, ':model' => $model));
-
-// echo "flightNbr = " . $flightNbr;
-// echo "departureCity = " . $departureCity;
-// echo "arrivalCity = " . $arrivalCity;
-// echo "departureTime = " . $departureTime;
-// echo "arrivalTime = " . $arrivalTime;
-// echo "date = " . $date;
-// echo "model = " . $model;
-
-//     $sql->debugDumpParams();
+};
 
 if(!empty($_POST)){
-    echo 'Le numéro de vol ' .  $_POST['flightNbr']  . ' départ de ' . $_POST['departureCity'] . ' pour ' . $_POST['arrivalCity'] . ' le ' . $_POST['date'] . ' a bien été ajouté à votre base de donnée.';
-    
+    echo 'Le numéro de vol ' .  $_POST['flightNbr']  .  ' a bien été ajouté à votre base de donnée.';
     }
 

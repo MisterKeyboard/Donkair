@@ -37,6 +37,7 @@ require "head.php";
 
 //Récuperer les noms des villes et des airports
 
+
 if($_SERVER['REQUEST_METHOD'] === 'POST' && empty($_POST['town']) || empty($_POST['airport']) || empty($_POST['country'])) {
     echo 'Veuillez remplir tous les champs';
 } else {
@@ -45,6 +46,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST' && empty($_POST['town']) || empty($_POS
     $airport = $_POST ['airport'];
     $country = $_POST ['country'];
     $image=$_FILES['image']['name'];
+    
 
     if(!move_uploaded_file($_FILES['image']['tmp_name'],"../img/uploadtownsimages/".$image)){
         die("non");
@@ -57,10 +59,10 @@ if($_SERVER['REQUEST_METHOD'] === 'POST' && empty($_POST['town']) || empty($_POS
 if(!empty($_POST)){
     echo 'L\'altiport ' .  $_POST['airport']  . ' situé à ' . $_POST['town'] . ' en ' . $_POST['country'] . ' a bien été ajouté à votre base de données : City.';
     }
+
 }
 
 ?>
-
 
 
     <br>
