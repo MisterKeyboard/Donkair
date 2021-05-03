@@ -6,13 +6,14 @@ require "db.php";
 require "espaceAdmin/config.php";
 require "Model/Plane.php";
 
-$flightId = $_GET['flightId']; 
+$flightId = $_GET['flightId'];
 $statement = 'SELECT plane.model, plane.capacity FROM flight LEFT JOIN plane ON plane.id = flight.planeModel WHERE flight.id = ?'; 
 
 $getFlightId = $objetPdo->prepare($statement);
 $getFlightId->execute([$flightId]); 
 $getFlightId->setFetchMode(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE, 'Plane');
 $data = $getFlightId->fetch();
+
 
 if ($data->flightFull()) {
     echo "Le nombre de place limité pour ce vol est de " . $data->getcapacity() . " places.";
