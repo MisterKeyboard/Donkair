@@ -34,4 +34,4 @@ $save->bindValue(':date',$date);
 
 $save->execute();
 
-header('Location:dashboard.php');
+header('Location:/espaceAdmin/dashboard.php');

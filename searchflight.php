@@ -65,10 +65,10 @@ if (!empty($_POST)) {
         
         <div class="container card">
             <div class="row">
-                <div class="col-6">
+                <div class="col-6 pt-3">
                     <img src="img/uploadtownsimages/<?php echo $departureImage ?> " class="card-img-top" alt="photo ville">
                 </div>
-                <div class="col-6">
+                <div class="col-6 pt-3">
                     <img src="img/uploadtownsimages/<?php echo $arrivalImage ?> " class="card-img-top" alt="photo ville">
                 </div>
             </div>

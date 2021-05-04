@@ -1,5 +1,4 @@
 <?php
-require "config.php";
 require "db.php";
 require "session.php";
 require "head.php";
@@ -21,5 +20,5 @@ $del->execute();
 //    $_GET["fnbr"]
 //]);
 
-header('Location:dashboard.php');
+header('Location:/espaceAdmin/dashboard.php');
 

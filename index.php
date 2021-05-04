@@ -6,54 +6,20 @@ require "db.php";
 
 
 
-
     if (isset($_POST['persons'])) {
         $_SESSION["nbrPassenger"] =  $_POST['persons'];
     }
+
+
+require "headHeader.php";      
+
+
 
 ?>
 
 
 
-<!DOCTYPE html>
 
-<html>
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>DonkAir</title>
-        <!-- CSS only -->
-        <link rel="stylesheet" href="public/assets/css/global.css" crossorigin="anonymous">
-        <!-- JavaScript Bundle with Popper -->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
-
-        <link rel="icon" href="img/donkeysunglassesRemovebg.png" />
-    </head>
-
-    <body>
-
-        <!-- *********     HEADER     ********** -->
-        <header class="pb-3 px-3">
-        <nav class="navbar navbar-expand-lg">
-            <div class="container-fluid">
-                <a class="navbar-brand col-2" href="_self">
-                    <img src="img/donkeysunglassesRemovebgw.png" alt="logo" width="100%">
-                </a>
-                <a class="text-decoration-none" href="#flight">Réservez un vol</a>
-                <a class="text-decoration-none" href="#planes">Avions</a>
-                <a class="text-decoration-none" href="#expert">A propos</a>
-            
-            <div>
-                <!-- Modale     phone number -->
-                <button class="modal2 btnPopup2 btn btn-primary pb-1"> Contactez-nous par téléphone</button>
-
-
-                <!-- Modale Mail -->
-                <button id="btnPopup" class="modal1 btnPopup1 btn btn-primary pb-1">Contactez-nous par Mail</button>
-                </div>
-            </div>
-        </nav>
-    </header>
 
 
     <main>
@@ -128,7 +94,7 @@ require "db.php";
                     <?php require_once "searchflight.php";
                     ?>
                 </div>
-                                        </div>
+            </div>
             </section>
 
 
@@ -181,6 +147,44 @@ require "db.php";
 
 
 
+            <!-- *********       les chiffres          ********** -->
+            <section>
+                <h2 class="text-primary container">Pourquoi choisir Donkair<h2>
+                <div>
+                    <ul class="row">
+                        <li class="col-3 col-6 container">
+
+                            <h3 class="feature-icons-title title--quaternary">VOLS<h3>
+                            <p>Une expérience considérable</p>
+                        </li>
+
+                        <li class="col-3 col-6 container">
+
+                            <h3>PASSAGERS<h3>
+                            <p>Satisfaction</p>
+                        </li>
+
+                        <li class="col-3 col-6 container">
+                            <i>
+                            ::before
+                            </i>
+                            <h3>COUVERTURE MONDIALE<h3>
+                            <p>Des bureaux DonkAir sur les 6 continents</p>
+                        </li>
+
+                        <li class="col-3 col-6 container">
+                            <i>
+                            ::before
+                            </i>
+                            <h3>SERVICE PERSONNALISÉ<h3>
+                            <p>Des chargés de clientèle dédiés, disponibles 24h/24, 7j/7 </p>
+                        </li>
+                    </ul>
+
+
+
+
+
 
             <!-- *********       UN MOT DU PRESIDENT DE DONKAIR          ********** -->
             <section class="expert container py-5" id="expert">
@@ -213,76 +217,10 @@ require "db.php";
             </section>
         </main>
 
-        <!-- *********       FOOTER             ********** -->
-        <footer class="bg-primary">
-            <nav pl-5>
-                <ul class="list-unstyled">
-                    <li class="pt-3">
-                        <a class="text-decoration-none text-white ml-5 mt-5 fs-3" href="#flight">Réservez votre vol</a>
-                    </li>
-                    <li>
-                        <a class="text-decoration-none text-white ml-5 mt-5 fs-3 " href="#planes">Nos modèles d'avions</a>
-                    <li>
-                        <a class="text-decoration-none text-white ml-5 mt-5 fs-3" href="#expert">A propos</a>
-                    </li>
-                    <li class="pb-1">
-                        <a class="text-decoration-none text-white ml-5 mt-5 fs-3" class="schedule" href="#header" target="_blank">Contact</a>
-                    </li>
-                </ul>
-            </nav>
-        </footer>
 
 
+<?php
+        
+require "footer.php";
 
-                <!-- *********       MODALE  1           ********** -->
-        <div id="overlay" class="overlay1">
-            <div class="w-50 container">
-                <div id="popup" class="popup1">
-                        <h2 class="text-primary">Contactez-Nous:<span id="btnClose"
-                        class="btnClose1 text-primary">&times;</span>
-
-
-                        <form action="getinfo.php" method="POST" >
-                            <label class="pt-3" for="name"> Votre Nom </label>
-                            <input class="form-select" type="text" name="name" id="name" placeholder="Name"/>
-
-                            <label class="pt-3" for="mail"> Votre Mail </label>
-                            <input class="form-select" type="mail" name="mail" id="mail" placeholder="donkair@hotmail.fr"/>
-
-                            <label class="pt-3" for="sujet" > Sujet </label>
-                            <select class="form-select" name="subject"> 
-                                <option valeur="">Annuler/Modifier une Reservation </option>
-                                <option valeur="">Bagage</option>
-                                <option valeur="">Codes Promotionnels </option>
-                                <option valeur="">Locations de voiture</option>
-                                <option valeur="">Hotel</option>
-                                <option valeur="">Remboursements</option>
-                                <option valeur="">Autre </option>
-                            </select>
-
-                            <label class="pt-3" for="message"> Votre Message </label>
-                            <div class="input-group">
-                                <textarea class="form-control" aria-label="With textarea" name="message" id="message"></textarea>
-                            </div>
-                            <div class="pt-3">
-                                <input class=" btn btn-primary" type="submit"  name="Envoyer" value="Envoyer"/> 
-                            </div>
-                        </form>
-                </div>
-            </div>
-        </div>
-
-                       <!-- *********       MODALE  2          ********** -->
-        <div id="overlay2" class="overlay2">
-            <div class="w-50 container">
-                <div id="popup2" class="popup2">
-                        <h2 class="text-primary ">Contactez-Nous par téléphone:<span id="btnClose2"
-                        class="btnClose2 text-primary">&times;</span>
-                        
-                        <p>Nous sommes joignables 7/7j et 24/24h <br>au 01 76 38 10 19</p>
-                </div>
-            </div>
-            <script src="script.js"></script>
-        </div>
-    </body>
-</html>
+?>

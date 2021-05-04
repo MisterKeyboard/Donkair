@@ -96,8 +96,8 @@ foreach  ($flights as $row) :?>
                 <td><?php echo $row["departureTime"] ?></td>
                 <td><?php echo $row["arrivalTime"] ?></td>
                 <td><?php echo $row["date"]?></td>
-                <td><a  href="routeEdit.php?fnbr=<?php echo $row["flightNbr"] ?>">Edit</a>
-                <a href="routeDel.php?fnbr=<?php echo $row["flightNbr"] ?>">Delete</a>
+                <td><a  href="/espaceAdmin/routeEdit.php?fnbr=<?php echo $row["flightNbr"] ?>">Edit</a>
+                <a href="/espaceAdmin/routeDel.php?fnbr=<?php echo $row["flightNbr"] ?>">Delete</a>
                 </td>
             </tr>
 <?php endforeach; ?>

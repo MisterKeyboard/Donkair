@@ -66,7 +66,7 @@
             </select>  
 
         <!-- Insert d'autre information -->
-            <div class="row pt-3 pb-5">
+            <div class="row pt-3">
                 <div class="col-6">
                     <label class="text-primary" for="departureTime"> Heure de décollage </label>
                     <input class="form-control" type="time" name="departureTime" id="departureTime">
@@ -90,7 +90,7 @@
 
 <?php
 
-require_once "config.php";
+
 
 
 $objetPdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -118,5 +118,6 @@ $objetPdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 if(!empty($_POST)){
     echo 'Le numéro de vol ' .  $_POST['flightNbr']  . ' départ de ' . $_POST['departureCity'] . ' pour ' . $_POST['arrivalCity'] . ' le ' . $_POST['date'] . ' a bien été ajouté à votre base de donnée.';
+    
     }
 
