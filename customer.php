@@ -104,6 +104,6 @@ if (isset($_POST['name']) && isset($_POST['firstname']) && isset($_POST['mail'])
 
 require "footer.php";  
 ?>
-
+   
 </main>
-
+ 
