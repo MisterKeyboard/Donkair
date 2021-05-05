@@ -20,7 +20,7 @@ class Plane
     {
         if($this->flightFull())
         {
-            echo "Ce vol est complet, merci d' choisir un autre."; 
+            echo "Ce vol est complet, merci d'en choisir un autre."; 
         } else {
             array_push($this->passenger, $passenger); 
         }
@@ -55,3 +55,16 @@ class Plane
 
 }
 
+class plane3P extends Plane {
+    public  function getNbPlaces(): int
+    {
+        return 3;
+    }
+}
+
+class plane4P extends Plane {
+    public  function getNbPlaces(): int
+    {
+        return 4;
+    }
+}

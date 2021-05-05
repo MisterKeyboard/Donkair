@@ -21,8 +21,9 @@ $flightNbr = $data->flightNbr;
 $capacity = $data->getCapacity();
 
 if ($_SESSION['nbrPassenger'] > $capacity) {
+
 } else {
-    
+
 ?>
 
     <body>
@@ -87,21 +88,22 @@ if (isset($_POST['name']) && isset($_POST['firstname']) && isset($_POST['mail'])
         $firstname = $_POST['firstname'][$i];
         $mail = $_POST['mail'][$i];
         $tel = $_POST['tel'][$i];
-
-        $sql = $objetPdo->prepare('INSERT INTO customer (name, firstname, mail, tel) VALUES (:name, :firstname, :mail, :tel)');
         
+        $sql = $objetPdo->prepare('INSERT INTO customer (name, firstname, mail, tel, flightNbr) VALUES (:name, :firstname, :mail, :tel');
     
-    }
+        $sql->execute(array(':name' => $name, ':firstname' => $firstname, ':mail' => $mail, ':tel' => $tel));
+        
+    } 
+}    
 
-}
-    //     $sql->execute(array(':name' => $name, ':firstname' => $firstname, ':mail' => $mail, ':tel' => $tel));
-    
-    // }
+// $join = 'SELECT flight.flightNbr FROM flight LEFT JOIN customer ON flight.flightNbr = customer.flightNbr'; 
 
+//  $customerId = 'SELECT customer.id, booking.customer_id FROM booking LEFT JOIN customer ON customer.id = booking.customer_id';
+
+// $count = 'SELECT COUNT  '; 
 
 require "footer.php";  
 ?>
-
 
 </main>
 
