@@ -28,10 +28,10 @@
 
 
                         <form action="getinfo.php" method="POST" >
-                            <label class="pt-3" for="name"> Votre Nom </label>
+                            <label class="pt-3" for="name">Nom </label>
                             <input class="form-select" type="text" name="name" id="name" placeholder="Name"/>
 
-                            <label class="pt-3" for="mail"> Votre Mail </label>
+                            <label class="pt-3" for="mail">Mail </label>
                             <input class="form-select" type="mail" name="mail" id="mail" placeholder="donkair@hotmail.fr"/>
 
                             <label class="pt-3" for="sujet" > Sujet </label>
@@ -45,7 +45,7 @@
                                 <option valeur="">Autre </option>
                             </select>
 
-                            <label class="pt-3" for="message"> Votre Message </label>
+                            <label class="pt-3" for="message">Message </label>
                             <div class="input-group">
                                 <textarea class="form-control" aria-label="With textarea" name="message" id="message"></textarea>
                             </div>

@@ -33,7 +33,7 @@ if ($_SESSION['nbrPassenger'] > $capacity) {
 
     <body>
         <main>
-        <form class="container card col-6 pb-5" method="POST" action="">
+        <form class="container card col-6 pt-3 pb-3 mb-3" method="POST" action="">
 
         <h2 class="text-primary"> Merci de bien vouloir vous enregistrer</h2>
 
@@ -41,7 +41,7 @@ if ($_SESSION['nbrPassenger'] > $capacity) {
 
 
         for ($i = 0; $i < $_SESSION['nbrPassenger']; $i++ ) { ?>
-<div class="card container pb-3">
+<div class="card container pb-3 mb-3">
             <label class="text-primary pt-3" for="name_<?php echo $i; ?>" > Nom </label>
             <input type="text" name="name[]" id="name_<?php echo $i; ?>" value="<?php if (isset($_POST['name'])){echo $_POST['name'][$i];} ?>" />
 
@@ -61,8 +61,8 @@ if ($_SESSION['nbrPassenger'] > $capacity) {
     <?php
     }
     ?>
-            <div class="pt-3">
-                <input class="btn btn-primary pt-3" type="submit" name="send" value="Envoyer"/> 
+            <div class="pt-1">
+                <input class="btn btn-primary" type="submit" name="send" value="Envoyer"/> 
             </div>
         </form>
 

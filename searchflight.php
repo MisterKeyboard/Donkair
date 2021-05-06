@@ -1,5 +1,5 @@
 <?php
-session_start();
+
 require_once "db.php";
 
 // <!-- QUERY POUR RECHERER UN VOL  -->
@@ -13,6 +13,8 @@ if (!empty($_POST)) {
             f.date,
             f.departureTime,
             f.flightNbr,
+            plane.model,
+            plane.image,
             departureRoute.town departureTown,
             arrivalRoute.town arrivalTown,
             departureRoute.image departureImage,
@@ -21,7 +23,9 @@ if (!empty($_POST)) {
         LEFT JOIN route departureRoute
             ON departureRoute.id = f.departureCity
         LEFT JOIN route arrivalRoute
-            ON arrivalRoute.id = f.arrivalCity';
+            ON arrivalRoute.id = f.arrivalCity
+        LEFT JOIN plane
+            ON plane.id = f.planeModel';
 
     $keyConditions = [];
     $valConditions = [];
@@ -48,46 +52,67 @@ if (!empty($_POST)) {
     $searchFlight = $objetPdo->prepare($request);
     $searchFlight->execute($valConditions); 
 
+    $flights = $searchFlight->fetchAll();
+    $departureCity = $flights[0]['departureTown'];
+    $arrivalCity = $flights[0]['arrivalTown'];
+    $departureImage = $flights[0]['departureImage'];
+    $arrivalImage = $flights[0]['arrivalImage']; 
+    ?>
 
-    while ($donnees = $searchFlight->fetch())
-    {   
-        $flightId = $donnees['id'];
-        $departureCity = $donnees['departureTown'];
-        $arrivalCity = $donnees['arrivalTown'];
-        $date = $donnees['date'] . $donnees['departureTime'];
-        $flightNbr = $donnees['flightNbr'];
-        $departureImage = $donnees['departureImage'];
-        $arrivalImage = $donnees['arrivalImage'];
-        $date1 = new DateTime($date);
-        
-
-?> 
-        
-        <div class="container card">
-            <div class="row">
-                <div class="col-6 pt-3">
-                    <img src="img/uploadtownsimages/<?php echo $departureImage ?> " class="card-img-top" alt="photo ville">
-                </div>
-                <div class="col-6 pt-3">
-                    <img src="img/uploadtownsimages/<?php echo $arrivalImage ?> " class="card-img-top" alt="photo ville">
-                </div>
+    <div class="container pt-3 recherche:">
+        <h2 class="text-primary fw-bold">Votre recherche </h2>
+    </div>
+    <div class="container card mt-3">
+        <div class="row">
+            <div class="col-6 pt-3">
+                <img src="img/uploadtownsimages/<?php echo $departureImage ?> " class="card-img-top" alt="photo ville">
+                <p><span class="text-primary">Ville de départ: </span><?php echo $departureCity ?></p>
             </div>
-
-            <div class="card-body">
-                <h5 class="card-title"> </h5>
-                Ville de départ : <?php echo $departureCity ?> <br>
-                Ville d'arrivée  : <?php echo $arrivalCity ?> <br>
-                Date et heure du départ : <?php echo $date1->format('d-m-Y à H:i') ?> <br>
-                Numéro de vol :  <?php echo $flightNbr ?> <br>
-            </div>
-            <div class="pb-3">
-            <a href="customer.php?flightId=<?php echo $flightId; ?>" class="btn btn-primary" target=_blank> Choisir ce vol </a>
+            <div class="col-6 pt-3">
+                <img src="img/uploadtownsimages/<?php echo $arrivalImage ?> " class="card-img-top" alt="photo ville">
+                <p><span class="text-primary">Ville d'arrivée: </span><?php echo $arrivalCity ?></p>
             </div>
         </div>
+        <h3 class="text-primary">Validez votre vol</h3>
+
+
+<?php
+    foreach ($flights as $flight)
+    {   
+        $flightId = $flight['id'];
+        $date = $flight['date'] . $flight['departureTime'];
+        $flightNbr = $flight['flightNbr'];
+        $planeImage = $flight['image'];
+        $date1 = new DateTime($date);
+?> 
+
+
+
+        <div class="row container g-0">
+            <div class="col-6 pt-3 pb-3">
+                <img class="w-75" src="img/uploadtownsimages/<?php echo $planeImage ?> " class="card-img-top" alt="photo avion">
+            </div>
+            <div class=" container col-6 pt-3">
+                <p><span class="text-primary ">Votre avion: </span><?php echo $flight['model'] ?></p>
+                <p><span class="text-primary ">Date et heure du départ:</span><?php echo $date1->format('d-m-Y à H:i') ?></p>
+                <p><span class="text-primary ">Numéro de vol: </span><?php echo $flightNbr ?></p>
+                <div class="pb-3">
+                    <a href="customer.php?flightId=<?php echo $flightId; ?>" class="btn btn-primary" target=_blank> Go </a>
+                </div>
+            </div>
+
+
+        
 
 <?php 
     }
-}
+?>
+
+        </div>    
+    </div>
+<?php 
+    }
+
 
 // $_SESSION["nbrPassenger"] = [
 //     $_GET['persons']

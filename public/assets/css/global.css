@@ -10733,9 +10733,10 @@ textarea.form-control-lg {
 * {
   margin: 0;
   padding: 0;
-  padding-bottom: 2px;
   box-sizing: border-box;
 }
+
+
 
 /* MODAL*/
 .btnPopup1:hover, .btnPopup2:hover{
@@ -10774,4 +10775,12 @@ textarea.form-control-lg {
 footer nav{
   padding-left: 5%;
   padding-bottom: 0px;
+}
+
+
+/* SECTION UN MOT DU PRESIDENT */
+
+.quote{
+  margin-top: -30px;
+  margin-left: 83px;
 }
