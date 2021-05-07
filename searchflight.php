@@ -62,13 +62,13 @@ if (!empty($_POST)) {
     <div class="container pt-3 recherche:">
         <h2 class="text-primary fw-bold">Votre recherche </h2>
     </div>
-    <div class="container card mt-3">
+    <div class="container card my-3 pb-3">
         <div class="row">
-            <div class="col-6 pt-3">
+            <div class="col-sm-12 col-md-6 col-lg-6 pt-3">
                 <img src="img/uploadtownsimages/<?php echo $departureImage ?> " class="card-img-top" alt="photo ville">
                 <p><span class="text-primary">Ville de départ: </span><?php echo $departureCity ?></p>
             </div>
-            <div class="col-6 pt-3">
+            <div class="col-sm-12 col-md-6 col-lg-6 pt-3">
                 <img src="img/uploadtownsimages/<?php echo $arrivalImage ?> " class="card-img-top" alt="photo ville">
                 <p><span class="text-primary">Ville d'arrivée: </span><?php echo $arrivalCity ?></p>
             </div>
@@ -89,15 +89,15 @@ if (!empty($_POST)) {
 
 
         <div class="row container g-0">
-            <div class="col-6 pt-3 pb-3">
-                <img class="w-75" src="img/uploadtownsimages/<?php echo $planeImage ?> " class="card-img-top" alt="photo avion">
+            <div class="col-sm-12 col-md-6 col-lg-6 pt-3">
+                <img class="w-100 rounded" src="img/uploadtownsimages/<?php echo $planeImage ?> " class="card-img-top" alt="photo avion">
             </div>
-            <div class=" container col-6 pt-3">
-                <p><span class="text-primary ">Votre avion: </span><?php echo $flight['model'] ?></p>
-                <p><span class="text-primary ">Date et heure du départ:</span><?php echo $date1->format('d-m-Y à H:i') ?></p>
-                <p><span class="text-primary ">Numéro de vol: </span><?php echo $flightNbr ?></p>
-                <div class="pb-3">
-                    <a href="customer.php?flightId=<?php echo $flightId; ?>" class="btn btn-primary" target=_blank> Go </a>
+            <div class="col-sm-12 col-md-6 col-lg-6 pt-4">
+                <p class="vol"><span class="text-primary">Votre avion: </span><?php echo $flight['model'] ?></p>
+                <p class="vol"><span class="text-primary pl-3">Date et heure du départ:</span><?php echo $date1->format('d-m-Y à H:i') ?></p>
+                <p class="vol"><span class="text-primary pl-3">Numéro de vol: </span><?php echo $flightNbr ?></p>
+                <div>
+                    <a class="btn btn-primary vol" href="customer.php?flightId=<?php echo $flightId; ?>"  target=_blank> Go </a>
                 </div>
             </div>
 

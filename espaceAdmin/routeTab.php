@@ -80,6 +80,7 @@ $flights = $query->fetchAll(PDO::FETCH_ASSOC);
                 <th class="text-primary"> Heure de décollage </th>
                 <th class="text-primary"> Heure d'atterrisage </th>
                 <th class="text-primary"> Date </th>
+                <th class="text-primary"> Action </th>
             </tr>     
 </section>
 

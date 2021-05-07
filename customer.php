@@ -43,16 +43,16 @@ if ($_SESSION['nbrPassenger'] > $capacity) {
         for ($i = 0; $i < $_SESSION['nbrPassenger']; $i++ ) { ?>
 <div class="card container pb-3 mb-3">
             <label class="text-primary pt-3" for="name_<?php echo $i; ?>" > Nom </label>
-            <input type="text" name="name[]" id="name_<?php echo $i; ?>" value="<?php if (isset($_POST['name'])){echo $_POST['name'][$i];} ?>" />
+            <input class="form-control" type="text" name="name[]" id="name_<?php echo $i; ?>" value="<?php if (isset($_POST['name'])){echo $_POST['name'][$i];} ?>" />
 
             <label class="text-primary pt-3" for="firstname_<?php echo $i; ?>"> Prénom</label>
-            <input type="text" name="firstname[]" id="firstname_<?php echo $i; ?>" value="<?php if (isset($_POST['firstname'])){echo $_POST['firstname'][$i];} ?>" />
+            <input class="form-control" type="text" name="firstname[]" id="firstname_<?php echo $i; ?>" value="<?php if (isset($_POST['firstname'])){echo $_POST['firstname'][$i];} ?>" />
     <br>
             <label class="text-primary pt-3" for="mail_<?php echo $i; ?>"> Email </label>
-            <input type="email" name="mail[]" id="mail_<?php echo $i; ?>" placeholder="donkair@hotmail.fr" value="<?php if (isset($_POST['mail'])){echo $_POST['mail'][$i];} ?>" />
+            <input class="form-control" type="email" name="mail[]" id="mail_<?php echo $i; ?>" placeholder="donkair@hotmail.fr" value="<?php if (isset($_POST['mail'])){echo $_POST['mail'][$i];} ?>" />
 
             <label class="text-primary pt-3" for="tel_<?php echo $i; ?>"> Numéro de téléphone </label>
-            <input  type="text" name="tel[]" id="tel_<?php echo $i; ?>" maxlength="15" value="<?php if (isset($_POST['tel'])){echo $_POST['tel'][$i];} ?>" />
+            <input class="form-control" type="text" name="tel[]" id="tel_<?php echo $i; ?>" maxlength="15" value="<?php if (isset($_POST['tel'])){echo $_POST['tel'][$i];} ?>" />
         </div>
     <br/>  
 

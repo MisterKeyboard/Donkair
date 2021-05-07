@@ -10736,6 +10736,13 @@ textarea.form-control-lg {
   box-sizing: border-box;
 }
 
+/* SECTION VOL */
+.vol{
+  margin-left: 3%;
+}
+
+
+
 /* SECTION UN MOT DU PRESIDENT */
 .quote{
   margin-top: -30px;

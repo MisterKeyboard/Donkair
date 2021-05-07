@@ -30,7 +30,7 @@ require "headHeader.php";
 
                 <form name="form" method="POST">
                     <div class="row">
-                        <div class="col-6">
+                        <div class="col-sm-12 col-md-12 col-lg-6">
                             <label class="pt-3" for="departureCity"> Ville de départ </label>
                             <select class="form-select" name="departureCity" id="departureCity">
 
@@ -46,7 +46,7 @@ require "headHeader.php";
                                 ?>
                             </select>
                         </div>
-                        <div class="col-6">
+                        <div class="col-sm-12 col-md-12 col-lg-6">
                             <label class="pt-3" for="arrivalCity"> Ville d'arrivée </label>
                             <select class="form-select " name="arrivalCity" id="arrivalCity">
                             <?php
@@ -63,11 +63,11 @@ require "headHeader.php";
                     </div>
 
                     <div class="row">
-                        <div class="col-6">
+                        <div class="col-sm-12 col-md-12 col-lg-6">
                             <label class="pt-3" for="date">Date de départ</label>
-                            <input class="form-select " type="date" name="date" id="date" value="<?php if (isset($_POST['date'])){echo $_POST['date'];} ?>" />
+                            <input class="form-select" type="date" name="date" id="date" value="<?php if (isset($_POST['date'])){echo $_POST['date'];} ?>" />
                         </div>
-                        <div class="col-6">
+                        <div class="col-sm-12 col-md-12 col-lg-6">
                             <label class="pt-3" for="persons">Nombre de personnes</label>
                             <select class="form-select " name="persons" id="persons" >
                                 <option value="1" >1</option>
@@ -189,17 +189,18 @@ require "headHeader.php";
                 <div class="row">
                     <h2 class="text-primary fw-bold pb-4">Un mot de notre président</h2>
                     <div class="col-sm-12 col-md-12 col-lg-6">
-                        <img src="img/cedric.jpg" alt="Président Cédric" width="100%">
+                        <img class="rounded" src="img/cedric.jpg" alt="Président Cédric" width="100%">
                     </div>
-                    <div class="col-sm-12 col-md-12 col-lg-6 pt-1 pb-4">
+                    <div class="col-sm-12 col-md-12 col-lg-6 pt-4">
                         <p class="fs-3">Notre objectif principal chez DonkAir est de fournir des 
-                        expériences d'aviation privée sûres et fiables à nos clients. 
-                        Avec une présence dédiée sur tous les continents, 
-                        nous garantissons des temps de réponse rapides, 
-                        où que vous soyez dans le monde. Notre réseau d'opérateurs 
+                        expériences d'aviation privée sûres et fiables à nos clients, 
+                        avec une présence dédiée sur tous les continents. Notre réseau d'opérateurs 
                         triés sur le volet est conforme à toutes les réglementations 
                         aéronautiques internationales et utilise une flotte d'avions 
-                        modernes. </p>
+                        modernes.</p>
+                        <br>
+                        <p class="fs-3">Cédric Lombardot</p>
+                        <p class="fs-3">Président, DonkAir</p>
                     </div>
 
 

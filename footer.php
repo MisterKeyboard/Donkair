@@ -1,5 +1,5 @@
         <!-- *********       FOOTER             ********** -->
-        <footer class="bg-primary">
+        <footer class="bg-primary mt-5">
             <nav pl-5>
                 <ul class="list-unstyled">
                     <li class="pt-3">

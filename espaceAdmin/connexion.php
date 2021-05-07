@@ -18,10 +18,10 @@
                 </div>
 
                 <label class="text-primary" for="pseudo">Pseudo</label>
-                <input type="text" name="pseudo" >
+                <input class="form-control" type="text" name="pseudo" >
 
                 <label class="text-primary pt-3" for="password">Password</label>
-                <input type="password" name="password">
+                <input class="form-control" type="password" name="password">
                 <div class="py-3">
                     <input class="btn btn-primary w-100" type="submit" name="submit" class="envoyer" value="Connexion">
                 </div>
