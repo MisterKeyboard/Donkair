@@ -10736,6 +10736,11 @@ textarea.form-control-lg {
   box-sizing: border-box;
 }
 
+/* SECTION UN MOT DU PRESIDENT */
+.quote{
+  margin-top: -30px;
+  margin-left: 83px;
+}
 
 
 /* MODAL*/
@@ -10777,10 +10782,7 @@ footer nav{
   padding-bottom: 0px;
 }
 
-
-/* SECTION UN MOT DU PRESIDENT */
-
-.quote{
-  margin-top: -30px;
-  margin-left: 83px;
+footer{
+  padding-bottom: 2px;
 }
+

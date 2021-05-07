@@ -185,35 +185,51 @@ require "headHeader.php";
 
 
             <!-- *********       UN MOT DU PRESIDENT DE DONKAIR          ********** -->
-            <section class="expert container py-5" id="expert">
+            <section class="expert container" id="expert">
                 <div class="row">
-                <h2 class="text-primary fw-bold pb-4">Un mot de notre président</h2>
-                    <div class="col-7">
+                    <h2 class="text-primary fw-bold pb-4">Un mot de notre président</h2>
+                    <div class="col-sm-12 col-md-12 col-lg-6">
                         <img src="img/cedric.jpg" alt="Président Cédric" width="100%">
                     </div>
+                    <div class="col-sm-12 col-md-12 col-lg-6 pt-1 pb-4">
+                        <p class="fs-3">Notre objectif principal chez DonkAir est de fournir des 
+                        expériences d'aviation privée sûres et fiables à nos clients. 
+                        Avec une présence dédiée sur tous les continents, 
+                        nous garantissons des temps de réponse rapides, 
+                        où que vous soyez dans le monde. Notre réseau d'opérateurs 
+                        triés sur le volet est conforme à toutes les réglementations 
+                        aéronautiques internationales et utilise une flotte d'avions 
+                        modernes. </p>
+                    </div>
 
-                    <div class="col-5">
-                        <div class="w-25">
+
+
+
+
+                <!--<div class="col-5 pt-5">
+                        <p class="fs-1 fst-italic text-primary pt-4 quote">
                             <span>
-                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
-                                version="1.1" x="0px" y="0px" viewBox="0 0 100 125" style="enable-background:new 0 0 100 100;" xml:space="preserve">
-                                <path class="st0" d="M75.6,40.5c11,0,19.9,9,19.9,20c0,11-9,20-20,20s-20-9-20-20c0-22.1,17.9-40,40-40  
-                                C95.5,20.5,82.4,25.4,75.6,40.5z M45.5,60.5c0,11-9,20-20,20s-20-9-20-20l0,0c0-22.1,17.9-40,40-40c0,0-13.1,4.9-19.9,20  
-                                C36.6,40.5,45.5,49.5,45.5,60.5z"/>
+                                <svg class="w-25" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
+                                    version="1.1" x="0px" y="0px" viewBox="0 0 100 125" style="enable-background:new 0 0 100 100;" xml:space="preserve">
+                                    <path class="st0" d="M75.6,40.5c11,0,19.9,9,19.9,20c0,11-9,20-20,20s-20-9-20-20c0-22.1,17.9-40,40-40  
+                                    C95.5,20.5,82.4,25.4,75.6,40.5z M45.5,60.5c0,11-9,20-20,20s-20-9-20-20l0,0c0-22.1,17.9-40,40-40c0,0-13.1,4.9-19.9,20  
+                                    C36.6,40.5,45.5,49.5,45.5,60.5z"/>
                                 </svg>
                             </span>
-                        </div>
-
-                        <div>
-                            <p class="fs-1 fst-italic text-primary pt-4 quote">
-                                YES 
-                                </br>
-                                NO 
-                                </br>
-                                MAYBE
-                            </p>
-                        </div>
-                    </div>
+                            <br>
+                            <span class="ml-5">
+                            YES 
+                            </span>
+                            <br>
+                            <span>
+                            NO 
+                            </span>
+                            <br>
+                            <span>
+                            MAYBE
+                            </span>
+                        </p> 
+                    </div>-->
                 </div>
             </section>
         </main>
