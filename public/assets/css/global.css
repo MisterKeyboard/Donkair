@@ -10738,6 +10738,7 @@ textarea.form-control-lg {
 
 body{
   background-image: url(img/bg.jpg);
+
 }
 /* SECTION VOL */
 .vol{
@@ -10783,8 +10784,11 @@ body{
 
 
 .st0 {
-    width: 5%;
     fill:#6f42c1;
+}
+
+.rowChoice{
+  --bs-gutter-x: 0;
 }
 
 footer nav{

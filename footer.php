@@ -45,18 +45,18 @@
         <div id="overlay" class="overlay1">
             <div class="w-50 container">
                 <div id="popup" class="popup1">
-                        <h2 class="text-primary">Contactez-Nous:<span id="btnClose"
+                        <h2 class="text-primary fs-3">Contactez-Nous:<span id="btnClose"
                         class="btnClose1 text-primary">&times;</span>
 
 
                         <form action="getinfo.php" method="POST" >
-                            <label class="pt-3" for="name">Prénom et Nom </label>
+                            <label class="pt-3 fs-4" for="name">Nom</label>
                             <input class="form-control" type="text" name="name" id="name" />
 
-                            <label class="pt-3" for="mail">Mail </label>
+                            <label class="pt-3 fs-4" for="mail">Mail </label>
                             <input class="form-control" type="mail" name="mail" id="mail" placeholder="donkair@hotmail.fr"/>
 
-                            <label class="pt-3" for="sujet" > Sujet </label>
+                            <label class="pt-3 fs-4" for="sujet" > Sujet </label>
                             <select class="form-select" name="subject"> 
                                 <option valeur="">Annuler/Modifier une Reservation </option>
                                 <option valeur="">Bagage</option>
@@ -67,7 +67,7 @@
                                 <option valeur="">Autre </option>
                             </select>
 
-                            <label class="pt-3" for="message">Message </label>
+                            <label class="pt-3 fs-4" for="message">Message </label>
                             <div class="input-group">
                                 <textarea class="form-control" aria-label="With textarea" name="message" id="message"></textarea>
                             </div>
@@ -83,10 +83,10 @@
         <div id="overlay2" class="overlay2">
             <div class="w-50 container">
                 <div id="popup2" class="popup2">
-                    <h2 class="text-primary ">Contactez-Nous par téléphone:<span id="btnClose2"
+                    <h2 class="text-primary fs-4">Contactez-Nous par téléphone:<span id="btnClose2"
                     class="btnClose2 text-primary">&times;</span>
                         
-                    <p>Nous sommes joignables 7/7j et 24/24h <br>au 01 76 38 10 19</p>
+                    <p class="fs-4" >Nous sommes joignables 7/7j et 24/24h <br>au 01 76 38 10 19</p>
                 </div>
             </div>
             <script src="script.js"></script>
