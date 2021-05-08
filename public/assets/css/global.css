@@ -10736,6 +10736,9 @@ textarea.form-control-lg {
   box-sizing: border-box;
 }
 
+body{
+  background-image: url(img/bg.jpg);
+}
 /* SECTION VOL */
 .vol{
   margin-left: 3%;

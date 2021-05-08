@@ -149,33 +149,29 @@ require "headHeader.php";
             <section>
                 <h2 class="text-primary fw-bold container">Pourquoi choisir Donkair<h2>
                 <div>
-                    <ul class="row container">
-                        <li class=" col-sm-12 col-md-6 col-lg-3 container">
+                    <ul class="row">
+                        <li class=" col-sm-12 col-md-6 col-lg-3">
 
-                            <h3 class="feature-icons-title title--quaternary">VOLS<h3>
-                            <p>Une expérience considérable</p>
+                            <h3 class="text-center">VOLS<h3>
+                            <p class="text-center">Une expérience considérable</p>
                         </li>
 
                         <li class="col-sm-12 col-md-6 col-lg-3 container">
 
-                            <h3>PASSAGERS<h3>
-                            <p>Satisfaction</p>
+                            <h3 class="text-center">PASSAGERS<h3>
+                            <p class="text-center">Satisfaction</p>
                         </li>
 
                         <li class="col-sm-12 col-md-6 col-lg-3 container">
-                            <i>
-                            ::before
-                            </i>
-                            <h3>COUVERTURE MONDIALE<h3>
-                            <p>Des bureaux DonkAir sur les 6 continents</p>
+
+                            <h3 class="text-center">COUVERTURE MONDIALE<h3>
+                            <p class="text-center">Des bureaux DonkAir sur les 6 continents</p>
                         </li>
 
                         <li class="col-sm-12 col-md-6 col-lg-3 container">
-                            <i>
-                            ::before
-                            </i>
-                            <h3>SERVICE PERSONNALISÉ<h3>
-                            <p>Des chargés de clientèle dédiés, disponibles 24h/24, 7j/7 </p>
+
+                            <h3 class="text-center">SERVICE PERSONNALISÉ<h3>
+                            <p class="text-center">Des chargés de clientèle dédiés, disponibles 24h/24, 7j/7 </p>
                         </li>
                     </ul>
 
@@ -187,7 +183,7 @@ require "headHeader.php";
             <!-- *********       UN MOT DU PRESIDENT DE DONKAIR          ********** -->
             <section class="expert container" id="expert">
                 <div class="row">
-                    <h2 class="text-primary fw-bold pb-4">Un mot de notre président</h2>
+                    <!--<h2 class="text-primary fw-bold pb-4">Un mot de notre président</h2>-->
                     <div class="col-sm-12 col-md-12 col-lg-6">
                         <img class="rounded" src="img/cedric.jpg" alt="Président Cédric" width="100%">
                     </div>
@@ -233,6 +229,108 @@ require "headHeader.php";
                     </div>-->
                 </div>
             </section>
+
+<!-- *********       CAROUSSEL DESTINATION          ********** 
+<section>
+    <div class="container">
+        <div class="carousel">
+            <input type="radio" name="slides" checked="checked" id="slide-1">
+            <input type="radio" name="slides" id="slide-2">
+            <input type="radio" name="slides" id="slide-3">
+            <input type="radio" name="slides" id="slide-4">
+            <input type="radio" name="slides" id="slide-5">
+            <input type="radio" name="slides" id="slide-6">
+            <ul class="carousel__slides">
+                <li class="carousel__slide">
+                    <figure>
+                        <div>
+                            <img src="img/uploadtownsimages/alyeska_alaska.jpg" alt="">
+                        </div>
+                        <figcaption>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                            <span class="credit">Photo: Tim Marshall</span>
+                        </figcaption>
+                    </figure>
+                </li>
+                <li class="carousel__slide">
+                    <figure>
+                        <div>
+                            <img src="img/uploadtownsimages/cerro_catedral2_argentina.jpg" alt="">
+                        </div>
+                        <figcaption>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                            <span class="credit">Photo: Christian Joudrey</span>                            
+                        </figcaption>
+                    </figure>
+                </li>
+                <li class="carousel__slide">
+                    <figure>
+                        <div>
+                            <img src="img/uploadtownsimages/cortina_d'_ampezzo_italie.jpg" alt="">
+                        </div>
+                        <figcaption>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                            <span class="credit">Photo: Steve Carter</span>                            
+                        </figcaption>
+                    </figure>
+                </li>
+                <li class="carousel__slide">
+                    <figure>
+                        <div>
+                            <img src="img/uploadtownsimages/courchevel.jpg" alt="">
+                        </div>
+                        <figcaption>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                            <span class="credit">Photo: Aleksandra Boguslawska</span>                            
+                        </figcaption>
+                    </figure>
+                </li>
+                <li class="carousel__slide">
+                    <figure>
+                        <div>
+                            <img src="img/uploadtownsimages/japon_niseko.jpg" alt="">
+                        </div>
+                        <figcaption>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                            <span class="credit">Photo: Rosan Harmens</span>                            
+                        </figcaption>
+                    </figure>
+                </li>
+                <li class="carousel__slide">
+                    <figure>
+                        <div>
+                            <img src="img/uploadtownsimages/megeve.jpg" alt="">
+                        </div>
+                        <figcaption>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                            <span class="credit">Photo: Annie Spratt</span>                            
+                        </figcaption>
+                    </figure>
+                </li>
+            </ul>    
+            <ul class="carousel__thumbnails">
+                <li>
+                    <label for="slide-1"><img src="https://picsum.photos/id/1041/150/150" alt=""></label>
+                </li>
+                <li>
+                    <label for="slide-2"><img src="https://picsum.photos/id/1043/150/150" alt=""></label>
+                </li>
+                <li>
+                    <label for="slide-3"><img src="https://picsum.photos/id/1044/150/150" alt=""></label>
+                </li>
+                <li>
+                    <label for="slide-4"><img src="https://picsum.photos/id/1045/150/150" alt=""></label>
+                </li>
+                <li>
+                    <label for="slide-5"><img src="https://picsum.photos/id/1049/150/150" alt=""></label>
+                </li>
+                <li>
+                    <label for="slide-6"><img src="https://picsum.photos/id/1052/150/150" alt=""></label>
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>-->
         </main>
 
 

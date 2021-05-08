@@ -3,18 +3,40 @@
             <nav pl-5>
                 <ul class="list-unstyled">
                     <li class="pt-3">
-                        <a class="text-decoration-none text-white ml-5 mt-5 fs-3" href="#flight">Réservez votre vol</a>
+                        <a class="text-decoration-none text-white ml-5 mt-5 fs-3" href="index.php#flight">Réservez votre vol</a>
                     </li>
                     <li>
-                        <a class="text-decoration-none text-white ml-5 mt-5 fs-3 " href="#planes">Nos modèles d'avions</a>
+                        <a class="text-decoration-none text-white ml-5 mt-5 fs-3 " href="index.php#planes">Nos modèles d'avions</a>
                     <li>
-                        <a class="text-decoration-none text-white ml-5 mt-5 fs-3" href="#expert">A propos</a>
+                        <a class="text-decoration-none text-white ml-5 mt-5 fs-3" href="index.php#expert">A propos</a>
+                    </li>
+                    <li>
+                        <a class="text-decoration-none text-white ml-5 mt-5 fs-3" href="faq.php">FAQ</a>
                     </li>
                     <li class="pb-1">
                         <a class="text-decoration-none text-white ml-5 mt-5 fs-3" class="schedule" href="#header" target="_blank">Contact</a>
                     </li>
                 </ul>
             </nav>
+        <!-- *********       COOKIES            ********** -->
+
+<?php
+    if(!isset($_COOKIE['accepte-cookie'])){
+?>
+        <div class="container fixed-bottom bg-white rounded py-3 mb-3 w-75 px-5">
+            <div class="fs-3">
+                <p>Notre site utilise des cookies pour une meilleure expérience:</p>
+            </div>
+            <div class="">
+                
+                    <a class="btn btn-primary fs-4 text" href="?accepte-cookie">J'accepte</a>
+                
+            </div>
+        </div>
+<?php
+    }
+?>
+
         </footer>
 
 
@@ -28,11 +50,11 @@
 
 
                         <form action="getinfo.php" method="POST" >
-                            <label class="pt-3" for="name">Nom </label>
-                            <input class="form-select" type="text" name="name" id="name" placeholder="Name"/>
+                            <label class="pt-3" for="name">Prénom et Nom </label>
+                            <input class="form-control" type="text" name="name" id="name" />
 
                             <label class="pt-3" for="mail">Mail </label>
-                            <input class="form-select" type="mail" name="mail" id="mail" placeholder="donkair@hotmail.fr"/>
+                            <input class="form-control" type="mail" name="mail" id="mail" placeholder="donkair@hotmail.fr"/>
 
                             <label class="pt-3" for="sujet" > Sujet </label>
                             <select class="form-select" name="subject"> 

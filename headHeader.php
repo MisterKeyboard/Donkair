@@ -1,3 +1,11 @@
+<?php
+if(isset($_GET['accepte-cookie'])){
+    setcookie('accepte-cookie','true',time() + 365*24*3600);
+    header('Location:./');
+}
+
+?>
+
 <!DOCTYPE html>
 
 <html>
@@ -22,10 +30,10 @@
                 <a class="navbar-brand col-2" href="_self">
                     <img src="img/donkeysunglassesRemovebgw.png" alt="logo" width="100%">
                 </a>
-                <a class="text-decoration-none" href="#flight">Réservez un vol</a>
-                <a class="text-decoration-none" href="#planes">Avions</a>
-                <a class="text-decoration-none" href="#expert">A propos</a>
-            
+                <a class="text-decoration-none" href="index.php#flight">Réservez un vol</a>
+                <a class="text-decoration-none" href="index.php#planes">Avions</a>
+                <a class="text-decoration-none" href="index.php#expert">A propos</a>
+                <a class="text-decoration-none" href="faq.php"> FAQ</a>
             <div>
                 <!-- Modale     phone number -->
                 <button class="modal2 btnPopup2 btn btn-primary pb-1"> Contactez-nous par téléphone</button>
