@@ -12,6 +12,8 @@ if (!empty($_POST)) {
             f.arrivalCity,
             f.date,
             f.departureTime,
+            f.arrivalTime,
+            TIMEDIFF(f.arrivalTime,f.departureTime),
             f.flightNbr,
             plane.model,
             plane.image,
@@ -94,8 +96,9 @@ if (!empty($_POST)) {
             </div>
             <div class="col-sm-12 col-md-6 col-lg-6 pt-4">
                 <p class="vol"><span class="text-primary">Votre avion: </span><?php echo $flight['model'] ?></p>
-                <p class="vol"><span class="text-primary pl-3">Date et heure du départ:</span><?php echo $date1->format('d-m-Y à H:i') ?></p>
                 <p class="vol"><span class="text-primary pl-3">Numéro de vol: </span><?php echo $flightNbr ?></p>
+                <p class="vol"><span class="text-primary pl-3">Date et heure du départ: </span><?php echo $date1->format('d-m-Y à H:i') ?></p>
+                <p class="vol"><span class="text-primary pl-3">Durée du vol: </span><?php echo $flight['TIMEDIFF(f.arrivalTime,f.departureTime)'] ?></p>
                 <div>
                     <a class="btn btn-primary vol" href="customer.php?flightId=<?php echo $flightId; ?>"  target=_blank> Go </a>
                 </div>
