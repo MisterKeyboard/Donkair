@@ -13,15 +13,16 @@ $getFlightId->execute([$flightId]);
 $getFlightId->setFetchMode(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE, 'Plane');
 $data = $getFlightId->fetch();
 
-if ($data->flightFull()) {
-    echo "Le nombre de place limité pour ce vol est de " . $data->getcapacity() . " places.";
-}
+// if ($data->flightFull()) {
+//     echo "Le nombre de place limité pour ce vol est de " . $data->getcapacity() . " places.";
+// }
 
 $flightNbr = $data->flightNbr;
 $capacity = $data->getCapacity();
+//
 
 if ($_SESSION['nbrPassenger'] > $capacity) {
-
+    echo "Le nombre de place limité pour ce vol est de " . $data->getcapacity() . " places.";
 } else {
 
 ?>
@@ -88,22 +89,44 @@ if (isset($_POST['name']) && isset($_POST['firstname']) && isset($_POST['mail'])
         $firstname = $_POST['firstname'][$i];
         $mail = $_POST['mail'][$i];
         $tel = $_POST['tel'][$i];
-        
-        $sql = $objetPdo->prepare('INSERT INTO customer (name, firstname, mail, tel, flightNbr) VALUES (:name, :firstname, :mail, :tel');
-    
-        $sql->execute(array(':name' => $name, ':firstname' => $firstname, ':mail' => $mail, ':tel' => $tel));
-        
-    } 
-}    
 
-// $join = 'SELECT flight.flightNbr FROM flight LEFT JOIN customer ON flight.flightNbr = customer.flightNbr'; 
+        $sql = $objetPdo->prepare('INSERT INTO customer (name, firstname, mail, tel) VALUES (:name, :firstname, :mail, :tel)');
+        
+        $sql->execute(array(':name' => $name, ':firstname' => $firstname, ':mail' => $mail, ':tel' => $tel));
+
+        
+    // $fetch = $sql->fetch();
+    // var_dump($fetch);
+
+ //Remplir la table Booking 
+$flightId = $_GET['flightId'];
+
+// $name = $_POST['name'];
+// $firstname = $_POST['firstname'];
+
+$sql2 = $objetPdo->prepare('INSERT INTO booking (name, firstname, flightId) VALUES (:name, :firstname, :flightId)');
+
+$sql2->execute(array(':name' => $name, ':firstname' => $firstname, ':flightId' => $flightId));
+
+ 
+ }
+
+}
+
+
+// $requestJoin = $objetPdo->prepare('SELECT customer.name, booking.customer_id FROM customer LEFT JOIN booking ON customer.id = booking.customer_id');
+// $requestJoin->execute();
+
+//  $join = $objetPdo->prepare('SELECT flight.flightNbr FROM flight LEFT JOIN customer ON flight.flightNbr = customer.flightNbr'); 
+//  $joinLeft = $join->execute();
 
 //  $customerId = 'SELECT customer.id, booking.customer_id FROM booking LEFT JOIN customer ON customer.id = booking.customer_id';
+//'SELECT flight.flightNbr FROM flight LEFT JOIN customer ON flight.flightNbr = customer.flightNbr'
 
 // $count = 'SELECT COUNT  '; 
 
 require "footer.php";  
 ?>
-   
+
 </main>
- 
+
