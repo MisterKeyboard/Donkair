@@ -83,10 +83,10 @@
         <div id="overlay2" class="overlay2">
             <div class="w-50 container">
                 <div id="popup2" class="popup2">
-                    <h2 class="text-primary fs-4">Contactez-Nous par téléphone:<span id="btnClose2"
+                    <h2 class="text-primary text-center fs-4">Contactez-Nous par téléphone:<span id="btnClose2"
                     class="btnClose2 text-primary">&times;</span>
                         
-                    <p class="fs-4" >Nous sommes joignables 7/7j et 24/24h <br>au 01 76 38 10 19</p>
+                    <p class="fs-4 text-center" >Nous sommes joignables 7/7j et 24/24h <br>au 01 76 38 10 19</p>
                 </div>
             </div>
             <script src="script.js"></script>

@@ -33,6 +33,23 @@ if ($_SESSION['nbrPassenger'] > $capacity) {
 
     <body>
         <main>
+                                    <!-- *********       CAROUSSEL DESTINATION          ********** -->
+                                    <section class="carouseldest">
+                <div class="containerdestinations pb-3">
+                    <div class="carouseldestinations">
+                        <div class="carouseldestinations__face"><span class="spandestinations text-primary">Welcome</span></div>
+                        <div class="carouseldestinations__face"><span class="spandestinations text-primary">Aboard</span></div>
+                        <div class="carouseldestinations__face"><span class="spandestinations text-primary">Make</span></div>
+                        <div class="carouseldestinations__face"><span class="spandestinations text-primary">Your</span></div>
+                        <div class="carouseldestinations__face"><span class="spandestinations text-primary">Dream</span></div>
+                        <div class="carouseldestinations__face"><span class="spandestinations text-primary">Come</span></div>
+                        <div class="carouseldestinations__face"><span class="spandestinations text-primary">True</span></div>
+                        <div class="carouseldestinations__face"><span class="spandestinations text-primary">DonkAir</span></div>
+                        <div class="carouseldestinations__face"><span class="spandestinations text-primary">Does care</span></div>
+                    </div>
+                </div>
+            </section>
+
         <form class="container card col-6 pt-3 pb-3 mb-3" method="POST" action="">
 
         <h2 class="text-primary"> Merci de bien vouloir vous enregistrer</h2>

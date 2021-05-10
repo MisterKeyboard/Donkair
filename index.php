@@ -93,24 +93,24 @@ require "headHeader.php";
             <?php require_once "searchflight.php";
                     ?>
 
-        </section>
+        
 
 
-<!-- Carrousel ---->
-<div id="carouselExampleSlidesOnly" class="carousel slide pt-3" data-bs-ride="carousel">
-    <div class="carousel-inner">
-        <div class="carousel-item active">
-            <img src="img/cirrus/cirrus10.jpg" class="d-block w-100" alt="avion de type cirrus avec une chaine de montagnes en arrière plan">
-        </div>
-        <div class="carousel-item">
-            <img src="img/cessna/cessna7.jpg" class="d-block w-100" alt="avion cessna dans les airs">
-        </div>
-        <div class="carousel-item">
-            <img src="img/cessna/cessna1.jpg" class="d-block w-100" alt="intérieur côté passager de l'avion cessna">
-        </div>
-    </div>
-</div>
-
+            <!-- Carrousel ---->
+            <div id="carouselExampleSlidesOnly" class="carousel slide pt-3" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="img/cirrus/cirrus10.jpg" class="d-block w-100" alt="avion de type cirrus avec une chaine de montagnes en arrière plan">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="img/cessna/cessna7.jpg" class="d-block w-100" alt="avion cessna dans les airs">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="img/cessna/cessna1.jpg" class="d-block w-100" alt="intérieur côté passager de l'avion cessna">
+                    </div>
+                </div>
+            </div>
+        </section>                   
 
 
 
@@ -417,107 +417,22 @@ require "headHeader.php";
                 </div>
             </section>
 
-<!-- *********       CAROUSSEL DESTINATION          ********** 
-<section>
-    <div class="container">
-        <div class="carousel">
-            <input type="radio" name="slides" checked="checked" id="slide-1">
-            <input type="radio" name="slides" id="slide-2">
-            <input type="radio" name="slides" id="slide-3">
-            <input type="radio" name="slides" id="slide-4">
-            <input type="radio" name="slides" id="slide-5">
-            <input type="radio" name="slides" id="slide-6">
-            <ul class="carousel__slides">
-                <li class="carousel__slide">
-                    <figure>
-                        <div>
-                            <img src="img/uploadtownsimages/alyeska_alaska.jpg" alt="">
-                        </div>
-                        <figcaption>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                            <span class="credit">Photo: Tim Marshall</span>
-                        </figcaption>
-                    </figure>
-                </li>
-                <li class="carousel__slide">
-                    <figure>
-                        <div>
-                            <img src="img/uploadtownsimages/cerro_catedral2_argentina.jpg" alt="">
-                        </div>
-                        <figcaption>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                            <span class="credit">Photo: Christian Joudrey</span>                            
-                        </figcaption>
-                    </figure>
-                </li>
-                <li class="carousel__slide">
-                    <figure>
-                        <div>
-                            <img src="img/uploadtownsimages/cortina_d'_ampezzo_italie.jpg" alt="">
-                        </div>
-                        <figcaption>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                            <span class="credit">Photo: Steve Carter</span>                            
-                        </figcaption>
-                    </figure>
-                </li>
-                <li class="carousel__slide">
-                    <figure>
-                        <div>
-                            <img src="img/uploadtownsimages/courchevel.jpg" alt="">
-                        </div>
-                        <figcaption>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                            <span class="credit">Photo: Aleksandra Boguslawska</span>                            
-                        </figcaption>
-                    </figure>
-                </li>
-                <li class="carousel__slide">
-                    <figure>
-                        <div>
-                            <img src="img/uploadtownsimages/japon_niseko.jpg" alt="">
-                        </div>
-                        <figcaption>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                            <span class="credit">Photo: Rosan Harmens</span>                            
-                        </figcaption>
-                    </figure>
-                </li>
-                <li class="carousel__slide">
-                    <figure>
-                        <div>
-                            <img src="img/uploadtownsimages/megeve.jpg" alt="">
-                        </div>
-                        <figcaption>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                            <span class="credit">Photo: Annie Spratt</span>                            
-                        </figcaption>
-                    </figure>
-                </li>
-            </ul>    
-            <ul class="carousel__thumbnails">
-                <li>
-                    <label for="slide-1"><img src="https://picsum.photos/id/1041/150/150" alt=""></label>
-                </li>
-                <li>
-                    <label for="slide-2"><img src="https://picsum.photos/id/1043/150/150" alt=""></label>
-                </li>
-                <li>
-                    <label for="slide-3"><img src="https://picsum.photos/id/1044/150/150" alt=""></label>
-                </li>
-                <li>
-                    <label for="slide-4"><img src="https://picsum.photos/id/1045/150/150" alt=""></label>
-                </li>
-                <li>
-                    <label for="slide-5"><img src="https://picsum.photos/id/1049/150/150" alt=""></label>
-                </li>
-                <li>
-                    <label for="slide-6"><img src="https://picsum.photos/id/1052/150/150" alt=""></label>
-                </li>
-            </ul>
-        </div>
-    </div>
-</section>-->
+                                    <!-- *********       CAROUSSEL DESTINATION          ********** -->
+            <section class="carouseldest">
+                <div class="containerdestinations">
+                    <div class="carouseldestinations">
+                        <div class="carouseldestinations__face"><span class="spandestinations text-primary">Welcome</span></div>
+                        <div class="carouseldestinations__face"><span class="spandestinations text-primary">Aboard</span></div>
+                        <div class="carouseldestinations__face"><span class="spandestinations text-primary">Make</span></div>
+                        <div class="carouseldestinations__face"><span class="spandestinations text-primary">Your</span></div>
+                        <div class="carouseldestinations__face"><span class="spandestinations text-primary">Dream</span></div>
+                        <div class="carouseldestinations__face"><span class="spandestinations text-primary">Come</span></div>
+                        <div class="carouseldestinations__face"><span class="spandestinations text-primary">True</span></div>
+                        <div class="carouseldestinations__face"><span class="spandestinations text-primary">DonkAir</span></div>
+                        <div class="carouseldestinations__face"><span class="spandestinations text-primary">Does care</span></div>
+                    </div>
+                </div>
+            </section>
         </main>
 
 

@@ -10736,10 +10736,7 @@ textarea.form-control-lg {
   box-sizing: border-box;
 }
 
-body{
-  background-image: url(img/bg.jpg);
 
-}
 /* SECTION VOL */
 .vol{
   margin-left: 3%;
@@ -10772,7 +10769,7 @@ body{
 .popup1, .form, .popup2{
   margin: 20% auto;
   padding: 1em;
-  background-color: #e4e4e4;
+  background-color:white;
   border-radius: 5px;
   box-shadow: 15px 20px 0 #6e42c154;
 }
@@ -10800,3 +10797,77 @@ footer{
   padding-bottom: 2px;
 }
 
+/* caroussel destinations */
+.containerdestinations {
+  position: relative;
+  width: 320px;
+  margin: 100px auto 0 auto;
+  perspective: 1000px;
+}
+
+.carouseldest{
+height:404px;
+margin-top: -109px;
+}
+.carouseldestinations {
+  position: absolute;
+  width: 100%;
+  transform-style: preserve-3d; 
+  animation: rotate360 120s infinite forwards linear;
+}
+.carouseldestinations__face { 
+  position: absolute;
+  width: 300px;
+  height: 187px;
+  top: 20px;
+  left: 10px;
+  right: 10px;
+  background-size: cover;
+  box-shadow:inset 0 0 0 2000px rgba(0,0,0,0.5);
+  display: flex;
+}
+
+.spandestinations {
+  margin: auto;
+  font-size: 2rem;
+}
+
+
+.carouseldestinations__face:nth-child(1) {
+  background-image: url("/img/uploadtownsimages/tignes.jpg");
+  transform: rotateY(  0deg) translateZ(430px); }
+.carouseldestinations__face:nth-child(2) { 
+  background-image: url("/img/uploadtownsimages/st_moritz_suisse.jpg");
+    transform: rotateY( 40deg) translateZ(430px); }
+.carouseldestinations__face:nth-child(3) {
+  background-image: url("/img/uploadtownsimages/mont_tremblant_canada.jpg");
+  transform: rotateY( 80deg) translateZ(430px); }
+.carouseldestinations__face:nth-child(4) {
+  background-image: url("/img/uploadtownsimages/mont_ruapehu_nouvelle_zelande.jpg");
+  transform: rotateY(120deg) translateZ(430px); }
+.carouseldestinations__face:nth-child(5) { 
+  background-image: url("/img/uploadtownsimages/meribel.jpg");
+ transform: rotateY(160deg) translateZ(430px); }
+.carouseldestinations__face:nth-child(6) { 
+  background-image: url("/img/uploadtownsimages/courchevel.jpg");
+ transform: rotateY(200deg) translateZ(430px); }
+.carouseldestinations__face:nth-child(7) { 
+  background-image: url("/img/uploadtownsimages/cortina_d'_ampezzo_italie.jpg");
+ transform: rotateY(240deg) translateZ(430px); }
+.carouseldestinations__face:nth-child(8) {
+  background-image: url("/img/uploadtownsimages/megeve.jpg");
+  transform: rotateY(280deg) translateZ(430px); }
+.carouseldestinations__face:nth-child(9) {
+  background-image: url("/img/uploadtownsimages/alyeska_alaska.jpg");
+  transform: rotateY(320deg) translateZ(430px); }
+
+
+
+@keyframes rotate360 {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(-360deg);
+  }
+}
