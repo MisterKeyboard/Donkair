@@ -1,12 +1,6 @@
 <?php
-require "Model/Plane.php";
-require "headHeader.php";  
+require "customer.php";
 
 
 
 
-
-
-
-
-require "footer.php";  
