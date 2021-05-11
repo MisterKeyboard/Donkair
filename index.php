@@ -18,6 +18,7 @@ require "headHeader.php";
             <div class="col-8 container card py-3 border-primary bg-white">
                 <h2 class="text-primary fw-bold"> Reservez votre vol:<h2>
 
+<<<<<<< HEAD
                 <form name="form" method="POST">
                     <div class="row">
                         <div class="col-sm-12 col-md-12 col-lg-6">
@@ -29,10 +30,28 @@ require "headHeader.php";
                                 $selection = $objetPdo->query('SELECT town, id FROM route');
                                 while($donnees = $selection->fetch())
                                 {
+=======
+                    
+                    <form name="form" method="POST">
+
+                        <div class="row">
+                            <div class="col-6">
+                                <label class="pt-3" for="departureCity"> Ville de départ </label>
+
+                                <select class="form-select" name="departureCity" id="departureCity">
+
+                                <?php
+                                    $objetPdo=openPDO();
+                                    $selection = $objetPdo->query('SELECT town, id FROM route');
+                                    while($donnees = $selection->fetch())
+                                    {
+>>>>>>> conflict
                                 ?>
                                 <option value= " <?= $donnees['id'] ?> "> <?= $donnees['town'] ?> </option>
                                 <?php
                                 }
+                                // if ($donnees['id'] == $_POST['departureCity']); 
+                                // { echo  ; }
                                 ?>
                             </select>
                         </div>
@@ -191,7 +210,7 @@ require "headHeader.php";
 
                         <div class="col-sm-12 col-md-6 col-lg-3 container">
                             <div class="container w-25 py-4 px-1">
-                                <?xml version="1.0" encoding="iso-8859-1"?>
+                                // <?xml version="1.0" encoding="iso-8859-1"
                                 <!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0  -->
                                 <svg class="st0" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                                     viewBox="0 0 368 368" style="enable-background:new 0 0 368 368;" xml:space="preserve">

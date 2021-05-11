@@ -17,9 +17,40 @@ $data = $getFlightId->fetch();
 //     echo "Le nombre de place limité pour ce vol est de " . $data->getcapacity() . " places.";
 // }
 
+//GESTION des erreurs du forms 
+
+
+if (isset($_POST['send']))
+{
+    if(isset($_POST['name']) && isset($_POST['firstname']) && isset($_POST['mail']) && isset($_POST['tel']));
+     {  
+        $name = $_POST['name'];
+        $firstname = $_POST['firstname'];
+        $mail = $_POST['mail'];
+        $tel = $_POST['tel'];
+
+        if(!empty($_POST['name']) && !empty($_POST['firstname']) && !empty($_POST['mail']) && !empty($_POST['tel']))
+        {
+            //print_r($name);
+            $name = $_POST['name'];
+            $firstname = $_POST['firstname'];
+            $mail = $_POST['mail'];
+            $tel = $_POST['tel'];
+            
+
+            echo "Vos informations sont bien été enregistrées. Merci pour votre confiance";
+            ?> 
+            <a href = "index.php"> Retourner à la page d'accueil</a>
+            <?php
+        } else {
+            echo "Veuillez remplir tous les champs svp";
+        }
+    }
+}
+
 $flightNbr = $data->flightNbr;
 $capacity = $data->getCapacity();
-//
+
 
 if ($_SESSION['nbrPassenger'] > $capacity) {
     echo "Le nombre de place limité pour ce vol est de " . $data->getcapacity() . " places.";
@@ -108,8 +139,8 @@ $sql2 = $objetPdo->prepare('INSERT INTO booking (name, firstname, flightId) VALU
 
 $sql2->execute(array(':name' => $name, ':firstname' => $firstname, ':flightId' => $flightId));
 
- 
- }
+        
+    } 
 
 }
 
@@ -123,7 +154,7 @@ $sql2->execute(array(':name' => $name, ':firstname' => $firstname, ':flightId' =
 //  $customerId = 'SELECT customer.id, booking.customer_id FROM booking LEFT JOIN customer ON customer.id = booking.customer_id';
 //'SELECT flight.flightNbr FROM flight LEFT JOIN customer ON flight.flightNbr = customer.flightNbr'
 
-// $count = 'SELECT COUNT  '; 
+$count = 'SELECT COUNT (  '; 
 
 require "footer.php";  
 ?>
