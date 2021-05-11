@@ -77,6 +77,19 @@ if (!empty($_POST)) {
         </div>
         <h3 class="text-primary">Validez votre vol</h3>
 
+        <!--flip card
+        <div class="flip-card">
+  <div class="flip-card-inner">
+    <div class="flip-card-front">
+    <img src="">
+    </div>
+    <div class="flip-card-back">
+      <h1></h1>
+      <p></p>
+      <p></p>
+    </div>
+  </div>
+</div> -->
 
 <?php
     foreach ($flights as $flight)
