@@ -19,33 +19,33 @@ $data = $getFlightId->fetch();
 
 //GESTION des erreurs du forms 
 
-if (isset($_POST['send']))
-{
-    if(isset($_POST['name']) && isset($_POST['firstname']) && isset($_POST['mail']) && isset($_POST['tel']));
-     {  
-        $name = $_POST['name'];
-        $firstname = $_POST['firstname'];
-        $mail = $_POST['mail'];
-        $tel = $_POST['tel'];
+// if (isset($_POST['send']))
+// {
+//     if(isset($_POST['name']) && isset($_POST['firstname']) && isset($_POST['mail']) && isset($_POST['tel']));
+//      {  
+//         $name = $_POST['name'];
+//         $firstname = $_POST['firstname'];
+//         $mail = $_POST['mail'];
+//         $tel = $_POST['tel'];
 
-        if(!empty($_POST['name']) && !empty($_POST['firstname']) && !empty($_POST['mail']) && !empty($_POST['tel']))
-        {
-            //print_r($name);
-            $name = $_POST['name'];
-            $firstname = $_POST['firstname'];
-            $mail = $_POST['mail'];
-            $tel = $_POST['tel'];
+//         if(!empty($_POST['name']) && !empty($_POST['firstname']) && !empty($_POST['mail']) && !empty($_POST['tel']))
+//         {
+//             //print_r($name);
+//             $name = $_POST['name'];
+//             $firstname = $_POST['firstname'];
+//             $mail = $_POST['mail'];
+//             $tel = $_POST['tel'];
             
 
-            echo "Vos informations sont bien été enregistrées. Merci pour votre confiance";
-            ?> 
-            <a href = "index.php"> Retourner à la page d'accueil</a>
+//             echo "Vos informations ont bien été enregistrées. Merci pour votre confiance";
+            // ?> 
+            <!-- // <a href = "index.php"> Retourner à la page d'accueil</a> -->
             <?php
-        } else {
-            echo "Veuillez remplir tous les champs svp";
-        }
-    }
-}
+//         } else {
+//             echo "Veuillez remplir tous les champs svp";
+//         }
+//     }
+// }
 
 $flightNbr = $data->flightNbr;
 $capacity = $data->getCapacity();
@@ -59,7 +59,7 @@ if ($_SESSION['nbrPassenger'] > $capacity) {
 
     <body>
         <main>
-                                    <!-- *********       CAROUSSEL DESTINATION          ********** -->
+                                    <!-- *********       CAROUSSEL DESTINATION          **********
                                     <section class="carouseldest">
                 <div class="containerdestinations pb-3">
                     <div class="carouseldestinations">
@@ -72,7 +72,7 @@ if ($_SESSION['nbrPassenger'] > $capacity) {
                         <div class="carouseldestinations__face"><span class="spandestinations text-primary">True</span></div>
                         <div class="carouseldestinations__face"><span class="spandestinations text-primary">DonkAir</span></div>
                         <div class="carouseldestinations__face"><span class="spandestinations text-primary">Does care</span></div>
-                    </div>
+                    </div> -->
                 </div>
             </section>
 
@@ -143,6 +143,7 @@ $sql2->execute(array(':name' => $name, ':firstname' => $firstname, ':flightId' =
 
 }
 
+
 // $requestJoin = $objetPdo->prepare('SELECT customer.name, booking.customer_id FROM customer LEFT JOIN booking ON customer.id = booking.customer_id');
 // $requestJoin->execute();
 
@@ -163,20 +164,31 @@ $sql2->execute(array(':name' => $name, ':firstname' => $firstname, ':flightId' =
 // print($counter1);
 
 $count = '
-SELECT 
+SELECT tab.* FROM 
+(SELECT 
     flight.id,
     plane.capacity,
-    COUNT(booking.name)
+    COUNT(booking.name), 
+   (plane.capacity - COUNT(booking.name)) placeDispo
 FROM flight
 INNER JOIN plane ON plane.id = flight.planeModel
 LEFT JOIN booking ON booking.flightId = flight.id
-GROUP BY flight.id
+GROUP BY flight.id) tab
+WHERE tab.placeDispo > 0;
 ';
-$countFectch = $objetPdo->query($count);
-$counter = $countFectch->fetchColumn();
-//print($counter);
-if ()
+$countFetch = $objetPdo->query($count);
+foreach ($countFetch as $row) {
+    $idF= $row['id'];
+    $capacity = $row['capacity'];
+    //$num = $row['num'];
+    $placeDispo = $row['placeDispo'];
 
+}
+
+
+
+
+//print($counter);
 require "footer.php";  
 ?>
 

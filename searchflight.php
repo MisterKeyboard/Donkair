@@ -38,49 +38,61 @@ if (!empty($_POST)) {
     if (isset($_POST['departureCity'])) {
         $keyConditions[] = 'f.departureCity = ?';
         $valConditions[] = $_POST['departureCity'];
-    }
+    } else {
+        echo "Remplir tous les champs";
+    };
 
     if (isset($_POST['arrivalCity'])) {
         $keyConditions[] = 'f.arrivalCity = ?';
         $valConditions[] = $_POST['arrivalCity'];
-    }
+    }else {
+        echo "Remplir tous les champs";
+    };
 
     if (isset($_POST['date'])) {
         $keyConditions[] = 'f.date = ?';
         $valConditions[] = $_POST['date'];
-    }
+    }else {
+        echo "Remplir tous les champs";
+    };
 
     if (!empty($keyConditions)) {
         $request .= ' WHERE ' . implode(' AND ', $keyConditions);
-    }
+    }else {
+        echo "Remplir tous les champs";
+    };
 
     $searchFlight = $objetPdo->prepare($request);
     $searchFlight->execute($valConditions); 
 
     $flights = $searchFlight->fetchAll();
-    $departureCity = $flights[0]['departureTown'];
-    $arrivalCity = $flights[0]['arrivalTown'];
-    $departureImage = $flights[0]['departureImage'];
-    $arrivalImage = $flights[0]['arrivalImage']; 
+
+    $departureCity = $_POST['arrivalCity'];
+    $arrivalCity = $_POST['departureCity'];
+    // $departureImage = $_POST['departureImage'];
+    // $arrivalImage = $_POST['arrivalImage']; 
+
     ?>
 
-    <div class="container pt-3 recherche:">
+    <!-- <div class="container pt-3 recherche:">
         <h2 class="text-primary fw-bold">Votre recherche </h2>
     </div>
     <div class="container card my-3 pb-3">
         <div class="row">
             <div class="col-sm-12 col-md-6 col-lg-6 pt-3">
-                <img src="img/uploadtownsimages/<?php echo $departureImage ?> " class="card-img-top" alt="photo ville">
-                <p><span class="text-primary">Ville de départ: </span><?php echo $departureCity ?></p>
+                <img src="img/uploadtownsimages/<?php //echo $departureImage ?> " class="card-img-top" alt="photo ville">
+                <p><span class="text-primary">Ville de départ: </span><?php //echo $departureCity ?></p>
             </div>
             <div class="col-sm-12 col-md-6 col-lg-6 pt-3">
-                <img src="img/uploadtownsimages/<?php echo $arrivalImage ?> " class="card-img-top" alt="photo ville">
-                <p><span class="text-primary">Ville d'arrivée: </span><?php echo $arrivalCity ?></p>
+                <img src="img/uploadtownsimages/<?php //echo $arrivalImage ?> " class="card-img-top" alt="photo ville">
+                <p><span class="text-primary">Ville d'arrivée: </span><?php //echo $arrivalCity ?></p>
             </div>
         </div>
         <h3 class="text-primary">Validez votre vol</h3>
-
-        <!--flip card
+  <?php  
+    
+?>
+        <!-flip card
         <div class="flip-card">
   <div class="flip-card-inner">
     <div class="flip-card-front">
@@ -95,6 +107,7 @@ if (!empty($_POST)) {
 </div> -->
 
 <?php
+
     foreach ($flights as $flight)
     {   
         $flightId = $flight['id'];
@@ -104,8 +117,6 @@ if (!empty($_POST)) {
         $date1 = new DateTime($date);
 
 ?> 
-
-
 
         <div class="row container g-0">
             <div class="col-sm-12 col-md-6 col-lg-6 pt-3">
@@ -121,9 +132,6 @@ if (!empty($_POST)) {
                 </div>
             </div>
 
-
-        
-
 <?php 
     }
 ?>
@@ -132,6 +140,7 @@ if (!empty($_POST)) {
     </div>
 <?php 
     }
+
 
 
 // $id = $_GET['idd']; 

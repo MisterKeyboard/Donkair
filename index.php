@@ -50,7 +50,7 @@ require "headHeader.php";
                     //                 {
 
                     //             ?>
-                                <option <?php if($donnees['id'] == $_POST['arrivalCity']){echo "selected";} ?> value="<?= $donnees['id'] ?>"> <?= $donnees['town'] ?> </option> 
+                                <option value= " <?= $donnees['id'] ?> "> <?= $donnees['town'] ?> </option>
                                 <?php
                                 }
                                 // if ($donnees['id'] == $_POST['departureCity']); 
@@ -66,7 +66,7 @@ require "headHeader.php";
                             while($donnees = $selection->fetch())
                             {
                             ?>
-                            <option <?php if($donnees['id'] == $_POST['arrivalCity']){echo "selected";} ?> value="<?= $donnees['id'] ?>"> <?= $donnees['town'] ?> </option>
+                            <option <?php if (isset($_POST['arrivalCity']) && $donnees['id'] == $_POST['arrivalCity']){echo "selected";} ?> value="<?= $donnees['id'] ?>"> <?= $donnees['town'] ?> </option>
                             <?php
                             }
                             ?>
