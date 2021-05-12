@@ -19,7 +19,6 @@ $data = $getFlightId->fetch();
 
 //GESTION des erreurs du forms 
 
-
 if (isset($_POST['send']))
 {
     if(isset($_POST['name']) && isset($_POST['firstname']) && isset($_POST['mail']) && isset($_POST['tel']));
@@ -144,7 +143,6 @@ $sql2->execute(array(':name' => $name, ':firstname' => $firstname, ':flightId' =
 
 }
 
-
 // $requestJoin = $objetPdo->prepare('SELECT customer.name, booking.customer_id FROM customer LEFT JOIN booking ON customer.id = booking.customer_id');
 // $requestJoin->execute();
 
@@ -154,7 +152,30 @@ $sql2->execute(array(':name' => $name, ':firstname' => $firstname, ':flightId' =
 //  $customerId = 'SELECT customer.id, booking.customer_id FROM booking LEFT JOIN customer ON customer.id = booking.customer_id';
 //'SELECT flight.flightNbr FROM flight LEFT JOIN customer ON flight.flightNbr = customer.flightNbr'
 
-$count = 'SELECT COUNT (  '; 
+// $count = 'SELECT COUNT(*) FROM booking WHERE flightId = 2';
+// $countFectch = $objetPdo->query($count);
+// $counter = $countFectch->fetchColumn();
+// print($counter);
+
+// $count1 = 'SELECT COUNT(*) FROM booking WHERE flightId = 1';
+// $countFectch1 = $objetPdo->query($count1);
+// $counter1 = $countFectch->fetchColumn();
+// print($counter1);
+
+$count = '
+SELECT 
+    flight.id,
+    plane.capacity,
+    COUNT(booking.name)
+FROM flight
+INNER JOIN plane ON plane.id = flight.planeModel
+LEFT JOIN booking ON booking.flightId = flight.id
+GROUP BY flight.id
+';
+$countFectch = $objetPdo->query($count);
+$counter = $countFectch->fetchColumn();
+//print($counter);
+if ()
 
 require "footer.php";  
 ?>

@@ -1,5 +1,6 @@
 <?php
 
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if (isset($_POST['name']) && isset($_POST['mail']) && isset($_POST['subject']) && isset($_POST['message'])) {
@@ -15,9 +16,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $headers .= "Reply-to: " . $mail."\r\n";
 
         $sent = mail("nafemtn@gmail.com", $subject, $message, $headers);
-var_dump($sent);
+//var_dump($sent);
         if ($sent){
-        echo "Votre Message a bien été envoyé, nous vous réponderons dans les plus brefs délais.";
+        echo "Votre Message a bien été envoyé, nous vous réponderons dans les plus brefs délais." ;
         } else { echo "Une erreur s'est produite";
         }
     }

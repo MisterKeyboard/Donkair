@@ -1,5 +1,6 @@
 $font-family-sans-serif: Arial;
 $primary: #6f42c1;
+$BGreservation: rgba(85, 51, 82, 0.89);
 
 @import "./node_modules/bootstrap/scss/bootstrap.scss"; 
 
@@ -42,3 +43,9 @@ $primary: #6f42c1;
     float: right;
     box-shadow: 15px 20px 0 #6f42c1;
 }
+
+body {
+
+  background: rgb(239,219,255);
+  background: radial-gradient(circle, rgba(239,219,255,0.6964986678265056) 0%, rgba(208,163,232,1) 100%);
+  }

@@ -1,11 +1,54 @@
 
 
+
+/* Header */
+
+.title {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.title1 {
+    color: #6f42c1;
+    font-family: fantasy;
+    font-size: 50px;
+    
+}
+
+.title2 {
+    color: grey;
+    font-family: fantasy;
+    font-style: italic;
+} 
+
+.title3 {
+    padding-left: 20px;
+    color: black;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: large;
+    font-style: normal;
+}
+
+.navbar {
+    background-image: linear-gradient( rgba(181, 122, 210, 0.776388), white) ;
+    border-radius: 10px;
+    font-size: 30px;
+}
+
+.logo {
+    height : 150px;
+    display: grid;
+    justify-items: inherit;
+}
+
 /* GENERAL RULES IN THE BODY */
 
 body{
     font-family: Arial, Georgia, 'Times New Roman', Times, serif;
-    background: url('../img/Bibliothèque-nationale-de-Rio-de-Janeiro-Brésil-0.jpg');
+    /* background: url('../img/Bibliothèque-nationale-de-Rio-de-Janeiro-Brésil-0.jpg'); */
     background-size: cover;
+    background-image: linear-gradient(white, rgba(181, 122, 210, 0.776388)  ) ;
+  
 }
 
 *{
@@ -14,6 +57,27 @@ body{
     box-sizing: border-box;
 }
 
+#flight {
+    background-color:rgba(85, 51, 82, 0.89);
+    background-image:
+    radial-gradient(#6f42c1, rgba(255,255,255,.2) 2px, transparent 40px),
+    radial-gradient(#6f42c1, rgba(255,255,255,.15) 1px, transparent 30px),
+    radial-gradient(#6f42c1, rgba(255,255,255,.1) 2px, transparent 40px),
+    radial-gradient(rgba(255,255,255,.4), rgba(255,255,255,.1) 2px, transparent 30px);
+    background-size: 550px 550px, 350px 350px, 250px 250px, 150px 150px;
+    background-position: 0 0, 40px 60px, 130px 270px, 70px 100px;
+}
+
+.btnResv {
+    background-color: rgba(241, 194, 237, 0.89);
+    color: rgb(85, 51, 82);
+    font-size: 20px;
+    padding: 10px ;
+    border-radius: 15px;
+    display: block;
+    margin: auto;
+    margin-top: 20px;
+}
 
 /* POP UP */
 
@@ -60,3 +124,10 @@ body{
 }
 
 
+/* footer */
+
+.bgFooter {
+    background-image: linear-gradient( rgba(181, 122, 210, 0.776388), white) ;
+    border-radius: 10px;
+    font-size: 30px;
+}

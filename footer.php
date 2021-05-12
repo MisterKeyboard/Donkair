@@ -1,23 +1,24 @@
         <!-- *********       FOOTER             ********** -->
-        <footer class="bg-primary mt-5">
+        <footer class="bgFooter mt-5">
             <nav pl-5>
                 <ul class="list-unstyled">
                     <li class="pt-3">
-                        <a class="text-decoration-none text-white ml-5 mt-5 fs-3" href="index.php#flight">Réservez votre vol</a>
+                        <a class="text-decoration-none text-primary ml-5 mt-5 fs-3" href="index.php#flight">Réservez votre vol</a>
                     </li>
                     <li>
-                        <a class="text-decoration-none text-white ml-5 mt-5 fs-3 " href="index.php#planes">Nos modèles d'avions</a>
+                        <a class="text-decoration-none text-primary ml-5 mt-5 fs-3 " href="index.php#planes">Nos modèles d'avions</a>
                     <li>
-                        <a class="text-decoration-none text-white ml-5 mt-5 fs-3" href="index.php#expert">A propos</a>
+                        <a class="text-decoration-none text-primary ml-5 mt-5 fs-3" href="index.php#expert">A propos</a>
                     </li>
                     <li>
-                        <a class="text-decoration-none text-white ml-5 mt-5 fs-3" href="faq.php">FAQ</a>
+                        <a class="text-decoration-none text-primary ml-5 mt-5 fs-3" href="faq.php">FAQ</a>
                     </li>
                     <li class="pb-1">
-                        <a class="text-decoration-none text-white ml-5 mt-5 fs-3" class="schedule" href="#header" target="_blank">Contact</a>
+                        <a class="text-decoration-none text-primary ml-5 mt-5 fs-3" class="schedule" href="#header" >Contact</a>
                     </li>
                 </ul>
             </nav>
+            <div>
         <!-- *********       COOKIES            ********** -->
 
 <?php
