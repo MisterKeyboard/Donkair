@@ -50,6 +50,28 @@ $data = $getFlightId->fetch();
 $flightNbr = $data->flightNbr;
 $capacity = $data->getCapacity();
 
+$count = '
+SELECT tab.* FROM 
+(SELECT 
+    flight.id,
+    plane.capacity,
+    COUNT(booking.name), 
+(plane.capacity - COUNT(booking.name)) placeDispo
+FROM flight
+INNER JOIN plane ON plane.id = flight.planeModel
+LEFT JOIN booking ON booking.flightId = flight.id
+GROUP BY flight.id) tab
+WHERE tab.placeDispo > 0;
+';
+$countFetch = $objetPdo->query($count);
+foreach ($countFetch as $row) {
+    $idF= $row['id']; 
+    $capacity = $row['capacity']; 
+    //$num = $row['num'];
+    $placeDispo = $row['placeDispo'];
+}
+
+
 
 if ($_SESSION['nbrPassenger'] > $capacity) {
     echo "Le nombre de place limité pour ce vol est de " . $data->getcapacity() . " places.";
@@ -59,8 +81,7 @@ if ($_SESSION['nbrPassenger'] > $capacity) {
 
     <body>
         <main>
-                                    <!-- *********       CAROUSSEL DESTINATION          **********
-                                    <section class="carouseldest">
+                                    <!-- <section class="carouseldest">
                 <div class="containerdestinations pb-3">
                     <div class="carouseldestinations">
                         <div class="carouseldestinations__face"><span class="spandestinations text-primary">Welcome</span></div>
@@ -72,9 +93,9 @@ if ($_SESSION['nbrPassenger'] > $capacity) {
                         <div class="carouseldestinations__face"><span class="spandestinations text-primary">True</span></div>
                         <div class="carouseldestinations__face"><span class="spandestinations text-primary">DonkAir</span></div>
                         <div class="carouseldestinations__face"><span class="spandestinations text-primary">Does care</span></div>
-                    </div> -->
+                    </div>
                 </div>
-            </section>
+            </section> -->
 
         <form class="container card col-6 pt-3 pb-3 mb-3" method="POST" action="">
 
@@ -124,7 +145,6 @@ if (isset($_POST['name']) && isset($_POST['firstname']) && isset($_POST['mail'])
         
         $sql->execute(array(':name' => $name, ':firstname' => $firstname, ':mail' => $mail, ':tel' => $tel));
 
-        
     // $fetch = $sql->fetch();
     // var_dump($fetch);
 
@@ -142,7 +162,6 @@ $sql2->execute(array(':name' => $name, ':firstname' => $firstname, ':flightId' =
     } 
 
 }
-
 
 // $requestJoin = $objetPdo->prepare('SELECT customer.name, booking.customer_id FROM customer LEFT JOIN booking ON customer.id = booking.customer_id');
 // $requestJoin->execute();
@@ -169,7 +188,7 @@ SELECT tab.* FROM
     flight.id,
     plane.capacity,
     COUNT(booking.name), 
-   (plane.capacity - COUNT(booking.name)) placeDispo
+(plane.capacity - COUNT(booking.name)) placeDispo
 FROM flight
 INNER JOIN plane ON plane.id = flight.planeModel
 LEFT JOIN booking ON booking.flightId = flight.id
@@ -178,15 +197,11 @@ WHERE tab.placeDispo > 0;
 ';
 $countFetch = $objetPdo->query($count);
 foreach ($countFetch as $row) {
-    $idF= $row['id'];
-    $capacity = $row['capacity'];
+    $idF= $row['id']; 
+    $capacity = $row['capacity']; 
     //$num = $row['num'];
     $placeDispo = $row['placeDispo'];
-
 }
-
-
-
 
 //print($counter);
 require "footer.php";  

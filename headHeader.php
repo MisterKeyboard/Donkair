@@ -26,9 +26,16 @@ if(isset($_GET['accepte-cookie'])){
 
         <!-- *********     HEADER     ********** -->
         <header class="pb-3 px-3">
+        
                 <div class="title">
                     <h1 class="title1"> Donk <span class="title2"> Air <span> <span  class="title3"> resvervation de vol en un click </span> </h1>
                 </div>
+
+
+                
+            <div class="avionVolant">
+                <img src="img/avion-volant.png" alt="icon" class="icon"/>
+            </div> 
 
             <div>
 

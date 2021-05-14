@@ -1,7 +1,6 @@
 <?php
 
 //require_once "db.php";
-
 //session_start();
 //require_once "espaceAdmin/db.php";
 // <!-- QUERY POUR RECHERER UN VOL  -->
@@ -69,8 +68,7 @@ if (!empty($_POST)) {
 
     $departureCity = $_POST['arrivalCity'];
     $arrivalCity = $_POST['departureCity'];
-    // $departureImage = $_POST['departureImage'];
-    // $arrivalImage = $_POST['arrivalImage']; 
+
 
     ?>
 
@@ -107,6 +105,7 @@ if (!empty($_POST)) {
 </div> -->
 
 <?php
+    
 
     foreach ($flights as $flight)
     {   
@@ -140,6 +139,83 @@ if (!empty($_POST)) {
     </div>
 <?php 
     }
+
+    $count = '
+    SELECT 
+        flight.id id,
+        plane.capacity capacity,
+        COUNT(booking.name), 
+       (plane.capacity - COUNT(booking.name)) placeDispo
+    FROM flight
+    INNER JOIN plane ON plane.id = flight.planeModel
+    LEFT JOIN booking ON booking.flightId = flight.id
+    GROUP BY flight.id;
+    ';
+
+$flight = [
+    [
+    'id' => 1;
+    'start' => ''
+    'arrivée' =>']
+    ]
+
+$booking = [
+    [
+        flightID
+    ]
+    ]
+
+//isFree = $resa[$key]['freesi] > 0 ? 'oui' : 'non'; 
+     //indexer tab sur vol ID 
+
+     foreach($resas as $resa)
+$trueR['$re5' [$vols]] = $true []
+
+//1 => vide
+//2=> plein
+
+    $countFetch = $objetPdo->query($count);
+    //$items as $key => value
+    //Recupe $resa [$vol][id] = $resa['capacity']
+    foreach ($countFetch as $row) {
+        $idF= $row['id']; 
+        $capacity = $row['capacity']; 
+        $placeDispo = $row['placeDispo'];
+    };
+
+
+ //indexer tab sur vol ID 
+//for each($resas as $resa)
+$trueR['$re5' [$vols]] = $true []
+
+//1 => vide
+//2=> plein
+
+    $countFetch = $objetPdo->query($count);
+    //$items as $key => value
+    //Recupe $resa [$vol][id] = $resa['capacity']
+    foreach ($countFetch as $row) {
+        $idF= $row['id']; 
+        $capacity = $row['capacity']; 
+        $placeDispo = $row['placeDispo'];
+//REVOIR TABLEAU
+
+
+
+//indexer
+$trueREsa = [];
+foreach($resas as $resa) {
+    $trueResa[$resa['flightId']] = $resa
+}
+
+
+foreach ($flight as $key=> $flight) {
+    $flight['id']
+    $flight['statrt']
+    $trtrueResa[$flight[id]]['freesits']
+}
+
+
 
 
 

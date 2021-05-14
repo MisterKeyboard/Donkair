@@ -50,7 +50,7 @@ require "headHeader.php";
                     //                 {
 
                     //             ?>
-                                <option value= " <?= $donnees['id'] ?> "> <?= $donnees['town'] ?> </option>
+                                <option <?php if (isset($_POST['departureCity']) && $donnees['id'] == $_POST['departureCity']){echo "selected";} ?> value="<?= $donnees['id'] ?>"> <?= $donnees['town'] ?> </option>
                                 <?php
                                 }
                                 // if ($donnees['id'] == $_POST['departureCity']); 

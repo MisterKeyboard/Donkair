@@ -28,6 +28,13 @@
     font-size: large;
     font-style: normal;
 }
+.icon {
+    height : 80px;
+    display: grid;
+    justify-items: inherit;
+    animation-direction: normal;
+}
+
 
 .navbar {
     background-image: linear-gradient( rgba(181, 122, 210, 0.776388), white) ;
@@ -131,3 +138,5 @@ body{
     border-radius: 10px;
     font-size: 30px;
 }
+
+
