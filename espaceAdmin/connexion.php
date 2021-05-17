@@ -1,37 +1,36 @@
-
 <?php
-require "config.php";
-?>
-
-<!DOCTYPE html>
-<html>
-<head>
+    require "head.php";
+    include_once "scriptLogin.php";
     
-    <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Espace de connexion DonkAir admin</title>
-        <link rel="icon" href="/img/donkeysunglassesRemovebg.png" />
-
-</head>
-
-<body>
-    <?php include_once "scriptLogin.php"?>
-    <?php if (isset($erreur)){
+    if (isset($erreur)){
         echo $erreur;
     }
-    ?>
+?>
 
-    <form method="POST" action="">
 
-        <label for="pseudo">Pseudo</label>
-        <input type="text" name="pseudo" >
 
-        <label for="password">Password</label>
-        <input type="password" name="password">
-        
-        <input type="submit" name="submit">
-    </form>
-</body>
+    <body>
+        <form class="pt-5" method="POST" action="">
+
+            <div class="connexion container-fluid card w-25">
+                <div class="text-center"> 
+                    <img src="/img/donkeysunglassesRemovebgw.png" alt="logo" width="50%">
+                </div>
+
+                <label class="text-primary" for="pseudo">Pseudo</label>
+                <input class="form-control" type="text" name="pseudo" >
+
+                <label class="text-primary pt-3" for="password">Password</label>
+                <input class="form-control" type="password" name="password">
+                <div class="py-3">
+                    <input class="btn btn-primary w-100" type="submit" name="submit" class="envoyer" value="Connexion">
+                </div>
+            </div>    
+
+        </form>
+    
+
+    </body>
 </html>
 
 
