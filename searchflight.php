@@ -5,38 +5,35 @@
 //require_once "espaceAdmin/db.php";
 // <!-- QUERY POUR RECHERER UN VOL  -->
 
-$allFlights = '
-SELECT 
-    flight.id id,
-    plane.capacity capacity,
-    COUNT(booking.name) nbrCustomer, 
-(plane.capacity - COUNT(booking.name)) placeDispo
-FROM flight
-INNER JOIN plane ON plane.id = flight.planeModel
-LEFT JOIN booking ON booking.flightId = flight.id
-GROUP BY flight.id;
-';
-$resultat = $objetPdo->query($allFlights);
 
-
-while($row = $resultat->fetch(PDO::FETCH_ASSOC)) {
-$idF= $row['id']; 
-$nbrCustomer = $row['capacity'];
-$capacity = $row['nbrCustomer']; 
-$placeDispo = $row['placeDispo'];
-//echo "<br>";
-
-
-if ($placeDispo <= 0) {
- echo "le vol " . $idF . " est complet" . "<br>";
-} ;
-}
-
-//foreach()
-
-
+// ne pas afficher les vols complets
 
 if (!empty($_POST)) {
+
+    $allFlights = <<<SQL
+    SELECT * FROM 
+	(
+		SELECT 
+			flight.*,
+			plane.capacity capacity,
+			COUNT(booking.name) nbrCustomer, 
+			(plane.capacity - COUNT(booking.name)) placesDispo
+		FROM flight
+		INNER JOIN plane ON plane.id = flight.planeModel
+		LEFT JOIN booking ON booking.flightId = flight.id
+		GROUP BY flight.id
+	) q
+    WHERE q.placesDispo > 0
+SQL;
+
+$query = $objetPdo->query($allFlights);
+//$query->execute($allFlights); 
+
+    foreach ($objetPdo->query($allFlights) as $row) {
+        $row['capacity'];
+        $row['nbrCustomer'];
+        $row['placesDispo'];
+    }
 
     $request = '
         SELECT
@@ -61,6 +58,7 @@ if (!empty($_POST)) {
             ON arrivalRoute.id = f.arrivalCity
         LEFT JOIN plane
             ON plane.id = f.planeModel';
+
 
     $keyConditions = [];
     $valConditions = [];
@@ -100,7 +98,9 @@ if (!empty($_POST)) {
     $departureCity = $_POST['arrivalCity'];
     $arrivalCity = $_POST['departureCity'];
 
-    
+    if ($row['placesDispo'] >= 0) 
+
+    {
 
     foreach ($flights as $flight)
     {   
@@ -127,10 +127,18 @@ if (!empty($_POST)) {
             </div>
 
 <?php 
-    }
+    
+}
 ?>
 
         </div>    
     </div>
 <?php 
-    }
+} else {
+    echo "il n'y a pas pour cette journée, merci d'en choisir une autre.";
+}
+
+}
+
+
+

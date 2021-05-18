@@ -1,23 +1,45 @@
         <!-- *********       FOOTER             ********** -->
-        <footer class="bgFooter mt-5">
-            <nav pl-5>
-                <ul class="list-unstyled">
-                    <li class="pt-3">
-                        <a class="text-decoration-none text-primary ml-5 mt-5 fs-3" href="index.php#flight">Réservez votre vol</a>
-                    </li>
-                    <li>
-                        <a class="text-decoration-none text-primary ml-5 mt-5 fs-3 " href="index.php#planes">Nos modèles d'avions</a>
-                    <li>
-                        <a class="text-decoration-none text-primary ml-5 mt-5 fs-3" href="index.php#expert">A propos</a>
-                    </li>
-                    <li>
-                        <a class="text-decoration-none text-primary ml-5 mt-5 fs-3" href="faq.php">FAQ</a>
-                    </li>
-                    <li class="pb-1">
-                        <a class="text-decoration-none text-primary ml-5 mt-5 fs-3" class="schedule" href="#header" >Contact</a>
-                    </li>
-                </ul>
-            </nav>
+<footer>
+
+    <nav class="navbar">
+
+            <div class="container-fluid ">
+
+            <ul class="listeFooter">
+                <li class="donkey fas fa-democrat"> Nous joindre </li>
+                <li> <i class="fas fa-phone"> </i> 01 76 38 10 19 </li>
+                <li> <i class="fas fa-at"> </i> hello@donkey.school </li>
+                <li > <i class="fas fa-map-pin"></i> 195 rue des Pyrénées </li>
+                <li > <i class="zip fas fa-map-pin"></i> 75020 Paris </li>
+            </ul>
+                
+                    <a class="text-decoration-none" href="index.php#flight">Réservez un vol</a>
+                    <a class="text-decoration-none" href="index.php#planes">Nos modèles d'avions</a>
+                    <a class="text-decoration-none" href="index.php#expert">A propos</a>
+                    <a class="text-decoration-none" href="faq.php"> FAQ</a>
+
+                <div clas="social">
+                    <a class="fab fa-instagram" href="https://www.instagram.com/donkey.school/" target="_blank" ></a>
+                    <a class="fab fa-facebook-f" href="https://www.instagram.com/donkey.school/" target="_blank" ></a>
+                    <a class="fab fa-twitter" href="https://www.instagram.com/donkey.school/" target="_blank" ></a>
+                    <a class="fab fa-linkedin-in" href="https://www.instagram.com/donkey.school/" target="_blank" ></a>
+                </div>
+
+            
+    <div>
+    
+        <!-- Modale     phone number -->
+        <!-- <button class="modal2 btnPopup2 btn btn-primary pb-1"> Contactez-nous par téléphone</button> -->
+
+
+        <!-- Modale Mail -->
+        <!-- <button id="btnPopup" class="modal1 btnPopup1 btn btn-primary pb-1">Contactez-nous par Mail</button> -->
+    </div>
+
+            </div>
+
+    </nav>
+
             <div>
         <!-- *********       COOKIES            ********** -->
 
@@ -38,7 +60,7 @@
     }
 ?>
 
-        </footer>
+</footer>
 
 
 

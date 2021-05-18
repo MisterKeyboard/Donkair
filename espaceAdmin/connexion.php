@@ -7,12 +7,14 @@
     }
 ?>
 
-
+<head>
+<link rel="stylesheet" href="co.css"/>
+</head>
 
     <body>
-        <form class="pt-5" method="POST" action="">
+        <form class="pt-5 " method="POST" action="">
 
-            <div class="connexion container-fluid card w-25">
+            <div class="container-fluid card w-25 border border-primary ">
                 <div class="text-center"> 
                     <img src="/img/donkeysunglassesRemovebgw.png" alt="logo" width="50%">
                 </div>
