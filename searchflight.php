@@ -11,7 +11,8 @@
 if (!empty($_POST)) {
 
     $allFlights = <<<SQL
-    SELECT * FROM 
+    SELECT q.id
+    FROM 
 	(
 		SELECT 
 			flight.*,
@@ -29,10 +30,10 @@ SQL;
 $query = $objetPdo->query($allFlights);
 //$query->execute($allFlights); 
 
+$idFlight = [];
+
     foreach ($objetPdo->query($allFlights) as $row) {
-        $row['capacity'];
-        $row['nbrCustomer'];
-        $row['placesDispo'];
+    $idFlight[] = $row['id'];
     }
 
     $request = '
@@ -59,9 +60,9 @@ $query = $objetPdo->query($allFlights);
         LEFT JOIN plane
             ON plane.id = f.planeModel';
 
-
     $keyConditions = [];
     $valConditions = [];
+    
 
     if (isset($_POST['departureCity'])) {
         $keyConditions[] = 'f.departureCity = ?';
@@ -84,11 +85,15 @@ $query = $objetPdo->query($allFlights);
         echo "Remplir tous les champs";
     };
 
+    
+    $keyConditions[] = 'f.id IN (' . implode(',' , $idFlight ) . ')'; 
+
     if (!empty($keyConditions)) {
         $request .= ' WHERE ' . implode(' AND ', $keyConditions);
     }else {
         echo "Remplir tous les champs";
     };
+
 
     $searchFlight = $objetPdo->prepare($request);
     $searchFlight->execute($valConditions); 
@@ -98,9 +103,6 @@ $query = $objetPdo->query($allFlights);
     $departureCity = $_POST['arrivalCity'];
     $arrivalCity = $_POST['departureCity'];
 
-    if ($row['placesDispo'] >= 0) 
-
-    {
 
     foreach ($flights as $flight)
     {   
@@ -134,9 +136,6 @@ $query = $objetPdo->query($allFlights);
         </div>    
     </div>
 <?php 
-} else {
-    echo "il n'y a pas pour cette journée, merci d'en choisir une autre.";
-}
 
 }
 
