@@ -8,14 +8,13 @@ if(isset($_GET['page']) && !empty($_GET['page'])){
     $currentPage = 1;
 }
 
-
 $objetPdo=openPDO();
-// On détermine le nombre total de vols
-$sql = 'SELECT COUNT(*) AS nb_flights FROM `flight`;';
+// On détermine le nombre total de customer
+$customer = 'SELECT COUNT(*) AS nb_customer FROM `customer`;';
 
 
 // On prépare la requête
-$query = $objetPdo->prepare($sql);
+$query = $objetPdo->prepare($customer);
 
 // On exécute
 $query->execute();
@@ -23,30 +22,18 @@ $query->execute();
 // On récupère le nombre d'articles
 $result = $query->fetch();
 
-$nbFlights = (int) $result['nb_flights'];
+$nbCustomer = (int) $result['nb_customer'];
 
-// On détermine le nombre de vols par page
+// On détermine le nombre de customer par page
 $parPage = 5;
 
 // On calcule le nombre de pages total
-$pages = ceil($nbFlights / $parPage);
+$pages = ceil($nbCustomer / $parPage);
 
-// Calcul du 1er vol de la page
+// Calcul du 1e customer de la page
 $premier = ($currentPage * $parPage) - $parPage;
 
-$sql = 'SELECT f.flightNbr,
-f.departureCity,
-departureRoute.town departureTown,
-arrivalRoute.town arrivalTown,
-f.departureTime ,
-f.arrivalTime,
-f.date
-FROM flight f 
-left join route departureRoute 
-ON departureRoute.id = f.departureCity 
-LEFT JOIN route arrivalRoute 
-ON arrivalRoute.id = f.arrivalCity 
-ORDER BY `flightNbr` 
+$customerDisplay = 'SELECT * FROM donkair.customer
 DESC LIMIT :premier, :parpage;';
 
 // On prépare la requête
@@ -59,26 +46,23 @@ $query->bindValue(':parpage', $parPage, PDO::PARAM_INT);
 $query->execute();
 
 // On récupère les valeurs dans un tableau associatif
-$flights = $query->fetchAll(PDO::FETCH_ASSOC);
+$customers = $query->fetchAll(PDO::FETCH_ASSOC);
 
 
 ?>
 
-
-
 <body >
 
 <section class="container pt-5">
-    <h1 class="text-primary">Liste des vols</h1>
+    <h1 class="text-primary">Liste des Clients</h1>
 
     <table class="table table-striped">
             <tr>
-                <th class="text-primary"> Numéro de Vol </th>
-                <th class="text-primary"> Ville de départ </th>
-                <th class="text-primary"> Ville d'arrivée </th>
-                <th class="text-primary"> Heure de décollage </th>
-                <th class="text-primary"> Heure d'atterrisage </th>
-                <th class="text-primary"> Date </th>
+                <th class="text-primary"> Id du client </th>
+                <th class="text-primary"> Nom </th>
+                <th class="text-primary"> Prénom </th>
+                <th class="text-primary"> Email </th>
+                <th class="text-primary"> Téléphone </th>
                 <th class="text-primary"> Action </th>
             </tr>     
 </section>
@@ -86,18 +70,15 @@ $flights = $query->fetchAll(PDO::FETCH_ASSOC);
 
 <?php
 
-
-
-foreach  ($flights as $row) :?>
+foreach  ($customers as $row) :?>
             <tr>
-                <td><?php echo $row["flightNbr"] ?></td>
-                <td><?php echo $row["departureTown"] ?></td>
-                <td><?php echo $row["arrivalTown"] ?></td>
-                <td><?php echo $row["departureTime"] ?></td>
-                <td><?php echo $row["arrivalTime"] ?></td>
-                <td><?php echo $row["date"]?></td>
-                <td><a  href="/espaceAdmin/routeEdit.php?fnbr=<?php echo $row["flightNbr"] ?>">Edit</a>
-                <a href="/espaceAdmin/routeDel.php?fnbr=<?php echo $row["flightNbr"] ?>">Delete</a>
+                <td><?php echo $row["id"] ?></td>
+                <td><?php echo $row["name"] ?></td>
+                <td><?php echo $row["firstname"] ?></td>
+                <td><?php echo $row["mail"] ?></td>
+                <td><?php echo $row["tel"] ?></td>
+                <td><a  href="/espaceAdmin/routeEdit.php?fnbr=<?php echo $row["id"] ?>">Edit</a>
+                <a href="/espaceAdmin/routeDel.php?fnbr=<?php echo $row["id"] ?>">Delete</a>
                 </td>
             </tr>
 <?php endforeach; ?>
@@ -125,7 +106,3 @@ foreach  ($flights as $row) :?>
     </body>
 
 </html>
-
-
-<!-- customers -->
-

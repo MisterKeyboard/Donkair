@@ -17,3 +17,14 @@
         <link rel="icon" href="/img/donkeysunglassesRemovebg.png" />
     </head>
 
+    <header>
+        
+    <div class="containerHeader">
+        <img src="../img/donkeysunglassesRemovebg.png" class="logo" alt="logo" />
+
+        <div class="title">
+            <h1 class="title1"> Donk Air <span> <span  class="title2"> Does Care </span> <div id="takeOff" class="fa"> </div> </h1>
+        </div>
+    </div>  
+
+    </header>

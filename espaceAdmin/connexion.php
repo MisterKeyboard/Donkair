@@ -1,5 +1,4 @@
 <?php
-    require "head.php";
     include_once "scriptLogin.php";
     
     if (isset($erreur)){
@@ -9,25 +8,44 @@
 
 <head>
 <link rel="stylesheet" href="co.css"/>
+
+<!-- NUAGES -->
+<meta charset="utf-8" />
+    <title>Connexion : Donkair</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" >
+    
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
 </head>
 
     <body>
-        <form class="pt-5 " method="POST" action="">
 
-            <div class="container-fluid card w-25 border border-primary ">
-                <div class="text-center"> 
-                    <img src="/img/donkeysunglassesRemovebgw.png" alt="logo" width="50%">
+        <!-- nuages -->
+    <div id="contentCloud">
+        <i id="cloud1" class="fa fa-cloud" aria-hidden="true"></i>
+        <i id="cloud2" class="fa fa-cloud" aria-hidden="true"></i>
+        <i id="cloud3" class="fa fa-cloud" aria-hidden="true"></i>
+        <i id="cloud4" class="fa fa-cloud" aria-hidden="true"></i>
+        <i id="cloud5" class="fa fa-cloud" aria-hidden="true"></i>
+        <i id="cloud6" class="fa fa-cloud" aria-hidden="true"></i>
+    </div>
+
+        <form  method="POST" action="">
+
+            <div>
+                <div> 
+                    <img src="/img/donkeysunglassesRemovebg.png" alt="logo" width="250px">
                 </div>
 
-                <label class="text-primary" for="pseudo">Pseudo</label>
-                <input class="form-control" type="text" name="pseudo" >
+                    <label  for="pseudo">Pseudo</label>
+                    <input  type="text" name="pseudo" autofocus >
 
-                <label class="text-primary pt-3" for="password">Password</label>
-                <input class="form-control" type="password" name="password">
-                <div class="py-3">
-                    <input class="btn btn-primary w-100" type="submit" name="submit" class="envoyer" value="Connexion">
-                </div>
-            </div>    
+                    <label  for="password">Password</label>
+                    <input type="password" name="password">
+                    <div >
+                        <input class="btnCo" type="submit" name="submit" class="envoyer" value="Connexion">
+                    </div>
+                </div>    
 
         </form>
     

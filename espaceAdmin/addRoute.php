@@ -6,7 +6,6 @@
 <link rel="stylesheet" href="admin.css"/>
 </head>
 
-
     <div class="container pt-5">
         <h2 class="text-primary"> Formulaire pour ajouter une route </h2>
 
@@ -87,7 +86,7 @@
             <input class="form-control w-25" type="date" name="date" id="date"/>
 
             <div class="pt-3">
-                <input class="btn btn-primary btnAddF" type="submit" value="Ajouter une Route"/>
+                <input class="btn btn-primary btnAddF mb-5" type="submit" value="Ajouter une Route"/>
             </div>
         </form>
     </div>

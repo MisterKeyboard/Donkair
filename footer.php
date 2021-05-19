@@ -13,10 +13,10 @@
                 <li > <i class="zip fas fa-map-pin"></i> 75020 Paris </li>
             </ul>
                 
-                    <a class="text-decoration-none" href="index.php#flight">Réservez un vol</a>
-                    <a class="text-decoration-none" href="index.php#planes">Nos modèles d'avions</a>
-                    <a class="text-decoration-none" href="index.php#expert">A propos</a>
-                    <a class="text-decoration-none" href="faq.php"> FAQ</a>
+                    <a class="text-decoration-none text-white" href="index.php#flight">Réservez un vol</a>
+                    <a class="text-decoration-none text-white" href="index.php#planes">Nos modèles d'avions</a>
+                    <a class="text-decoration-none text-white" href="index.php#expert">A propos</a>
+                    <a class="text-decoration-none text-white" href="faq.php"> FAQ</a>
 
                 <div clas="social">
                     <a class="fab fa-instagram" href="https://www.instagram.com/donkey.school/" target="_blank" ></a>

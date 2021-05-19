@@ -1,5 +1,156 @@
 
-body
-{
-    background-color: rgba(255, 198, 255, 0.801);
+body {
+    margin: 0;
+    position: relative;
+    width:100%;    
+    height: 100%; 
+    background-image: linear-gradient(to bottom, #003966, #2b6287, #588da7, #8ab9c6, rgba(255, 198, 255, 0.801) );
+    background-size: auto;
+    background-repeat: no-repeat; 
+    font-weight: 900;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 0;
+}
+
+@keyframes moveCloud {
+    0% {
+        transform: translate(1950px);
+    }
+    100% {
+        transform: translate(-50px);
+    }
+}
+@-webkit-keyframes moveCloud {
+    0% {
+        transform: translate(1950px);
+    }
+    100% {
+        transform: translate(-50px);
+    }
+}
+@-moz-keyframes moveCloud {
+    0% {
+        transform: translate(1950px);
+    }
+    100% {
+        transform: translate(-50px);
+    }
+}
+
+#cloud1 {
+    z-index: 1;
+    position: absolute;
+    left:0px;
+    top:1.5em;
+    font-size: 2em;
+    color: #82d4e2;
+    animation: moveCloud 60s linear infinite;
+    -webkit-animation: moveCloud 60s linear infinite;
+    -moz-animation: moveCloud 60s linear infinite;
+}
+#cloud2 {
+    z-index: 2;
+    position: absolute;
+    left:-20px;
+    top:2em;
+    font-size: 1em;
+    font-weight: 900;
+    color: rgb(185, 135, 135);
+    animation-delay:7s;
+    -webkit-animation-delay:7s;
+    -moz-animation-delay: 7s;
+    animation: moveCloud 50s ease-in-out infinite;
+    -webkit-animation: moveCloud 50s ease-in-out infinite;
+    -moz-animation: moveCloud 50s ease-in-out infinite;
+}
+#cloud3 {
+    z-index: 1;
+    position: absolute;
+    left:-50px;
+    bottom:.5em;
+    font-size: 2.5em;
+    color: #eca8c2;    
+    animation: moveCloud 55s ease-out infinite;
+    -webkit-animation: moveCloud 55s ease-out infinite;
+    -moz-animation: moveCloud 55s ease-out infinite;
+}
+#cloud4 {
+    z-index: 2;
+    position: absolute;
+    left:-10px;
+    top:3em;
+    font-size: 2em;
+    font-weight: 900;
+    color: rgb(235, 187, 251);
+    animation-delay:1s;
+    -webkit-animation-delay:1s;
+    -moz-animation-delay: 1s;
+    animation: moveCloud 50s ease-in-out infinite;
+    -webkit-animation: moveCloud 50s ease-in-out infinite;
+    -moz-animation: moveCloud 50s ease-in-out infinite;
+}
+#cloud5 {
+    z-index: 2;
+    position: absolute;
+    left:-60px;
+    top:2.8em;
+    font-size: 2.5em;
+    font-weight: 900;
+    color: #b9a2bb;
+    animation: moveCloud 70s ease-out infinite;
+    -webkit-animation: moveCloud 70s ease-out infinite;
+    -moz-animation: moveCloud 70s ease-out infinite;
+}
+#cloud6 {
+    z-index: 2;
+    position: absolute;
+    left:-40px;
+    top:0.5em;
+    font-size: 1.8em;
+    font-weight: 900;
+    color: #d76ae6;
+    animation-delay:4s;
+    -webkit-animation-delay:4s;
+    -moz-animation-delay: 4s;
+    animation: moveCloud 55s ease-in infinite;
+    -webkit-animation: moveCloud 55s ease-in infinite;
+    -moz-animation: moveCloud 55s ease-in infinite;
+}
+
+/* formulaire  */
+body {
+color: #2b6287;
+text-shadow:1px 1px 2px #eca8c2;
+}
+
+label {
+    margin-top: 10px;
+    display: block;
+    font-size: 40px;
+}
+
+input {
+    width: 250px;
+    height: 40px;
+}
+
+.btnCo {
+    background-color: #2b6287;
+    margin-top: 15px;
+    color: #eca8c2;
+    font-size: 20px;
+    border: #6f42c1;
+    border-radius: 10px;
+    width: 200px;
+}
+
+.btnCo:hover {
+    background-color: #82d4e2;
+    color: #6f42c1;
+    cursor: pointer;
 }

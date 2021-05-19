@@ -28,7 +28,7 @@
 }
 
 .navbar {
-    background-image: linear-gradient( rgba(181, 122, 210, 0.776388), white) ;
+    background-image: linear-gradient(#52318F, white) ;
     border-radius: 10px;
     font-size: 30px;
 }
@@ -68,7 +68,7 @@ body{
 }
 
 #flight {
-    background-color:rgba(85, 51, 82, 0.89);
+    background-color:#261742;
     background-image:
     radial-gradient(#6f42c1, rgba(255,255,255,.2) 2px, transparent 40px),
     radial-gradient(#6f42c1, rgba(255,255,255,.15) 1px, transparent 30px),
@@ -106,13 +106,13 @@ figure{
 /* section3 */
 
 .section3 {
-    background-image: linear-gradient(rgba(181, 122, 210, 0.776388), white  ) ;
+    background-image: linear-gradient(#9C83CC, white  ) ;
 }
 
 /* section4 */ 
 
 .section4 {
-    background-image: linear-gradient(white, rgba(181, 122, 210, 0.776388)  ) ;
+    background-image: linear-gradient(white, #9C83CC  ) ;
 }
 
 /* section5 */
@@ -184,7 +184,7 @@ footer {
 }
 
 .donkey {
-    color: #6f42c1;
+    color: white;
     font-size: 30px;
 }
 

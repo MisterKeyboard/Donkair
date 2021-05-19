@@ -103,7 +103,7 @@ require "headHeader.php";
 <section  class="section3">
             <!-- *********       SECTION AVIONS/VIDEOS    ********** -->         
             <section id="planes" class="planes container py-5">
-                <h2 class="text-primary fw-bold pb-4"> Nos modèles d'avions:<h2>
+                <h2 class="text-primary fw-bold pb-4 text-white"> Nos modèles d'avions:<h2>
                     <div class="row">
                         <div class="pb-4 col-sm-12 col-md-12 col-lg-6" >
                             <div class="card border-primary">
