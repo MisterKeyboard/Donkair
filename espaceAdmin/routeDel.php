@@ -15,10 +15,5 @@ $del->bindValue(1, $flightNbr, PDO::PARAM_STR);
 $del->execute();
 
 
-
-//Database::executeSql( "DELETE FROM flight where flightNbr = ?", [
-//    $_GET["fnbr"]
-//]);
-
 header('Location:/espaceAdmin/dashboard.php');
 

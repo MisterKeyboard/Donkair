@@ -101,7 +101,7 @@ if ($_SESSION['nbrPassenger'] > $capacity) {
             <input class="form-control" type="email" name="mail[]" id="mail_<?php echo $i; ?>" placeholder="donkair@hotmail.fr" value="<?php if (isset($_POST['mail'])){echo $_POST['mail'][$i];} ?>" required />
 
             <label class="text-primary pt-3" for="tel_<?php echo $i; ?>"> Numéro de téléphone </label>
-            <input class="form-control" type="text" name="tel[]" id="tel_<?php echo $i; ?>" pattern="[0-9]{15}" required value="<?php if (isset($_POST['tel'])){echo $_POST['tel'][$i];} ?>" />
+            <input class="form-control" type="text" name="tel[]" id="tel_<?php echo $i; ?>" pattern="[0-9]{8-15}" required value="<?php if (isset($_POST['tel'])){echo $_POST['tel'][$i];} ?>" />
         </div>
     <br/>  
 

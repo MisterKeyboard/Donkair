@@ -6,6 +6,8 @@
 <link rel="stylesheet" href="admin.css"/>
 </head>
 
+    
+
     <div class="container pt-5">
         <h2 class="text-primary"> Formulaire pour ajouter une route </h2>
 
@@ -108,6 +110,7 @@ if(isset($_POST['submit']))
         $date = $_POST['date'];
 
     $sql = $objetPdo->prepare('INSERT INTO flight (flightNbr, departureCity, arrivalCity, departureTime, arrivalTime, date, planemodel) VALUES (:flightNbr, :departureCity, :arrivalCity, :departureTime, :arrivalTime, :date, :model)');
+    
     $sql->execute(array(':flightNbr' => $flightNbr, ':departureCity' => $departureCity, ':arrivalCity' => $arrivalCity, ':departureTime' => $departureTime, ':arrivalTime' => $arrivalTime, ':date' => $date, ':model' => $model));
 };
 
