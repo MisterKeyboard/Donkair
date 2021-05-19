@@ -5,5 +5,5 @@ require "session.php";
 require "routeTab.php";
 require "targetCity.php";
 require "addRoute.php";
-
+require_once "db.php";
 ?>

@@ -1,9 +1,11 @@
+<<<<<<< HEAD
 
+=======
+>>>>>>> corrections erreur espaceAdmin
 <!-- AJOUTER UNE DESTINATION / ROUTE -->
-
-<head>
-<link rel="stylesheet" href="admin.css"/>
-</head>
+<?php
+require_once "db.php";
+?>
 
     
 
@@ -107,11 +109,12 @@ if (isset($_POST['submit']))
         $arrivalTime = $_POST['arrivalTime'];
         $departureTime = $_POST['departureTime'];
         $date = $_POST['date'];
+        
 
     $sql = $objetPdo->prepare('INSERT INTO flight (flightNbr, departureCity, arrivalCity, departureTime, arrivalTime, date, planemodel) VALUES (:flightNbr, :departureCity, :arrivalCity, :departureTime, :arrivalTime, :date, :model)');
     
     $sql->execute(array(':flightNbr' => $flightNbr, ':departureCity' => $departureCity, ':arrivalCity' => $arrivalCity, ':departureTime' => $departureTime, ':arrivalTime' => $arrivalTime, ':date' => $date, ':model' => $model));
-};
+}
 
 if(!empty($_POST)){
     echo 'Le numéro de vol ' .  $_POST['flightNbr']  .  ' a bien été ajouté à votre base de donnée.';

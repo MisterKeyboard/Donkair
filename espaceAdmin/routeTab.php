@@ -1,5 +1,8 @@
 <?php
-require "db.php";
+require_once "db.php";
+
+
+
 
 // On détermine sur quelle page on se trouve
 if(isset($_GET['page']) && !empty($_GET['page'])){
