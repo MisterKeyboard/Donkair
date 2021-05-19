@@ -85,21 +85,19 @@ require "headHeader.php";
 
 <section  class="section2">
 
-            <!-- Carrousel ---->
-            <div id="carouselExampleSlidesOnly" class="carousel slide pt-3" data-bs-ride="carousel">
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <img src="img/cirrus/cirrus10.jpg" src="img/cessna/cessna7.jpg"class="d-block w-70  " alt="avion de type cirrus avec une chaine de montagnes en arrière plan" height="150px" weight="70px">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="img/cessna/cessna7.jpg" class="d-block w-70 " alt="avion cessna dans les airs" height="150px" weight="70px">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="img/cessna/cessna1.jpg" class="d-block w-70 " alt="intérieur côté passager de l'avion cessna" height="150px" weight="70px">
-                    </div>
-                </div>
-            </div>
-
+            <!-- Images ---->
+        
+    <figure>
+        <img src="img/cirrus/cirrus4.jpg" id="image1" class="images" alt="image d'avion" >
+        <img src="img/cessna/cessna2.jpg" class="images image2" alt="image d'avion" >
+        <img src="img/cessna/cessna6.jpg" class="images" id="image3" alt="image d'avion" >
+        <img src="img/cessna/cessna8.jpg" class="images image4" alt="image d'avion" >
+        <img src="img/cirrus/cirrus10.jpg" class="images image5" alt="image d'avion" >
+        <img src="img/cessna/cessna10.jpg" class="images" id="image6" alt="image d'avion" >
+        <img src="img/cirrus/cirrus13.jpg" class="images image7" alt="image d'avion" >
+        <img src="img/cessna/cessna11.jpg" class="images image8" alt="image d'avion" >
+    </figure>   
+            
 </section>                   
 
 <section  class="section3">

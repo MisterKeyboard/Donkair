@@ -89,10 +89,18 @@ body{
     margin-top: 20px;
 }
 
-/* section2*/
+/* section2 images */
 
-.section2 {
-    background-color: ;
+figure{
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    margin-top: 20px;
+}
+
+.images {
+    width: 100%;
+    height: 100%;
+    text-align: center;
 }
 
 /* section3 */

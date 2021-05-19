@@ -44,7 +44,7 @@ function openModal2(){
 
 
 
-//Animation des Avions
+//Animation des (icons) Avions
 
 function takeOff(){
     let takeOff = document.getElementById('takeOff');
@@ -66,3 +66,56 @@ takeOff();
 
 setInterval(takeOff, 7000);
 
+//Animation des photos section2
+
+// var image1 = document.getElementById("image1");
+// var image1 = document.getElementById("image1");
+// var image1 = document.getElementById("image1");
+// var image1 = document.getElementById("image1");
+// var image1 = document.getElementById("image1");
+// var image1 = document.getElementById("image1");
+// var image1 = document.getElementById("image1");
+
+var image1 = document.getElementById("image1");
+var image3 = document.getElementById("image3");
+var image6 = document.getElementById("image6");
+var currentPos = 0;
+var images = ["img/cirrus/cirrus3.jpg", "img/cessna/cessna1.jpg", "img/cessna/cessna3.jpg", "img/cessna/cessna4.jpg", "img/cessna/cessna5.jpg", "img/cessna/cessna7.jpg", "img/cessna/cessna8.jpg", "img/cessna/cessna9.jpg", "img/cessna/cessna12.jpg", "img/cessna/cessna13.jpg", "img/cirrus/cirrus5.jpg", "img/cirrus/cirrus6.jpg", "img/cirrus/cirrus7.jpg", "img/cirrus/cirrus8.jpg", "img/cirrus/cirrus9.jpg", "img/cirrus/cirrus11.jpg", "img/cirrus/cirrus12.jpg", "img/cirrus/cirrus14.jpg"];
+
+
+// var images = ["image1", "image2", "image3", "image4", "image5", "image6", "image7", "image"]
+
+function changeImg() {
+
+    if (++currentPos >= images.Lenght)
+        currentPos = 0;
+    
+        image1.src = images[currentPos];
+}
+
+setInterval(changeImg, 3000);
+
+function changeImg3() {
+
+    if (++currentPos >= images.Lenght)
+        currentPos = 0;
+    
+        image3.src = images[currentPos];
+}
+setInterval(changeImg3, 3000);
+
+function changeImg6() {
+
+    if (++currentPos >= images.Lenght)
+        currentPos = 0;
+    
+        image6.src = images[currentPos];
+}
+        
+setInterval(changeImg6, 3000);
+
+    // for (var i = 0; i < images.length; i++) {
+    //     image1.src = images[i];
+    // }
+
+    

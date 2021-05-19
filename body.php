@@ -437,3 +437,19 @@ require "headHeader.php";
 require "footer.php";
 
 ?>
+<div id="carouselExampleSlidesOnly" class="carousel slide pt-4" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="img/cirrus/cirrus10.jpg" class="d-block w-70  " alt="avion de type cirrus avec une chaine de montagnes en arrière plan" height="150px" weight="25%">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="img/cessna/cessna7.jpg" class="d-block w-70 " alt="avion cessna dans les airs" height="150px" weight="25%">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="img/cirrus/cirrus6.jpg" class="d-block w-70  " alt="avion de type cirrus avec une chaine de montagnes en arrière plan" height="150px" weight="25%">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="img/cessna/cessna2.jpg" class="d-block w-70 " alt="intérieur côté passager de l'avion cessna" height="150px" weight="25%">
+                    </div>
+                </div>
+            </div>
