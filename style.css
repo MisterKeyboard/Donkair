@@ -1,6 +1,4 @@
 
-
-
 /* Header */
 
 .title {
@@ -28,13 +26,6 @@
     font-size: large;
     font-style: normal;
 }
-.icon {
-    height : 80px;
-    display: grid;
-    justify-items: inherit;
-    animation-direction: normal;
-}
-
 
 .navbar {
     background-image: linear-gradient( rgba(181, 122, 210, 0.776388), white) ;
@@ -48,20 +39,32 @@
     justify-items: inherit;
 }
 
+.fa  {
+    color : #6f42c1;
+}
+
+
 /* GENERAL RULES IN THE BODY */
 
 body{
+    background-image: linear-gradient( rgba(219, 181, 238, 0.637), white) ;
+    border-radius: 10px;
     font-family: Arial, Georgia, 'Times New Roman', Times, serif;
     /* background: url('../img/Bibliothèque-nationale-de-Rio-de-Janeiro-Brésil-0.jpg'); */
     background-size: cover;
-    background-image: linear-gradient(white, rgba(181, 122, 210, 0.776388)  ) ;
-  
+    
 }
 
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+/* section1 */
+
+.section1 {
+    background-color: ;
 }
 
 #flight {
@@ -85,6 +88,41 @@ body{
     margin: auto;
     margin-top: 20px;
 }
+
+/* section2*/
+
+.section2 {
+    background-color: ;
+}
+
+/* section3 */
+
+.section3 {
+    background-image: linear-gradient(rgba(181, 122, 210, 0.776388), white  ) ;
+}
+
+/* section4 */ 
+
+.section4 {
+    background-image: linear-gradient(white, rgba(181, 122, 210, 0.776388)  ) ;
+}
+
+/* section5 */
+
+.imgCedric {
+    justify-content: left;
+}
+
+.lastSEction {
+    display: inline-block;
+}
+
+.DoesCare {
+    color:#6f42c1;
+    font-size: 40px;
+}
+
+
 
 /* POP UP */
 
@@ -133,10 +171,26 @@ body{
 
 /* footer */
 
+footer {
+    height: 40px;
+}
+
+.donkey {
+    color: #6f42c1;
+    font-size: 30px;
+}
+
 .bgFooter {
     background-image: linear-gradient( rgba(181, 122, 210, 0.776388), white) ;
     border-radius: 10px;
     font-size: 30px;
 }
 
+.listeFooter {
+    list-style-type: none;
+    font-size: 20px;
+}
 
+.zip {
+    color: #6e42c100;
+}

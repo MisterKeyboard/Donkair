@@ -1,13 +1,19 @@
 
 
 <!-- AJOUTER UNE DESTINATION / ROUTE -->
+
+<head>
+<link rel="stylesheet" href="admin.css"/>
+</head>
+
+
     <div class="container pt-5">
         <h2 class="text-primary"> Formulaire pour ajouter une route </h2>
 
         <form method="POST">
 
             <label class="text-primary pt-3" for="flightNbr"> Numéro de Vol </label>
-            <input class="form-control w-25" type="text" name="flightNbr" id="flightNbr">
+            <input class="form-control w-25" type="text" name="flightNbr" id="flightNbr" placeholder="1-A-B">
 
 
             <div class="row">
@@ -81,7 +87,7 @@
             <input class="form-control w-25" type="date" name="date" id="date"/>
 
             <div class="pt-3">
-                <input class="btn btn-primary" type="submit" value="Ajouter un vol"/>
+                <input class="btn btn-primary btnAddF" type="submit" value="Ajouter une Route"/>
             </div>
         </form>
     </div>

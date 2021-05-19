@@ -41,3 +41,28 @@ let titreVotreRecherche = document.querySelector('.recherche');
 function openModal2(){
     overlay2.style.display = 'block';
 }
+
+
+
+//Animation des Avions
+
+function takeOff(){
+    let takeOff = document.getElementById('takeOff');
+    takeOff.innerHTML="&#xf5b0";
+
+    setTimeout(function() {
+        takeOff.innerHTML="&#xf072"
+    }, 2000);
+    setTimeout(function() {
+        takeOff.innerHTML="&#xf072"
+    }, 3000);
+    setTimeout(function() {
+        takeOff.innerHTML="&#xf5af"
+    }, 5000);
+
+}
+
+takeOff();
+
+setInterval(takeOff, 7000);
+

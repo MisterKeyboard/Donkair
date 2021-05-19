@@ -17,9 +17,6 @@
 </html>
 
 
-
-
-
 <?php
 
 include "config.php";

@@ -5,38 +5,36 @@
 //require_once "espaceAdmin/db.php";
 // <!-- QUERY POUR RECHERER UN VOL  -->
 
-$allFlights = '
-SELECT 
-    flight.id id,
-    plane.capacity capacity,
-    COUNT(booking.name) nbrCustomer, 
-(plane.capacity - COUNT(booking.name)) placeDispo
-FROM flight
-INNER JOIN plane ON plane.id = flight.planeModel
-LEFT JOIN booking ON booking.flightId = flight.id
-GROUP BY flight.id;
-';
-$resultat = $objetPdo->query($allFlights);
 
-
-while($row = $resultat->fetch(PDO::FETCH_ASSOC)) {
-$idF= $row['id']; 
-$nbrCustomer = $row['capacity'];
-$capacity = $row['nbrCustomer']; 
-$placeDispo = $row['placeDispo'];
-//echo "<br>";
-
-
-if ($placeDispo <= 0) {
- echo "le vol " . $idF . " est complet" . "<br>";
-} ;
-}
-
-//foreach()
-
-
+// ne pas afficher les vols complets
 
 if (!empty($_POST)) {
+
+    $allFlights = <<<SQL
+    SELECT q.id
+    FROM 
+	(
+		SELECT 
+			flight.*,
+			plane.capacity capacity,
+			COUNT(booking.name) nbrCustomer, 
+			(plane.capacity - COUNT(booking.name)) placesDispo
+		FROM flight
+		INNER JOIN plane ON plane.id = flight.planeModel
+		LEFT JOIN booking ON booking.flightId = flight.id
+		GROUP BY flight.id
+	) q
+    WHERE q.placesDispo > 0
+SQL;
+
+$query = $objetPdo->query($allFlights);
+//$query->execute($allFlights); 
+
+$idFlight = [];
+
+    foreach ($objetPdo->query($allFlights) as $row) {
+    $idFlight[] = $row['id'];
+    }
 
     $request = '
         SELECT
@@ -64,6 +62,7 @@ if (!empty($_POST)) {
 
     $keyConditions = [];
     $valConditions = [];
+    
 
     if (isset($_POST['departureCity'])) {
         $keyConditions[] = 'f.departureCity = ?';
@@ -86,11 +85,15 @@ if (!empty($_POST)) {
         echo "Remplir tous les champs";
     };
 
+    
+    $keyConditions[] = 'f.id IN (' . implode(',' , $idFlight ) . ')'; 
+
     if (!empty($keyConditions)) {
         $request .= ' WHERE ' . implode(' AND ', $keyConditions);
     }else {
         echo "Remplir tous les champs";
     };
+
 
     $searchFlight = $objetPdo->prepare($request);
     $searchFlight->execute($valConditions); 
@@ -100,7 +103,6 @@ if (!empty($_POST)) {
     $departureCity = $_POST['arrivalCity'];
     $arrivalCity = $_POST['departureCity'];
 
-    
 
     foreach ($flights as $flight)
     {   
@@ -127,10 +129,15 @@ if (!empty($_POST)) {
             </div>
 
 <?php 
-    }
+    
+}
 ?>
 
         </div>    
     </div>
 <?php 
-    }
+
+}
+
+
+
