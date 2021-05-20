@@ -108,38 +108,9 @@ $idFlight = [];
     $arrivalImage = $flights[0]['arrivalImage']; 
     $departureDescriptive = $flights[0]['departureDescriptive'];
     $arrivalDescriptive = $flights[0]['arrivalDescriptive']; 
-    ?>
+    
 
-        <!--flip card
-         <div class="flip-card">
-  <div class="flip-card-inner">
-    <div class="flip-card-front">
-      <img src="img_avatar.png" alt="Avatar" style="width:300px;height:300px;">
-    </div>
-    <div class="flip-card-back">
-      <h1>John Doe</h1>
-      <p>Architect & Engineer</p>
-      <p>We love that guy</p>
-    </div>
-  </div>
-</div> 
-
- -->
-
-<?php
-    foreach ($flights as $flight)
-    {   
-
-
-
-        $flightId = $flight['id'];
-        $date = $flight['date'] . $flight['departureTime'];
-        $flightNbr = $flight['flightNbr'];
-        $planeImage = $flight['image'];
-        $date1 = new DateTime($date);
-?> 
-
-
+if (!empty($flights)) { ?>
 <div class="container pt-3 recherche:">
         <!--<h2 class="text-primary fw-bold">Votre recherche </h2>-->
     </div>
@@ -174,6 +145,21 @@ $idFlight = [];
                 </div> 
             </div>
         </div>
+<?php
+}
+
+
+    foreach ($flights as $flight)
+    {   
+        $flightId = $flight['id'];
+        $date = $flight['date'] . $flight['departureTime'];
+        $flightNbr = $flight['flightNbr'];
+        $planeImage = $flight['image'];
+        $date1 = new DateTime($date);
+?> 
+
+
+
 
 
 
@@ -204,13 +190,13 @@ $idFlight = [];
         <div class="pasVol card mt-4 text-center" style="width: 30rem;">
 
             <div class="card-header">
-                <h4> Il n'y a pas de Vol prévu pour cette journée <div id="sad" class="fa"> </div> </h4>
+                <h4> Il n'y a malheureusement pas de vol disponible pour cette journée <div id="sad" class="fa"> </div> </h4>
             </div>
 
             <div class="card-body ">
-                <h5 class="card-title">Nous sommes désolé pour la gêne occasionnée.</h5>
+                <h5 class="card-title">N'hesitez pas à nous contacter</h5>
                 <p class="card-text">  
-                    Merci de nous contacter afin de trouver une solution.</p>
+                    Nous vous trouverons une solution.</p>
 
                     <ul class="JoindrePasVol">
                         <li> <i class="fas fa-phone "> </i> 01 76 38 10 19 </li>
