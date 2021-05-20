@@ -13,39 +13,41 @@ $getFlightId->execute([$flightId]);
 $getFlightId->setFetchMode(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE, 'Plane');
 $data = $getFlightId->fetch();
 
-// if ($data->flightFull()) {
-//     echo "Le nombre de place limité pour ce vol est de " . $data->getcapacity() . " places.";
-// }
+// gestion des erreurs
+
+if ($data->flightFull()) {
+    echo "Le nombre de place limité pour ce vol est de " . $data->getcapacity() . " places.";
+}
 
 //GESTION des erreurs du forms 
 
-// if (isset($_POST['send']))
-// {
-//     if(isset($_POST['name']) && isset($_POST['firstname']) && isset($_POST['mail']) && isset($_POST['tel']));
-//      {  
-//         $name = $_POST['name'];
-//         $firstname = $_POST['firstname'];
-//         $mail = $_POST['mail'];
-//         $tel = $_POST['tel'];
+if (isset($_POST['send']))
+{
+    if(isset($_POST['name']) && isset($_POST['firstname']) && isset($_POST['mail']) && isset($_POST['tel']));
+     {  
+        $name = $_POST['name'];
+        $firstname = $_POST['firstname'];
+        $mail = $_POST['mail'];
+        $tel = $_POST['tel'];
 
-//         if(!empty($_POST['name']) && !empty($_POST['firstname']) && !empty($_POST['mail']) && !empty($_POST['tel']))
-//         {
-//             //print_r($name);
-//             $name = $_POST['name'];
-//             $firstname = $_POST['firstname'];
-//             $mail = $_POST['mail'];
-//             $tel = $_POST['tel'];
+        if(!empty($_POST['name']) && !empty($_POST['firstname']) && !empty($_POST['mail']) && !empty($_POST['tel']))
+        {
+            //print_r($name);
+            $name = $_POST['name'];
+            $firstname = $_POST['firstname'];
+            $mail = $_POST['mail'];
+            $tel = $_POST['tel'];
             
 
-//             echo "Vos informations ont bien été enregistrées. Merci pour votre confiance";
-            // ?> 
-            <!-- // <a href = "index.php"> Retourner à la page d'accueil</a> -->
+         echo "Vos informations ont bien été enregistrées. Merci pour votre confiance";
+           ?> 
+            <a href = "index.php"> Retourner à la page d'accueil</a> 
             <?php
-//         } else {
-//             echo "Veuillez remplir tous les champs svp";
-//         }
-//     }
-// }
+        } else {
+            echo "Veuillez remplir tous les champs svp";
+        }
+    }
+ }
 
 $flightNbr = $data->flightNbr;
 $capacity = $data->getCapacity();

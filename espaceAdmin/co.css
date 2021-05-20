@@ -137,6 +137,7 @@ label {
 input {
     width: 250px;
     height: 40px;
+    border-radius: 10px;
 }
 
 .btnCo {

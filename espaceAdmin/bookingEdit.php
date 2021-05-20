@@ -3,12 +3,12 @@ require "db.php";
 require "session.php";
 require "head.php";
 
-$custName = $_GET["cName"];
+$custName = $_GET["resa"];
 $objetPDO = openPDO();
 
 
 
-$sql1 = "SELECT * FROM donkair.customer; WHERE  name = ?";
+$sql1 = "SELECT * FROM donkair.booking; WHERE  name = ?";
 
 $edit1 = $objetPDO->prepare($sql1);
 
@@ -28,9 +28,9 @@ if(!$row){
     <body>
         <div class="container">
 
-            <h2 class="text-primary pt-5">Modification des informations du Clients:</h2>
+            <h2 class="text-primary pt-5">Modification des informations des Reservations:</h2>
 
-            <form method="POST" action="customerSave.php">
+            <form method="POST" action="bookingSave.php">
                 <input type="hidden" name="id" value="<?php echo $row->id; ?>"/>
 
                 <label class="text-primary pt-3" for="name"> Nom </label>
@@ -46,16 +46,12 @@ if(!$row){
 
                     <div class="col-4">
 
-                        <label class="text-primary pt-3" for="mail">Email</label>
-                        <input class="form-control w-25" type="text" name="mail" value="<?=$row->mail?>">
+                        <label class="text-primary pt-3" for="mail">Numéro de Vol</label>
+                        <input class="form-control w-25" type="text" name="flightNbr" value="<?=$row->flightNbr?>">
                     </div>
                 </div>
 
-                <div class="row">
-                    <div class="col-4">
-                        <label class="text-primary pt-3" for="tel">Téléphone</label>
-                        <input class="form-control w-25" type="text" name="tel" value="<?=$row->tel?>">
-                    </div>
+                
 
                 <div class="pt-3">
                     <button class="btn btn-primary" type="submit">Sauvegarder</button>
