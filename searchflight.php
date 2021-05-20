@@ -1,10 +1,11 @@
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
 <?php
 
 //require_once "db.php";
 //session_start();
 //require_once "espaceAdmin/db.php";
-// <!-- QUERY POUR RECHERER UN VOL  -->
 
+// <!-- QUERY POUR RECHERER UN VOL  -->
 
 // ne pas afficher les vols complets
 
@@ -124,13 +125,38 @@ $idFlight = [];
                 <p class="vol"><span class="text-primary pl-3">Date et heure du départ: </span><?php echo $date1->format('d-m-Y à H:i') ?></p>
                 <p class="vol"><span class="text-primary pl-3">Durée du vol: </span><?php echo $flight['TIMEDIFF(f.arrivalTime,f.departureTime)'] ?></p>
                 <div>
-                    <a class="btn btn-primary vol" href="customer.php?flightId=<?php echo $flightId; ?>"  target=_blank> Go </a>
+                    <a class="btn btn-primary vol" href="customer.php?flightId=<?php echo $flightId; ?>"  target=_blank> Choisir ce vol </a>
                 </div>
             </div>
 
 <?php 
     
-}
+} 
+    if (empty($flights)) { ?>
+        
+        <div class="pasVol card mt-4 text-center" style="width: 30rem;">
+
+            <div class="card-header">
+                <h4> Il n'y a pas de Vol prévu pour cette journée<div id="sad" class="fa"> </div> </h4>
+            </div>
+
+            <div class="card-body ">
+                <h5 class="card-title">Nous sommes désolé pour la gêne occasionnée.</h5>
+                <p class="card-text">  
+                    Merci de nous contacter afin de trouver une solution.</p>
+
+                    <ul class="JoindrePasVol">
+                        <li> <i class="fas fa-phone "> </i> 01 76 38 10 19 </li>
+                        <li> <i class="fas fa-at"> </i> hello@donkey.school </li>
+                        <li > <i class="fas fa-map-pin"></i> 195 rue des Pyrénées </li>
+                        <li > <i class="zip fas fa-map-pin"></i> 75020 Paris </li>
+                    </ul>
+
+            </div>
+
+        </div>
+<?php       
+    }
 ?>
 
         </div>    
@@ -138,4 +164,6 @@ $idFlight = [];
 <?php 
 
 } 
+
+
 

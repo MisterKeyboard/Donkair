@@ -46,7 +46,7 @@ if(!$row){
 
                     <div class="col-4">
 
-                        <label class="text-primary pt-3" for="mail">Numéro de Vol</label>
+                        <label class="text-primary pt-3" for="flightNbr">Numéro de Vol</label>
                         <input class="form-control w-25" type="text" name="flightNbr" value="<?=$row->flightNbr?>">
                     </div>
                 </div>

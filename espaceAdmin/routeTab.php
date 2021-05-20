@@ -281,7 +281,7 @@ b.firstname
 flight.flightNbr 
 FROM booking b
 LEFT JOIN flight flightNbr
-ON flight.flightNbr = b.flightId nbrF
+ON flight.flightNbr = b.flightId nbrF,
 ORDER BY id ASC LIMIT 1 ASC;
 DESC LIMIT :premier, :parpage';
 
@@ -311,6 +311,7 @@ $resas = $query2->fetchAll(PDO::FETCH_ASSOC);
                 <th class="text-primary"> Nom </th>
                 <th class="text-primary"> Prénom </th>
                 <th class="text-primary"> Numéro de Vol </th>
+                <th class="text-primary"> Action </th>
             </tr>     
 </section>
 
@@ -322,9 +323,10 @@ foreach  ($customers as $row) :?>
                 <td><?php echo $row["id"] ?></td>
                 <td><?php echo $row["name"] ?></td>
                 <td><?php echo $row["firstname"] ?></td>
-                <td><?php echo $row["nbrF"] ?></td>
-                <td><a  href="/espaceAdmin/bookingEdit.php?resa=<?php echo $row["name"] ?>">Edit</a>
-                <a href="/espaceAdmin/bookingDelete.php?resa=<?php echo $row["name"] ?>">Delete</a>
+                <td><?php echo $row["id"] ?></td>
+                <td>
+                <a  href="/espaceAdmin/bookingEdit.php?resa=<?php echo $row["id"] ?>">Edit</a>
+                <a href="/espaceAdmin/bookingDelete.php?resa=<?php echo $row["id"] ?>">Delete</a>
                 </td>
             </tr>
 <?php endforeach; 

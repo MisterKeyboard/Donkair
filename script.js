@@ -43,7 +43,6 @@ function openModal2(){
 }
 
 
-
 //Animation des (icons) Avions
 
 function takeOff(){
@@ -65,6 +64,29 @@ function takeOff(){
 takeOff();
 
 setInterval(takeOff, 7000);
+
+//Sad personnage
+
+function sad(){
+    let sad = document.getElementById('sad');
+    sad.innerHTML="&#xf119";
+
+    setTimeout(function() {
+        sad.innerHTML="&#xf5b4"
+    }, 2000);
+    setTimeout(function() {
+        sad.innerHTML="&#xf5b3"
+    }, 4000);
+    setTimeout(function() {
+        sad.innerHTML="&#xf7a9"
+    }, 6000);
+
+}
+
+sad();
+
+setInterval(sad, 8000);
+
 
 //Animation des photos section2
 
