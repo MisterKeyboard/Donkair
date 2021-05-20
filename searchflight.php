@@ -190,7 +190,7 @@ if (!empty($flights)) { ?>
         <div class="pasVol card mt-4 text-center" style="width: 30rem;">
 
             <div class="card-header">
-                <h4> Il n'y a malheureusement pas de vol disponible pour cette journée <div id="sad" class="fa"> </div> </h4>
+                <h4> Ce trajet n'est plus disponible à cette date <div id="sad" class="fa"> </div> </h4>
             </div>
 
             <div class="card-body ">

@@ -24,7 +24,7 @@ if ($data->flightFull()) {
 if (isset($_POST['send']))
 {
     if(isset($_POST['name']) && isset($_POST['firstname']) && isset($_POST['mail']) && isset($_POST['tel']));
-     {  
+    {  
         $name = $_POST['name'];
         $firstname = $_POST['firstname'];
         $mail = $_POST['mail'];
@@ -39,7 +39,7 @@ if (isset($_POST['send']))
             $tel = $_POST['tel'];
             
 
-         echo "<p class=\"container fs-3\"> Vos informations ont bien été enregistrées. Merci pour votre confiance </p>";
+        echo "<p class=\"container fs-3\"> Vos informations ont bien été enregistrées. Merci pour votre confiance </p>";
 ?> 
             <a class="container fs-3 pb-4" href = "index.php"> Retourner à la page d'accueil</a> 
             <?php
@@ -47,7 +47,7 @@ if (isset($_POST['send']))
             echo "Veuillez remplir tous les champs svp";
         }
     }
- }
+}
 
 $flightNbr = $data->flightNbr;
 $capacity = $data->getCapacity();
