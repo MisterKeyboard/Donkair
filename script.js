@@ -65,27 +65,6 @@ takeOff();
 
 setInterval(takeOff, 7000);
 
-//Sad personnage
-
-function sad(){
-    let sad = document.getElementById('sad');
-    sad.innerHTML="&#xf119";
-
-    setTimeout(function() {
-        sad.innerHTML="&#xf5b4"
-    }, 2000);
-    setTimeout(function() {
-        sad.innerHTML="&#xf5b3"
-    }, 4000);
-    setTimeout(function() {
-        sad.innerHTML="&#xf7a9"
-    }, 6000);
-
-}
-
-sad();
-
-setInterval(sad, 8000);
 
 
 //Animation des photos section2
@@ -102,42 +81,38 @@ var image1 = document.getElementById("image1");
 var image3 = document.getElementById("image3");
 var image6 = document.getElementById("image6");
 var currentPos = 0;
-var images = ["img/cirrus/cirrus3.jpg", "img/cessna/cessna1.jpg", "img/cessna/cessna3.jpg", "img/cessna/cessna4.jpg", "img/cessna/cessna5.jpg", "img/cessna/cessna7.jpg", "img/cessna/cessna8.jpg", "img/cessna/cessna9.jpg", "img/cessna/cessna12.jpg", "img/cessna/cessna13.jpg", "img/cirrus/cirrus5.jpg", "img/cirrus/cirrus6.jpg", "img/cirrus/cirrus7.jpg", "img/cirrus/cirrus8.jpg", "img/cirrus/cirrus9.jpg", "img/cirrus/cirrus11.jpg", "img/cirrus/cirrus12.jpg", "img/cirrus/cirrus14.jpg"];
-
-
-// var images = ["image1", "image2", "image3", "image4", "image5", "image6", "image7", "image"]
+var currentPos2 = 0;
+var currentPos3 = 0;
+var currentPos4 = 0;
+var images = ["img/cirrus/cirrus3.jpg", "img/cessna/cessna9.jpg", "img/cessna/cessna1.jpg", "img/cessna/cessna3.jpg", "img/cessna/cessna4.jpg", "img/cessna/cessna5.jpg"];
+var images2 = [ "img/cirrus/cirrus6.jpg", "img/cirrus/cirrus14.jpg","img/cirrus/cirrus7.jpg", "img/cirrus/cirrus9.jpg", "img/cirrus/cirrus11.jpg"];
+var images3 = [ "img/cessna/cessna8.jpg", "img/cessna/cessna9.jpg", "img/cessna/cessna12.jpg", "img/cessna/cessna13.jpg" , "img/cirrus/cirrus5.jpg",];
 
 function changeImg() {
 
-    if (++currentPos >= images.Lenght)
+    if (++currentPos >= images.length)
         currentPos = 0;
     
         image1.src = images[currentPos];
-}
 
+    console.log(currentPos)
+}
 setInterval(changeImg, 3000);
 
 function changeImg3() {
 
-    if (++currentPos >= images.Lenght)
-        currentPos = 0;
+    if (++currentPos2 >= images2.length)
+        currentPos2 = 0;
     
-        image3.src = images[currentPos];
+        image3.src = images2[currentPos2];
 }
 setInterval(changeImg3, 3000);
 
 function changeImg6() {
 
-    if (++currentPos >= images.Lenght)
-        currentPos = 0;
+    if (++currentPos3 >= images3.length)
+        currentPos3 = 0;
     
-        image6.src = images[currentPos];
+        image6.src = images3[currentPos3];
 }
         
-setInterval(changeImg6, 3000);
-
-    // for (var i = 0; i < images.length; i++) {
-    //     image1.src = images[i];
-    // }
-
-    
