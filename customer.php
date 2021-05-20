@@ -39,7 +39,7 @@ if (isset($_POST['send']))
             $tel = $_POST['tel'];
             
 
-        echo "<p class=\"container fs-3\"> Vos informations ont bien été enregistrées. Merci pour votre confiance </p>";
+            header('Location:recOk.php');;
 ?> 
             <a class="container fs-3 pb-4" href = "index.php"> Retourner à la page d'accueil</a> 
             <?php

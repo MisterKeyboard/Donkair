@@ -3,14 +3,13 @@
 session_start();
 include "getinfo.php";
 require "espaceAdmin/db.php";
-
     if (isset($_POST['persons'])) {
         $_SESSION["nbrPassenger"] =  $_POST['persons'];
     }
-
 require "headHeader.php";      
-
 ?>
+
+
     <header>
         <link rel="stylesheet" href="style.css"> 
     </header>
