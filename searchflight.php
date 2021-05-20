@@ -110,8 +110,38 @@ $idFlight = [];
     $arrivalDescriptive = $flights[0]['arrivalDescriptive']; 
     ?>
 
-    <div class="container pt-3 recherche:">
-        <h2 class="text-primary fw-bold">Votre recherche </h2>
+        <!--flip card
+         <div class="flip-card">
+  <div class="flip-card-inner">
+    <div class="flip-card-front">
+      <img src="img_avatar.png" alt="Avatar" style="width:300px;height:300px;">
+    </div>
+    <div class="flip-card-back">
+      <h1>John Doe</h1>
+      <p>Architect & Engineer</p>
+      <p>We love that guy</p>
+    </div>
+  </div>
+</div> 
+
+ -->
+
+<?php
+    foreach ($flights as $flight)
+    {   
+
+
+
+        $flightId = $flight['id'];
+        $date = $flight['date'] . $flight['departureTime'];
+        $flightNbr = $flight['flightNbr'];
+        $planeImage = $flight['image'];
+        $date1 = new DateTime($date);
+?> 
+
+
+<div class="container pt-3 recherche:">
+        <!--<h2 class="text-primary fw-bold">Votre recherche </h2>-->
     </div>
     <div class="container card my-3 pb-3">
         <div class="photos">
@@ -147,34 +177,7 @@ $idFlight = [];
 
 
 
-        <h3 class="text-primary">Validez votre vol</h3>
-        <!--flip card
-         <div class="flip-card">
-  <div class="flip-card-inner">
-    <div class="flip-card-front">
-      <img src="img_avatar.png" alt="Avatar" style="width:300px;height:300px;">
-    </div>
-    <div class="flip-card-back">
-      <h1>John Doe</h1>
-      <p>Architect & Engineer</p>
-      <p>We love that guy</p>
-    </div>
-  </div>
-</div> 
-
- -->
-
-<?php
-    foreach ($flights as $flight)
-    {   
-        $flightId = $flight['id'];
-        $date = $flight['date'] . $flight['departureTime'];
-        $flightNbr = $flight['flightNbr'];
-        $planeImage = $flight['image'];
-        $date1 = new DateTime($date);
-?> 
-
-
+        <!--<h3 class="text-primary">Validez votre vol</h3>-->
 
         <div class="row container g-0">
             <div class="col-sm-12 col-md-6 col-lg-6 pt-3">
@@ -201,7 +204,7 @@ $idFlight = [];
         <div class="pasVol card mt-4 text-center" style="width: 30rem;">
 
             <div class="card-header">
-                <h4> Il n'y a pas de Vol prévu pour cette journée<div id="sad" class="fa"> </div> </h4>
+                <h4> Il n'y a pas de Vol prévu pour cette journée <div id="sad" class="fa"> </div> </h4>
             </div>
 
             <div class="card-body ">

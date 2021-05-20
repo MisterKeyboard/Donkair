@@ -39,9 +39,9 @@ if (isset($_POST['send']))
             $tel = $_POST['tel'];
             
 
-         echo "Vos informations ont bien été enregistrées. Merci pour votre confiance";
-           ?> 
-            <a href = "index.php"> Retourner à la page d'accueil</a> 
+         echo "<p class=\"container fs-3\"> Vos informations ont bien été enregistrées. Merci pour votre confiance </p>";
+?> 
+            <a class="container fs-3 pb-4" href = "index.php"> Retourner à la page d'accueil</a> 
             <?php
         } else {
             echo "Veuillez remplir tous les champs svp";
@@ -84,7 +84,7 @@ if ($_SESSION['nbrPassenger'] > $capacity) {
     <body>
         <main>
 
-        <form class="container card col-6 pt-3 pb-3 mb-3" method="POST" action="">
+        <form class="container card col-6 pt-3 mt-3 pb-3 mb-3" method="POST" action="">
 
         <h2 class="text-primary"> Merci de bien vouloir vous enregistrer</h2>
 

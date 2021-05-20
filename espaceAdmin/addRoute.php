@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-
-=======
->>>>>>> corrections erreur espaceAdmin
 <!-- AJOUTER UNE DESTINATION / ROUTE -->
 <?php
 require_once "db.php";
