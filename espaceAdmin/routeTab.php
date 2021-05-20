@@ -205,8 +205,8 @@ foreach  ($customers as $row) :?>
                 <td><?php echo $row["firstname"] ?></td>
                 <td><?php echo $row["mail"] ?></td>
                 <td><?php echo $row["tel"] ?></td>
-                <td><a  href="/espaceAdmin/customerEdit.php?cName=<?php echo $row["name"] ?>">Edit</a>
-                <a href="/espaceAdmin/customerDelete.php?cName=<?php echo $row["name"] ?>">Delete</a>
+                <td><a  href="/espaceAdmin/customerEdit.php?cName=<?php echo $row["id"] ?>">Edit</a>
+                <a href="/espaceAdmin/customerDelete.php?cName=<?php echo $row["id"] ?>">Delete</a>
                 </td>
             </tr>
 <?php endforeach; 
@@ -276,17 +276,12 @@ $pages = ceil($nbBooking / $parPage);
 // Calcul du 1e booking de la page
 $premier = ($currentPage * $parPage) - $parPage;
 
-$bookingDisplay = 'SELECT b.name,
-b.firstname
-flight.flightNbr 
-FROM booking b
-LEFT JOIN flight flightNbr
-ON flight.flightNbr = b.flightId nbrF,
-ORDER BY id ASC LIMIT 1 ASC;
-DESC LIMIT :premier, :parpage';
+$bookingDisplay = 'SELECT * FROM donkair.booking;
+ORDER BY id ASC LIMIT 1;
+DESC LIMIT :premier, :parpage;';
 
 // On prépare la requête
-$query3 = $objetPdo->prepare($customerDisplay);
+$query3 = $objetPdo->prepare($bookingDisplay);
 
 $query3->bindValue(':premier', $premier, PDO::PARAM_INT);
 $query3->bindValue(':parpage', $parPage, PDO::PARAM_INT);
@@ -295,7 +290,7 @@ $query3->bindValue(':parpage', $parPage, PDO::PARAM_INT);
 $query3->execute();
 
 // On récupère les valeurs dans un tableau associatif
-$resas = $query2->fetchAll(PDO::FETCH_ASSOC);
+$resas = $query3->fetchAll(PDO::FETCH_ASSOC);
 
 
 ?>
@@ -310,7 +305,7 @@ $resas = $query2->fetchAll(PDO::FETCH_ASSOC);
                 <th class="text-primary"> Id du client </th>
                 <th class="text-primary"> Nom </th>
                 <th class="text-primary"> Prénom </th>
-                <th class="text-primary"> Numéro de Vol </th>
+                <!-- <th class="text-primary"> Numéro de Vol </th> -->
                 <th class="text-primary"> Action </th>
             </tr>     
 </section>
@@ -318,12 +313,12 @@ $resas = $query2->fetchAll(PDO::FETCH_ASSOC);
 
 <?php
 
-foreach  ($customers as $row) :?>
+foreach  ($resas as $row) :?>
             <tr>
                 <td><?php echo $row["id"] ?></td>
                 <td><?php echo $row["name"] ?></td>
                 <td><?php echo $row["firstname"] ?></td>
-                <td><?php echo $row["id"] ?></td>
+                <!-- <td> <?php //echo $row["flightNbr"] ?> </td> -->
                 <td>
                 <a  href="/espaceAdmin/bookingEdit.php?resa=<?php echo $row["id"] ?>">Edit</a>
                 <a href="/espaceAdmin/bookingDelete.php?resa=<?php echo $row["id"] ?>">Delete</a>

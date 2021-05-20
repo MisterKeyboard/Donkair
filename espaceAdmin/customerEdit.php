@@ -8,11 +8,11 @@ $objetPDO = openPDO();
 
 
 
-$sql1 = "SELECT * FROM donkair.customer; WHERE  name = ?";
+$sql1 = "SELECT * FROM donkair.customer WHERE  name = ?";
 
 $edit1 = $objetPDO->prepare($sql1);
 
-$edit1->bindValue(1,$custName, PDO::PARAM_STR);
+$edit1->bindValue(1, $custName, PDO::PARAM_STR);
 
 $edit1->execute();
 

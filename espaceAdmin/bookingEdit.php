@@ -7,8 +7,7 @@ $custName = $_GET["resa"];
 $objetPDO = openPDO();
 
 
-
-$sql1 = "SELECT * FROM donkair.booking; WHERE  name = ?";
+$sql1 = "SELECT * FROM donkair.booking; WHERE  id = ?";
 
 $edit1 = $objetPDO->prepare($sql1);
 
@@ -24,7 +23,6 @@ if(!$row){
 
 ?>
 
-
     <body>
         <div class="container">
 
@@ -37,6 +35,7 @@ if(!$row){
                 <input class="form-control w-25" type="text" name="name" value="<?=$row->name?>">
 
                 <div class="row">
+
                     <div class="col-4">
 
                         <label class="text-primary pt-3" for="firstname"> Prénom </label>
@@ -44,11 +43,11 @@ if(!$row){
                         
                     </div>
 
-                    <div class="col-4">
-
+                    <!-- <div class="col-4">
                         <label class="text-primary pt-3" for="flightNbr">Numéro de Vol</label>
                         <input class="form-control w-25" type="text" name="flightNbr" value="<?=$row->flightNbr?>">
-                    </div>
+                    </div> -->
+
                 </div>
 
                 

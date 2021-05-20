@@ -42,7 +42,6 @@ function openModal2(){
     overlay2.style.display = 'block';
 }
 
-
 //Animation des (icons) Avions
 
 function takeOff(){
@@ -115,4 +114,4 @@ function changeImg6() {
     
         image6.src = images3[currentPos3];
 }
-        
+setInterval(changeImg6, 3000);

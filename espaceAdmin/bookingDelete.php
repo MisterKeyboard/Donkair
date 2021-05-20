@@ -6,11 +6,11 @@ require "head.php";
 $fresaNbr = $_GET["resa"];
 
 $PDO = openPDO();
-$sql = "DELETE FROM booking where name = ?";
+$sql = "DELETE FROM booking where id = ?";
 
 $del = $PDO->prepare($sql);
 
-$del->bindValue(1, $flightNbr, PDO::PARAM_STR);
+$del->bindValue(1, $fresaNbr, PDO::PARAM_STR);
 
 $del->execute();
 
