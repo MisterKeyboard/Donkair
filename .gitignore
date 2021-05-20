@@ -5,6 +5,7 @@ exTAB.js
 extab.php
 index.html
 index.html
+draft.php
 
 <?php
 session_start();

@@ -161,7 +161,7 @@ $pages = ceil($nbCustomer / $parPage);
 $premier = ($currentPage * $parPage) - $parPage;
 
 $customerDisplay = 'SELECT * FROM donkair.customer;
-ORDER BY id ASC LIMIT 1;
+ORDER BY id ASC;
 DESC LIMIT :premier, :parpage;';
 
 // On prépare la requête
@@ -209,9 +209,7 @@ foreach  ($customers as $row) :?>
                 <a href="/espaceAdmin/customerDelete.php?cName=<?php echo $row["id"] ?>">Delete</a>
                 </td>
             </tr>
-<?php endforeach; 
-
-?>
+<?php endforeach;?>
         </table>
         
         <ul class="pagination">
@@ -324,9 +322,8 @@ foreach  ($resas as $row) :?>
                 <a href="/espaceAdmin/bookingDelete.php?resa=<?php echo $row["id"] ?>">Delete</a>
                 </td>
             </tr>
-<?php endforeach; 
+<?php endforeach; ?>
 
-?>
         </table>
         
         <ul class="pagination">

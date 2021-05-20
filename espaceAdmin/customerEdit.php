@@ -7,8 +7,7 @@ $custName = $_GET["cName"];
 $objetPDO = openPDO();
 
 
-
-$sql1 = "SELECT * FROM donkair.customer WHERE  name = ?";
+$sql1 = "SELECT * FROM customer WHERE  name = ?";
 
 $edit1 = $objetPDO->prepare($sql1);
 
@@ -23,7 +22,6 @@ if(!$row){
 }
 
 ?>
-
 
     <body>
         <div class="container">

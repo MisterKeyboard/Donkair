@@ -130,7 +130,6 @@ require "headHeader.php";
 </section>
 
   <!-- *********       A propos          ********** -->
-
 <section  class="section4">
 
                 <h2 class="text-primary fw-bold container pb-3 pt-4"> Pourquoi choisir Donkair ? <h2>
@@ -351,7 +350,17 @@ require "headHeader.php";
 
 </section>
 
-<section  class="section5">
+
+<section class="section5">
+
+<a href="addComment.php" target="_blank"> Ajoutez aussi Votre avis<a>
+
+    
+
+</section>                                    
+    
+
+<section  class="section6">
 
             <!-- *********       UN MOT DU PRESIDENT DE DONKAIR          ********** -->
             <section class="expert container" id="expert">
@@ -394,12 +403,8 @@ require "headHeader.php";
 
                 </div>
 </section>
-
-                                    
-            </section>
-        </main>
-
-
+        
+</main>
 
 <?php
         

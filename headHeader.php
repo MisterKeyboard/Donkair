@@ -52,5 +52,7 @@ if(isset($_GET['accepte-cookie'])){
                 </div>
 
             </div>
+
+            
         </nav>
     </header>

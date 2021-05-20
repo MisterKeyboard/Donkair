@@ -115,3 +115,20 @@ function changeImg6() {
         image6.src = images3[currentPos3];
 }
 setInterval(changeImg6, 3000);
+
+
+//MODAL AJOUTER UN AVIS
+let btnAddComment = document.querySelector('.btnAddComment');
+let overlayComment = document.querySelector('.overlayComment');
+let btnCloseComment = document.querySelector('.btnCloseComment');
+
+btnAddComment.addEventListener('click',openModaComment);
+btnCloseComment.addEventListener('click',closeComment);
+
+function openModaComment(){
+    overlayComment.style.display = 'block';
+}
+
+function closeComment(){
+    overlayComment.style.display = 'none';
+}
