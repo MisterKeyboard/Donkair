@@ -9,10 +9,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Admin</title>
         <!-- CSS only -->
-<<<<<<< HEAD
-        
-=======
->>>>>>> corrections erreur espaceAdmin
         <link rel="stylesheet" href="/espaceAdmin/admin.css"/>
         <link rel="stylesheet" href="/public/assets/css/global.css" crossorigin="anonymous">
         <!-- JavaScript Bundle with Popper -->

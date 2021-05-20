@@ -51,6 +51,8 @@ $idFlight = [];
             plane.image,
             departureRoute.town departureTown,
             arrivalRoute.town arrivalTown,
+            departureRoute.descriptive departureDescriptive,
+            arrivalRoute.descriptive arrivalDescriptive,
             departureRoute.image departureImage,
             arrivalRoute.image arrivalImage
         FROM flight f 
@@ -100,11 +102,69 @@ $idFlight = [];
     $searchFlight->execute($valConditions); 
 
     $flights = $searchFlight->fetchAll();
+    $departureCity = $flights[0]['departureTown'];
+    $arrivalCity = $flights[0]['arrivalTown'];
+    $departureImage = $flights[0]['departureImage'];
+    $arrivalImage = $flights[0]['arrivalImage']; 
+    $departureDescriptive = $flights[0]['departureDescriptive'];
+    $arrivalDescriptive = $flights[0]['arrivalDescriptive']; 
+    ?>
 
-    $departureCity = $_POST['arrivalCity'];
-    $arrivalCity = $_POST['departureCity'];
+    <div class="container pt-3 recherche:">
+        <h2 class="text-primary fw-bold">Votre recherche </h2>
+    </div>
+    <div class="container card my-3 pb-3">
+        <div class="photos">
+            <div class="col-sm-12 col-md-12 col-lg-6 pt-2 float-start">
+            <p><span class="text-primary">Ville de départ: </span><?php echo $departureCity ?></p>
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <img src="img/uploadtownsimages/<?php echo $departureImage ?> " class="card-img-top" alt="photo ville">
+                        </div>
+                        <div class="flip-card-back">
+                            <p class="mt-3 container text-dark fw-bold"><?php echo $departureDescriptive ?></p>
+                        </div>
+                    </div>
+                </div> 
+            </div>
 
 
+            <div class="col-sm-12 col-md-12 col-lg-6 pt-2 float-end">
+            <p><span class="text-primary">Ville d'arrivée: </span><?php echo $arrivalCity ?></p>
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <img src="img/uploadtownsimages/<?php echo $arrivalImage ?> " class="card-img-top" alt="photo ville">
+                        </div>
+                        <div class="flip-card-back">
+                            <p class="mt-3 container text-dark fw-bold"><?php echo $arrivalDescriptive ?></p>
+                        </div>
+                    </div>
+                </div> 
+            </div>
+        </div>
+
+
+
+        <h3 class="text-primary">Validez votre vol</h3>
+        <!--flip card
+         <div class="flip-card">
+  <div class="flip-card-inner">
+    <div class="flip-card-front">
+      <img src="img_avatar.png" alt="Avatar" style="width:300px;height:300px;">
+    </div>
+    <div class="flip-card-back">
+      <h1>John Doe</h1>
+      <p>Architect & Engineer</p>
+      <p>We love that guy</p>
+    </div>
+  </div>
+</div> 
+
+ -->
+
+<?php
     foreach ($flights as $flight)
     {   
         $flightId = $flight['id'];
@@ -112,8 +172,9 @@ $idFlight = [];
         $flightNbr = $flight['flightNbr'];
         $planeImage = $flight['image'];
         $date1 = new DateTime($date);
-
 ?> 
+
+
 
         <div class="row container g-0">
             <div class="col-sm-12 col-md-6 col-lg-6 pt-3">
@@ -128,6 +189,9 @@ $idFlight = [];
                     <a class="btn btn-primary vol" href="customer.php?flightId=<?php echo $flightId; ?>"  target=_blank> Choisir ce vol </a>
                 </div>
             </div>
+
+
+        
 
 <?php 
     
@@ -162,8 +226,9 @@ $idFlight = [];
         </div>    
     </div>
 <?php 
+    }
 
-} 
+
 
 
 
