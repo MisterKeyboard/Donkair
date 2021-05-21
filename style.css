@@ -129,10 +129,6 @@ figure{
 
 /* section5 */
 
-
-
-
-
 /* section6 */
 
 .imgCedric {
@@ -172,4 +168,26 @@ footer {
 
 .zip {
     color: #6e42c100;
+}
+
+/* message de conformation apres submit */
+
+.getMsg {
+    text-align: center;
+    margin: 0 auto;
+    width: 45%;
+    height: auto;
+}
+
+.msgRecu {
+    font-size: 40px ;
+}
+
+.avion7 {
+    border-radius: 75%;
+}
+
+.redirection {
+    font-size: 25px;
+    margin-top: 10px;
 }

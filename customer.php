@@ -39,7 +39,7 @@ if (isset($_POST['send']))
             $tel = $_POST['tel'];
             
 
-         echo "Vos informations ont bien été enregistrées. Merci pour votre confiance";
+            header('Location:recOk.php');
            ?> 
             <a href = "index.php"> Retourner à la page d'accueil</a> 
             <?php

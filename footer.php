@@ -66,7 +66,7 @@
 
                 <!-- *********       MODALE  1           ********** -->
         <div id="overlay" class="overlay1">
-            <div class="w-50 container">
+            <div class="container">
                 <div id="popup" class="popup1">
                         <h2 class="text-primary fs-3">Contactez-Nous:<span id="btnClose"
                         class="btnClose1 text-primary">&times;</span>
@@ -74,13 +74,13 @@
 
                         <form action="getinfo.php" method="POST" >
                             <label class="pt-3 fs-4" for="name">Nom</label>
-                            <input class="form-control" type="text" name="name" id="name" />
+                            <input class="form-control" type="text" name="name" id="name" required/>
 
                             <label class="pt-3 fs-4" for="mail">Mail </label>
-                            <input class="form-control" type="mail" name="mail" id="mail" placeholder="donkair@hotmail.fr"/>
+                            <input class="form-control" type="mail" name="mail" id="mail" placeholder="donkair@hotmail.fr" required/>
 
                             <label class="pt-3 fs-4" for="sujet" > Sujet </label>
-                            <select class="form-select" name="subject"> 
+                            <select class="form-select" name="subject" required> 
                                 <option valeur="">Annuler/Modifier une Reservation </option>
                                 <option valeur="">Bagage</option>
                                 <option valeur="">Codes Promotionnels </option>
@@ -92,7 +92,7 @@
 
                             <label class="pt-3 fs-4" for="message">Message </label>
                             <div class="input-group">
-                                <textarea class="form-control" aria-label="With textarea" name="message" id="message"></textarea>
+                                <textarea class="form-control" aria-label="With textarea" name="message" id="message" required></textarea>
                             </div>
                             <div class="pt-3">
                                 <input class=" btn btn-primary" type="submit"  name="Envoyer" value="Envoyer"/> 
@@ -104,7 +104,7 @@
 
                        <!-- *********       MODALE  2          ********** -->
         <div id="overlay2" class="overlay2">
-            <div class="w-50 container">
+            <div class="container">
                 <div id="popup2" class="popup2">
                     <h2 class="text-primary text-center fs-4">Contactez-Nous par téléphone:<span id="btnClose2"
                     class="btnClose2 text-primary">&times;</span>
