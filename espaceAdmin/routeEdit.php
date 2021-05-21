@@ -81,11 +81,11 @@ if(!$row){
                 <div class="row">
                     <div class="col-4">
                         <label class="text-primary pt-3" for="departureTime">Heure de décollage</label>
-                        <input class="form-control w-25" type="text" name="departureTime" value="<?=$row->departureTime?>">
+                        <input class="form-control w-50" type="text" name="departureTime" value="<?=$row->departureTime?>">
                     </div>
                     <div class="col-4">
                         <label class="text-primary pt-3" for="arrivalTime">Heure d'atterissage</label>
-                        <input class="form-control w-25" type="text" name="arrivalTime" value="<?=$row->arrivalTime?>">
+                        <input class="form-control w-50" type="text" name="arrivalTime" value="<?=$row->arrivalTime?>">
                     </div>
                 </div>
                         <label class="text-primary pt-3" for="date">Date</label>

@@ -38,21 +38,21 @@ if(!$row){
                     <div class="col-4">
 
                         <label class="text-primary pt-3" for="firstname"> Prénom </label>
-                        <input class="form-control w-25" type="text" name="firstname" value="<?=$row->firstname?>">
+                        <input class="form-control w-40" type="text" name="firstname" value="<?=$row->firstname?>">
                         
                     </div>
 
                     <div class="col-4">
 
                         <label class="text-primary pt-3" for="mail">Email</label>
-                        <input class="form-control w-25" type="text" name="mail" value="<?=$row->mail?>">
+                        <input class="form-control w-40" type="text" name="mail" value="<?=$row->mail?>">
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="col-4">
                         <label class="text-primary pt-3" for="tel">Téléphone</label>
-                        <input class="form-control w-25" type="text" name="tel" value="<?=$row->tel?>">
+                        <input class="form-control w-40" type="text" name="tel" value="<?=$row->tel?>">
                     </div>
 
                 <div class="pt-3">

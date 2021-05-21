@@ -129,46 +129,9 @@ figure{
 
 /* section5 */
 
-/* POP UP */
 
-.btnAddComment {
-    background-color: rgba(241, 194, 237, 0.89);
-    color: rgb(85, 51, 82);
-    font-size: 20px;
-    padding: 10px ;
-    border-radius: 15px;
-    display: block;
-    margin: auto;
-    margin-top: 20px;
-}
 
-.btnAddComment:hover{
-    background-color: rgba(183, 43, 183, 0.082);
-}
 
-.overlayComment{
-    position:fixed;
-    left:0px;
-    top:0px;
-    background-color: rgba(0,0,0, 0.5);
-    width: 100%;
-    height: 100%;
-    display:none;
-}
-
-.popupComment {
-    margin: 15px auto;
-    padding: 1em;
-    width: 60%;
-    background-color: rgb(228,228,228);
-    border-radius: 5px;
-    box-shadow:15px 20px 0   #bb8ee8b7;
-}
-
-.btnCloseComment {
-    cursor: pointer;
-    float: right;
-}
 
 /* section6 */
 

@@ -350,16 +350,43 @@ require "headHeader.php";
 
 </section>
 
-
 <section class="section5">
 
-<a href="addComment.php" target="_blank"> Ajoutez aussi Votre avis<a>
+<h3 class="mt-3 text-center"> Vos avis sur <span class="title1"> Donk <span class="title2"> Air </span> </span> </h3>
 
-    
+<?php
+$comment = 'SELECT * FROM donkair.comment';
 
+$stmt = $objetPdo->prepare($comment);
+$stmt->execute(); 
+$addComment = $stmt->fetchAll();
+
+if (isset($_POST)) { 
+
+    foreach ($addComment as $row) {
+
+        $name = $row['name'];
+        $firstname = $row['firstname'];
+        $mail = $row['mail'];
+        $titleAvis = $row['titleAvis'];
+        $avis = $row['avis']; 
+?>
+        <div class="card cardAvis" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title"> <?php echo $titleAvis; ?> </h5>
+                <h6 class="card-subtitle mb-2 text-muted"> De : <?php echo $name . " " . $firstname; ?> </h6>
+                <p class="card-text"> <?php echo $avis; ?> </p>
+                <a href="addComment.php" class="card-link" target="_blank"> Ajoutez aussi Votre avis<a>   
+            </div>
+        </div>
+
+<?php
+
+    };
+}
+?>
 </section>                                    
     
-
 <section  class="section6">
 
             <!-- *********       UN MOT DU PRESIDENT DE DONKAIR          ********** -->

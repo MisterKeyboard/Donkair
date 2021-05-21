@@ -1,8 +1,3 @@
-<?php
-require "espaceAdmin/db.php";
-?>
-
-<button id="btnAddComment" class="btnAddComment modal1 btnPopup1 btn btn-primary pb-1 mb-3">Ajouter un Avis</button>
 
 <div id="overlayComment" class="overlayComment">
 
@@ -34,6 +29,9 @@ require "espaceAdmin/db.php";
                 <option valeur="">Autre </option>
             </select> -->
 
+            <label class="pt-3 fs-4" for="titleAvis"> Sujet </label>
+            <input class="form-control" type="text" name="titleAvis" id="titleAvis" required />
+
             <label class="pt-3 fs-4" for="avis"> Votre avis 😃 </label>
             <div class="input-group">
                 <textarea class="form-control" aria-label="With textarea" name="avis" id="avis"></textarea>
@@ -48,38 +46,57 @@ require "espaceAdmin/db.php";
 
 </div>
 
+
 <?php
 
 
 $objetPdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-if($_SERVER['REQUEST_METHOD'] === 'POST' && empty($_POST['name']) || empty($_POST['firstname']) || empty($_POST['mail']) || empty($_POST['avis'])) {
+if($_SERVER['REQUEST_METHOD'] === 'POST' && empty($_POST['name']) || empty($_POST['firstname']) || empty($_POST['mail']) || empty($_POST['avis']) || empty($_POST['titleAvis'])) {
 } else {
         $name = $_POST['name']; 
         $firstname = $_POST['firstname'];
         $mail = $_POST['mail'];
         // $flightNbr = $_POST['flightNbr'];
         $avis = $_POST['avis'];
+        $titleAvis = $_POST['titleAvis'];
 
-    $sql = $objetPdo->prepare('INSERT INTO comment (name, firstname, mail,  avis) VALUES (:name, :firstname, :mail, :avis)');
+    $sql = $objetPdo->prepare('INSERT INTO comment (name, firstname, mail,  avis) VALUES (:name, :firstname, :mail, :avis, :titleAvis)');
     
-    $sql->execute(array(':name' => $name, ':firstname' => $firstname, ':mail' => $mail, ':avis' => $avis));
+    $sql->execute(array(':name' => $name, ':firstname' => $firstname, ':mail' => $mail, ':avis' => $avis, ':titleAvis' => $titleAvis));
 };
 
 
-$comment = 'SELECT * FROM donkair.comment';
+// $comment = 'SELECT * FROM donkair.comment';
 
-$stmt = $objetPdo->prepare($comment);
-$stmt->execute(); 
-$addComment = $stmt->fetchAll();
+// $stmt = $objetPdo->prepare($comment);
+// $stmt->execute(); 
+// $addComment = $stmt->fetchAll();
 
 
-   // if (!empty($addComment)) { 
+// if (isset($_POST['submit'])) { 
 
-    $id = $addComment['id'];
-    $name = $addComment['name'];
-    $firstname = $addComment['firstname'];
-    $mail = $addComment['mail'];
-    $avis = $addComment['avis']; 
+// foreach ($addComment as $row)
+//     {  
+//     $name = $addComment['name'];
+//     $firstname = $addComment['firstname'];
+//     $mail = $addComment['mail'];
+//     $titleAvis = $addComment['titleAvis'];
+//     $avis = $addComment['avis']; 
 
-?>
+// ?>
+
+<!-- // <div class="card" style="width: 18rem;">
+//   <div class="card-body">
+//     <h5 class="card-title"> <?php echo $titleAvis ?> </h5>
+//     <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+//     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+//     <a href="#" class="card-link">Card link</a>
+//     <a href="#" class="card-link">Another link</a>
+//   </div>
+// </div> -->
+
+ <?php
+// }
+// };
+// ?>

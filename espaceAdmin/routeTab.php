@@ -98,6 +98,7 @@ foreach  ($flights as $row) :?>
 <?php endforeach; ?>
 
         </table>
+
         <ul class="pagination">
                         <!-- Lien vers la page précédente (désactivé si on se trouve sur la 1ère page) -->
                         <li class="page-item <?= ($currentPage == 1) ? "disabled" : "" ?>">
@@ -113,7 +114,7 @@ foreach  ($flights as $row) :?>
                         <li class="page-item <?= ($currentPage == $pages) ? "disabled" : "" ?>">
                             <a href="/espaceAdmin/dashboard.php/?page=<?= $currentPage + 1 ?>" class="page-link">Suivante</a>
                         </li>
-                    </ul>
+        </ul>
                 </nav>
 
 
@@ -138,7 +139,6 @@ if(isset($_GET['page']) && !empty($_GET['page'])){
 $objetPdo=openPDO();
 // On détermine le nombre total de customer
 $customer = 'SELECT COUNT(*) AS nb_customer FROM `customer`';
-
 
 // On prépare la requête
 $query1 = $objetPdo->prepare($customer);
@@ -198,38 +198,37 @@ $customers = $query2->fetchAll(PDO::FETCH_ASSOC);
 
 <?php
 
-foreach  ($customers as $row) :?>
+foreach  ($customers as $row1) :?>
             <tr>
-                <td><?php echo $row["id"] ?></td>
-                <td><?php echo $row["name"] ?></td>
-                <td><?php echo $row["firstname"] ?></td>
-                <td><?php echo $row["mail"] ?></td>
-                <td><?php echo $row["tel"] ?></td>
-                <td><a  href="/espaceAdmin/customerEdit.php?cName=<?php echo $row["id"] ?>">Edit</a>
-                <a href="/espaceAdmin/customerDelete.php?cName=<?php echo $row["id"] ?>">Delete</a>
+                <td><?php echo $row1["id"] ?></td>
+                <td><?php echo $row1["name"] ?></td>
+                <td><?php echo $row1["firstname"] ?></td>
+                <td><?php echo $row1["mail"] ?></td>
+                <td><?php echo $row1["tel"] ?></td>
+                <td><a  href="/espaceAdmin/customerEdit.php?cName=<?php echo $row1["name"] ?>">Edit</a>
+                <a href="/espaceAdmin/customerDelete.php?cName=<?php echo $row1["name"] ?>">Delete</a>
                 </td>
             </tr>
 <?php endforeach;?>
         </table>
         
         <ul class="pagination">
-                        <!-- Lien vers la page précédente (désactivé si on se trouve sur la 1ère page) -->
-                        <li class="page-item <?= ($currentPage == 1) ? "disabled" : "" ?>">
-                            <a href="/espaceAdmin/dashboard.php/?page=<?= $currentPage - 1 ?>" class="page-link">Précédente</a>
-                        </li>
-                        <?php for($page = 1; $page <= $pages; $page++): ?>
-                        <!-- Lien vers chacune des pages (activé si on se trouve sur la page correspondante) -->
-                        <li class="page-item <?= ($currentPage == $page) ? "active" : "" ?>">
-                                <a href="/espaceAdmin/dashboard.php/?page=<?= $page ?>" class="page-link"><?= $page ?></a>
-                            </li>
-                        <?php endfor ?>
-                        <!-- Lien vers la page suivante (désactivé si on se trouve sur la dernière page) -->
-                        <li class="page-item <?= ($currentPage == $pages) ? "disabled" : "" ?>">
-                            <a href="/espaceAdmin/dashboard.php/?page=<?= $currentPage + 1 ?>" class="page-link">Suivante</a>
-                        </li>
-                    </ul>
-                </nav>
-
+            <!-- Lien vers la page précédente (désactivé si on se trouve sur la 1ère page) -->
+            <li class="page-item <?= ($currentPage == 1) ? "disabled" : "" ?>">
+                <a href="/espaceAdmin/dashboard.php/?page=<?= $currentPage - 1 ?>" class="page-link">Précédente</a>
+            </li>
+            <?php for($page = 1; $page <= $pages; $page++): ?>
+            <!-- Lien vers chacune des pages (activé si on se trouve sur la page correspondante) -->
+            <li class="page-item <?= ($currentPage == $page) ? "active" : "" ?>">
+                    <a href="/espaceAdmin/dashboard.php/?page=<?= $page ?>" class="page-link"><?= $page ?></a>
+                </li>
+            <?php endfor ?>
+            <!-- Lien vers la page suivante (désactivé si on se trouve sur la dernière page) -->
+            <li class="page-item <?= ($currentPage == $pages) ? "disabled" : "" ?>">
+                <a href="/espaceAdmin/dashboard.php/?page=<?= $currentPage + 1 ?>" class="page-link">Suivante</a>
+            </li>
+        </ul>
+                
 
     </body>
 
@@ -251,8 +250,7 @@ if(isset($_GET['page']) && !empty($_GET['page'])){
 
 $objetPdo=openPDO();
 // On détermine le nombre total de resa
-$booking = 'SELECT COUNT(*) AS nb_booking FROM `booking`';
-
+$booking = 'SELECT COUNT(*) AS nb_booking FROM booking';
 
 // On prépare la requête
 $query2 = $objetPdo->prepare($booking);
@@ -278,6 +276,7 @@ $bookingDisplay = 'SELECT * FROM donkair.booking;
 ORDER BY id ASC LIMIT 1;
 DESC LIMIT :premier, :parpage;';
 
+
 // On prépare la requête
 $query3 = $objetPdo->prepare($bookingDisplay);
 
@@ -289,8 +288,6 @@ $query3->execute();
 
 // On récupère les valeurs dans un tableau associatif
 $resas = $query3->fetchAll(PDO::FETCH_ASSOC);
-
-
 ?>
 
 <body >
@@ -303,7 +300,7 @@ $resas = $query3->fetchAll(PDO::FETCH_ASSOC);
                 <th class="text-primary"> Id du client </th>
                 <th class="text-primary"> Nom </th>
                 <th class="text-primary"> Prénom </th>
-                <!-- <th class="text-primary"> Numéro de Vol </th> -->
+                <th class="text-primary"> Id du Vol </th>
                 <th class="text-primary"> Action </th>
             </tr>     
 </section>
@@ -311,15 +308,14 @@ $resas = $query3->fetchAll(PDO::FETCH_ASSOC);
 
 <?php
 
-foreach  ($resas as $row) :?>
+foreach  ($resas as $row2) :?>
             <tr>
-                <td><?php echo $row["id"] ?></td>
-                <td><?php echo $row["name"] ?></td>
-                <td><?php echo $row["firstname"] ?></td>
-                <!-- <td> <?php //echo $row["flightNbr"] ?> </td> -->
+                <td><?php echo $row2["id"] ?></td>
+                <td><?php echo $row2["name"] ?></td>
+                <td><?php echo $row2["firstname"] ?></td>
+                <td> <?php echo $row2["flightId"] ?> </td>
                 <td>
-                <a  href="/espaceAdmin/bookingEdit.php?resa=<?php echo $row["id"] ?>">Edit</a>
-                <a href="/espaceAdmin/bookingDelete.php?resa=<?php echo $row["id"] ?>">Delete</a>
+                <a href="/espaceAdmin/bookingDelete.php?resa=<?php echo $row2["id"] ?>">Delete</a>
                 </td>
             </tr>
 <?php endforeach; ?>
@@ -327,23 +323,22 @@ foreach  ($resas as $row) :?>
         </table>
         
         <ul class="pagination">
-                        <!-- Lien vers la page précédente (désactivé si on se trouve sur la 1ère page) -->
-                        <li class="page-item <?= ($currentPage == 1) ? "disabled" : "" ?>">
-                            <a href="/espaceAdmin/dashboard.php/?page=<?= $currentPage - 1 ?>" class="page-link">Précédente</a>
-                        </li>
-                        <?php for($page = 1; $page <= $pages; $page++): ?>
-                        <!-- Lien vers chacune des pages (activé si on se trouve sur la page correspondante) -->
-                        <li class="page-item <?= ($currentPage == $page) ? "active" : "" ?>">
-                                <a href="/espaceAdmin/dashboard.php/?page=<?= $page ?>" class="page-link"><?= $page ?></a>
-                            </li>
-                        <?php endfor ?>
-                        <!-- Lien vers la page suivante (désactivé si on se trouve sur la dernière page) -->
-                        <li class="page-item <?= ($currentPage == $pages) ? "disabled" : "" ?>">
-                            <a href="/espaceAdmin/dashboard.php/?page=<?= $currentPage + 1 ?>" class="page-link">Suivante</a>
-                        </li>
-                    </ul>
-                </nav>
-
+            <!-- Lien vers la page précédente (désactivé si on se trouve sur la 1ère page) -->
+            <li class="page-item <?= ($currentPage == 1) ? "disabled" : "" ?>">
+                <a href="/espaceAdmin/dashboard.php/?page=<?= $currentPage - 1 ?>" class="page-link">Précédente</a>
+            </li>
+            <?php for($page = 1; $page <= $pages; $page++): ?>
+            <!-- Lien vers chacune des pages (activé si on se trouve sur la page correspondante) -->
+            <li class="page-item <?= ($currentPage == $page) ? "active" : "" ?>">
+                    <a href="/espaceAdmin/dashboard.php/?page=<?= $page ?>" class="page-link"><?= $page ?></a>
+                </li>
+            <?php endfor ?>
+            <!-- Lien vers la page suivante (désactivé si on se trouve sur la dernière page) -->
+            <li class="page-item <?= ($currentPage == $pages) ? "disabled" : "" ?>">
+                <a href="/espaceAdmin/dashboard.php/?page=<?= $currentPage + 1 ?>" class="page-link">Suivante</a>
+            </li>
+        </ul>
+                
 
     </body>
 

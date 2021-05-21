@@ -17,3 +17,4 @@ $del->execute();
 
 header('Location:/espaceAdmin/dashboard.php');
 
+?>
