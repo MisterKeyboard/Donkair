@@ -141,3 +141,18 @@ setInterval(changeImg6, 3000);
     // }
 
     
+
+
+//section pourquoi choisir DonKair
+//apparition de texte au passage de la souris
+
+let divrow1 = document.querySelector('.row1');
+let text1 = document.querySelector('.row1 .hidden-text');
+
+
+divrow1.addEventListener('mouseover',appearancetext1);
+
+
+function appearancetext1(){
+    hidden.style.visibility = 'none';
+}

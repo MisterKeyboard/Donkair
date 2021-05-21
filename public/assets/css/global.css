@@ -10888,7 +10888,7 @@ margin-top: -109px;
  .flip-card {
   background-color: transparent;
   width: 100%;
-  
+
   border: 1px solid #f1f1f1;
   perspective: 1000px; /* Remove this if you don't want the 3D effect */
 }
@@ -10919,13 +10919,13 @@ margin-top: -109px;
 
 /* Style the front side (fallback if image is missing) */
 .flip-card-front {
-  background-color: #bbb;
+  background-color: white;
   color: black;
 }
 
 /* Style the back side */
 .flip-card-back {
-  background-color: dodgerblue;
+  background-color: white;
   color: white;
   transform: rotateY(180deg);
 } 
@@ -10934,4 +10934,22 @@ margin-top: -109px;
 
 .photos{
   height: 550px;
+}
+
+
+
+/* section pourquoi choisir Donkair*/
+
+.hidden{
+  visibility:hidden ;
+}
+
+
+@media (max-width: 991px) {
+.photos{
+  margin-bottom: 593px;
+}
+.photomontain{
+    margin-top: 35px;
+}
 }

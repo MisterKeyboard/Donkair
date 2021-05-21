@@ -115,8 +115,8 @@ if (!empty($flights)) { ?>
         <!--<h2 class="text-primary fw-bold">Votre recherche </h2>-->
     </div>
     <div class="container card my-3 pb-3">
-        <div class="photos">
-            <div class="col-sm-12 col-md-12 col-lg-6 pt-2 float-start">
+        <div class="photos row">
+            <div class=" h-100 col-sm-12 col-md-12 col-lg-6 pt-2">
             <p><span class="text-primary">Ville de départ: </span><?php echo $departureCity ?></p>
                 <div class="flip-card">
                     <div class="flip-card-inner">
@@ -131,7 +131,7 @@ if (!empty($flights)) { ?>
             </div>
 
 
-            <div class="col-sm-12 col-md-12 col-lg-6 pt-2 float-end">
+            <div class="photomontain h-100 col-sm-12 col-md-12 col-lg-6 pt-2 ">
             <p><span class="text-primary">Ville d'arrivée: </span><?php echo $arrivalCity ?></p>
                 <div class="flip-card">
                     <div class="flip-card-inner">
@@ -165,7 +165,7 @@ if (!empty($flights)) { ?>
 
         <!--<h3 class="text-primary">Validez votre vol</h3>-->
 
-        <div class="row container g-0">
+        <div class="photoplane row container g-0">
             <div class="col-sm-12 col-md-6 col-lg-6 pt-3">
                 <img class="w-100 rounded" src="img/uploadtownsimages/<?php echo $planeImage ?> " class="card-img-top" alt="photo avion">
             </div>

@@ -23,7 +23,7 @@ require "headHeader.php";
 
                 <form name="form" method="POST">
                     <div class="row">
-                        <div class="col-sm-12 col-md-12 col-lg-6 text-white ">
+                        <div class="col-sm-12 col-md-12 col-lg-6 pb-3 text-white ">
                             <label class="pt-3" for="departureCity"> Ville de départ </label>
                             <select class="form-select" name="departureCity" id="departureCity">
 
@@ -135,8 +135,8 @@ require "headHeader.php";
                 <h2 class="text-primary fw-bold container pb-3 pt-4"> Pourquoi choisir Donkair ? <h2>
                 
                     <div class="row rowChoice px-1">
-                        <div class=" col-sm-12 col-md-6 col-lg-3">
-                            <div class="container w-25 py-4 px-1">
+                        <div class="row1 col-sm-12 col-md-6 col-lg-3">
+                            <div class="row1 container w-25 py-4 px-1">
                                 <?xml version="1.0" encoding="iso-8859-1"?>
                                 <!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
                                 <svg class="st0" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
@@ -181,10 +181,10 @@ require "headHeader.php";
                                 </svg>
                             </div>
                             <h3 class="text-center">20 000 VOLS ASSURÉS<h3>
-                            <p class="text-center">Une expérience considérable</p>
+                            <p class="text-center hidden hidden-text">Une expérience considérable</p>
                         </div>
 
-                        <div class="col-sm-12 col-md-6 col-lg-3 container">
+                        <div class="row2 col-sm-12 col-md-6 col-lg-3 container">
                             <div class="container w-25 py-4 px-1">
                                 <?xml version="1.0" encoding="iso-8859-1"?>
                                 <!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
@@ -238,10 +238,10 @@ require "headHeader.php";
                                 </svg>
                             </div>
                             <h3 class="text-center">95 000+ PASSAGERS<h3>
-                            <p class="text-center">Satisfaction</p>
+                            <p class="text-center hidden">Satisfaction</p>
                         </div>
 
-                        <div class="col-sm-12 col-md-6 col-lg-3 container">
+                        <div class="row3 col-sm-12 col-md-6 col-lg-3 container">
                             <div class="container w-25 py-4 px-1">
                                 <svg  class="st0" viewBox="0 0 480 480"  xmlns="http://www.w3.org/2000/svg">
                                 <path d="m240 0c-132.546875 0-240 107.453125-240 240s107.453125 240 240 240 240-107.453125 
@@ -252,11 +252,12 @@ require "headHeader.php";
                                 68.253906-11.777344c-7.8125 28.652344-12.03125 58.164063-12.558594 87.855469h-71.929687c.902343-26.117188 
                                 6.398437-51.871094 16.234375-76.078125zm215.566406-27.472656c28.746094.367187 57.421875 2.984375 85.761719 7.832031l28.238281 4.871094c8.675781 29.523437 13.34375 60.078125 13.878906 90.847656h-127.878906zm88.488281-7.9375c-29.238281-4.996094-58.828125-7.695313-88.488281-8.0625v-96c45.863281 4.40625 85.703125 46.398437 108.28125 107.511719zm-104.488281-8.0625c-29.660156.367187-59.242188 3.066406-88.480469 8.0625l-19.800781 3.425781c22.578125-61.128906 62.417969-103.136719 108.28125-107.523438zm-85.753906 23.832031c28.335937-4.847656 57.007812-7.464844 85.753906-7.832031v103.550781h-127.878906c.535156-30.769531 5.203125-61.324219 13.878906-90.847656zm-42.125 111.71875h127.878906v103.550781c-28.746094-.367187-57.421875-2.984375-85.761719-7.832031l-28.238281-4.871094c-8.675781-29.523437-13.34375-60.078125-13.878906-90.847656zm39.390625 111.488281c29.238281 5.003907 58.824219 7.714844 88.488281 8.105469v96c-45.863281-4.410156-85.703125-46.402344-108.28125-107.515625zm104.488281 8.105469c29.660156-.390625 59.242188-3.101562 88.480469-8.105469l19.800781-3.425781c-22.578125 61.128906-62.417969 103.136719-108.28125 107.523438zm85.753906-23.875c-28.335937 4.847656-57.007812 7.464844-85.753906 7.832031v-103.550781h127.878906c-.535156 30.769531-5.203125 61.324219-13.878906 90.847656zm58.117188-111.71875c-.527344-29.691406-4.746094-59.203125-12.558594-87.855469l68.253906 11.777344c9.835938 24.207031 15.332032 49.960937 16.234375 76.078125zm47.601562-93.710938-65.425781-11.289062c-11.761719-38.371094-33.765625-72.808594-63.648437-99.601562 55.878906 18.648437 102.21875 58.457031 129.074218 110.890624zm-269.871094-110.890624c-29.882812 26.792968-51.886718 61.230468-63.648437 99.601562l-65.425781 11.289062c26.855468-52.433593 73.195312-92.242187 129.074218-110.890624zm-129.074218 314.3125 65.425781 11.289062c11.761719 38.371094 33.765625 72.808594 63.648437 99.601562-55.878906-18.648437-102.21875-58.457031-129.074218-110.890624zm269.871094 110.890624c29.882812-26.792968 51.886718-61.230468 63.648437-99.601562l65.425781-11.289062c-26.855468 52.433593-73.195312 92.242187-129.074218 110.890624zm0 0"/></svg>
                             </div>
+
                             <h3 class="text-center">COUVERTURE MONDIALE<h3>
-                            <p class="text-center">Des bureaux DonkAir sur les 6 continents</p>
+                            <p class="text-center hidden">Des bureaux DonkAir sur les 6 continents</p>
                         </div>
 
-                        <div class="col-sm-12 col-md-6 col-lg-3 container">
+                        <div class="row4 col-sm-12 col-md-6 col-lg-3 container">
                             <div class="container w-25 py-4 px-1">
                                 <?xml version="1.0" encoding="iso-8859-1"?>
                                 <!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
@@ -343,7 +344,7 @@ require "headHeader.php";
                                 </svg>
                             </div>
                             <h3 class="text-center">SERVICE PERSONNALISÉ<h3>
-                            <p class="text-center">Des chargés de clientèle dédiés, disponibles 24h/24, 7j/7 </p>
+                            <p class="text-center hidden">Des chargés de clientèle dédiés, disponibles 24h/24, 7j/7 </p>
                         </div>
                     </div>
             </section>
