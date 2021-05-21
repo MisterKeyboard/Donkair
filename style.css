@@ -28,7 +28,7 @@
 }
 
 .navbar {
-    background-image: linear-gradient( rgba(181, 122, 210, 0.776388), white) ;
+    background-image: linear-gradient(#52318F, white) ;
     border-radius: 10px;
     font-size: 30px;
 }
@@ -68,7 +68,7 @@ body{
 }
 
 #flight {
-    background-color:rgba(85, 51, 82, 0.89);
+    background-color:#261742;
     background-image:
     radial-gradient(#6f42c1, rgba(255,255,255,.2) 2px, transparent 40px),
     radial-gradient(#6f42c1, rgba(255,255,255,.15) 1px, transparent 30px),
@@ -89,25 +89,51 @@ body{
     margin-top: 20px;
 }
 
-/* section2*/
+.pasVol {
+    margin: auto;
+    border-radius: 10px;
+}
 
-.section2 {
-    background-color: ;
+.JoindrePasVol {
+    text-align: left;
+    list-style-type: none;
+    font-size: 15px;
+}
+
+
+/* section2 images */
+
+figure{
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    margin-top: 20px;
+}
+
+.images {
+    width: 100%;
+    height: 100%;
+    text-align: center;
 }
 
 /* section3 */
 
 .section3 {
-    background-image: linear-gradient(rgba(181, 122, 210, 0.776388), white  ) ;
+    background-image: linear-gradient(#9C83CC, white  ) ;
 }
 
 /* section4 */ 
 
 .section4 {
-    background-image: linear-gradient(white, rgba(181, 122, 210, 0.776388)  ) ;
+    background-image: linear-gradient(white, #9C83CC  ) ;
 }
 
 /* section5 */
+
+
+
+
+
+/* section6 */
 
 .imgCedric {
     justify-content: left;
@@ -122,53 +148,6 @@ body{
     font-size: 40px;
 }
 
-
-
-/* POP UP */
-
-.btnPopup , .contacttel{
-    margin-left: 5%;
-    margin-bottom: 50px;
-    background-color: #b062ff;
-    padding:1em 2em;
-    border-radius: 15px;
-    font-size: 14px;
-    color: black;
-    cursor: pointer;
-}
-
-.btnPopup:hover{
-
-    background-color: rgba(183, 43, 183, 0.082);
-}
-
-.overlay{
-    position:fixed;
-    left:0px;
-    top:0px;
-    background-color: rgba(0,0,0, 0.5);
-    width: 100%;
-    height: 100%;
-    display:none;
-}
-
-.popup , .form{
-    margin:20% auto;
-    padding: 1em;
-    width: 80%;
-    height:300px;
-    background-color: rgb(228,228,228);
-    border-radius: 5px;
-    box-shadow:15px 20px 0   #bb8ee8b7;
-}
-
-.btnClose {
-    cursor: pointer;
-    float: right;
-    box-shadow:15px 20px 0 rgba(247, 97, 247, 0.5);
-}
-
-
 /* footer */
 
 footer {
@@ -176,7 +155,7 @@ footer {
 }
 
 .donkey {
-    color: #6f42c1;
+    color: white;
     font-size: 30px;
 }
 

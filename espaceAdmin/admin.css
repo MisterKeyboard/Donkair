@@ -1,0 +1,41 @@
+body {
+    background-image: linear-gradient( white, rgba(219, 181, 238, 0.637)) ;
+    width:100%;    
+    height: 100%; 
+}
+
+
+.containerHeader {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.logo {
+    height:200px;
+    width : 150px;
+}
+
+.title {
+    margin-top: 30px;
+}
+.title1 {
+    color: #6f42c1;
+    font-family: fantasy;
+    font-size: 50px;
+    
+}
+
+.title2 {
+    color: grey;
+    font-family: fantasy;
+    font-style: italic;
+} 
+
+.title3 {
+    padding-left: 20px;
+    color: black;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: large;
+    font-style: normal;
+}

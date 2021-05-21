@@ -8,29 +8,29 @@ require "head.php";
 
 <body>
 
-    <section class="container">
-        <h1 class="text-primary pt-5"> Ajouter une ville de destination ou une ville de départ  </h1>
+    <section class="container ">
+        <h1 class="text-primary"> Ajouter une ville de destination ou une ville de départ  </h1>
 
     <!-- Inserer une ville & airport -->
 
         <form action="addCity.php" method="POST" enctype="multipart/form-data">
             
-            <label class="text-primary pt-4" for="town"> Entrez le nom de la ville </label>
+            <label class="text-primary " for="town"> Entrez le nom de la ville </label>
             <input class="form-control w-25" type="text" name="town" id="town" require>
 <br>
-            <lable class="text-primary pt-4" for="image">Choisissez l'image à sauvegarder  </label>
+            <lable class="text-primary " for="image">Choisissez l'image à sauvegarder  </label>
             <br>
             <span> <i> * Optionnel <i> </span>
             <br>
             <input class="btn btn-primary" type="file" name="image"  />
             <br>
-            <label class="text-primary pt-4" for="airport"> Entrez le nom de l'aréoport </label>
+            <label class="text-primary " for="airport"> Entrez le nom de l'aréoport </label>
             <input class="form-control w-25" type="text" name="airport" id="airport" require>
             <br>
-            <label class="text-primary pt-4" for="country"> Entrez le Pays </label>
+            <label class="text-primary" for="country"> Entrez le Pays </label>
             <input class="form-control w-25" type="text" name="country" id="country" require>
             <br>
-            <div class="pt-4">
+            <div class="">
                 <input class="btn btn-primary" type="submit" value="ajouter la ville"/>
             </div>      
         </form>

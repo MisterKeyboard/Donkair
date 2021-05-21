@@ -85,27 +85,25 @@ require "headHeader.php";
 
 <section  class="section2">
 
-            <!-- Carrousel ---->
-            <div id="carouselExampleSlidesOnly" class="carousel slide pt-3" data-bs-ride="carousel">
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <img src="img/cirrus/cirrus10.jpg" src="img/cessna/cessna7.jpg"class="d-block w-70  " alt="avion de type cirrus avec une chaine de montagnes en arrière plan" height="150px" weight="70px">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="img/cessna/cessna7.jpg" class="d-block w-70 " alt="avion cessna dans les airs" height="150px" weight="70px">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="img/cessna/cessna1.jpg" class="d-block w-70 " alt="intérieur côté passager de l'avion cessna" height="150px" weight="70px">
-                    </div>
-                </div>
-            </div>
-
+            <!-- Images ---->
+        
+    <figure>
+        <img src="img/cirrus/cirrus4.jpg" id="image1" class="images" alt="image d'avion" >
+        <img src="img/cessna/cessna2.jpg" class="images image2" alt="image d'avion" >
+        <img src="img/cessna/cessna6.jpg" class="images" id="image3" alt="image d'avion" >
+        <img src="img/cessna/cessna8.jpg" class="images image4" alt="image d'avion" >
+        <img src="img/cirrus/cirrus10.jpg" class="images image5" alt="image d'avion" >
+        <img src="img/cessna/cessna10.jpg" class="images" id="image6" alt="image d'avion" >
+        <img src="img/cirrus/cirrus13.jpg" class="images image7" alt="image d'avion" >
+        <img src="img/cessna/cessna11.jpg" class="images image8" alt="image d'avion" >
+    </figure>   
+            
 </section>                   
 
 <section  class="section3">
             <!-- *********       SECTION AVIONS/VIDEOS    ********** -->         
             <section id="planes" class="planes container py-5">
-                <h2 class="text-primary fw-bold pb-4"> Nos modèles d'avions:<h2>
+                <h2 class="text-primary fw-bold pb-4 text-white"> Nos modèles d'avions:<h2>
                     <div class="row">
                         <div class="pb-4 col-sm-12 col-md-12 col-lg-6" >
                             <div class="card border-primary">
@@ -132,7 +130,6 @@ require "headHeader.php";
 </section>
 
   <!-- *********       A propos          ********** -->
-
 <section  class="section4">
 
                 <h2 class="text-primary fw-bold container pb-3 pt-4"> Pourquoi choisir Donkair ? <h2>
@@ -353,7 +350,44 @@ require "headHeader.php";
 
 </section>
 
-<section  class="section5">
+<section class="section5">
+
+<h3 class="mt-3 text-center"> Vos avis sur <span class="title1"> Donk <span class="title2"> Air </span> </span> </h3>
+
+<?php
+$comment = 'SELECT * FROM donkair.comment';
+
+$stmt = $objetPdo->prepare($comment);
+$stmt->execute(); 
+$addComment = $stmt->fetchAll();
+
+if (isset($_POST)) { 
+
+    foreach ($addComment as $row) {
+
+        $name = $row['name'];
+        $firstname = $row['firstname'];
+        $mail = $row['mail'];
+        $titleAvis = $row['titleAvis'];
+        $avis = $row['avis']; 
+?>
+        <div class="card cardAvis" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title"> <?php echo $titleAvis; ?> </h5>
+                <h6 class="card-subtitle mb-2 text-muted"> De : <?php echo $name . " " . $firstname; ?> </h6>
+                <p class="card-text"> <?php echo $avis; ?> </p>
+                <a href="addComment.php" class="card-link" target="_blank"> Ajoutez aussi Votre avis<a>   
+            </div>
+        </div>
+
+<?php
+
+    };
+}
+?>
+</section>                                    
+    
+<section  class="section6">
 
             <!-- *********       UN MOT DU PRESIDENT DE DONKAIR          ********** -->
             <section class="expert container" id="expert">
@@ -396,12 +430,8 @@ require "headHeader.php";
 
                 </div>
 </section>
-
-                                    
-            </section>
-        </main>
-
-
+        
+</main>
 
 <?php
         

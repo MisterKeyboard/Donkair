@@ -13,39 +13,41 @@ $getFlightId->execute([$flightId]);
 $getFlightId->setFetchMode(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE, 'Plane');
 $data = $getFlightId->fetch();
 
-// if ($data->flightFull()) {
-//     echo "Le nombre de place limité pour ce vol est de " . $data->getcapacity() . " places.";
-// }
+// gestion des erreurs
+
+if ($data->flightFull()) {
+    echo "Le nombre de place limité pour ce vol est de " . $data->getcapacity() . " places.";
+}
 
 //GESTION des erreurs du forms 
 
-// if (isset($_POST['send']))
-// {
-//     if(isset($_POST['name']) && isset($_POST['firstname']) && isset($_POST['mail']) && isset($_POST['tel']));
-//      {  
-//         $name = $_POST['name'];
-//         $firstname = $_POST['firstname'];
-//         $mail = $_POST['mail'];
-//         $tel = $_POST['tel'];
+if (isset($_POST['send']))
+{
+    if(isset($_POST['name']) && isset($_POST['firstname']) && isset($_POST['mail']) && isset($_POST['tel']));
+     {  
+        $name = $_POST['name'];
+        $firstname = $_POST['firstname'];
+        $mail = $_POST['mail'];
+        $tel = $_POST['tel'];
 
-//         if(!empty($_POST['name']) && !empty($_POST['firstname']) && !empty($_POST['mail']) && !empty($_POST['tel']))
-//         {
-//             //print_r($name);
-//             $name = $_POST['name'];
-//             $firstname = $_POST['firstname'];
-//             $mail = $_POST['mail'];
-//             $tel = $_POST['tel'];
+        if(!empty($_POST['name']) && !empty($_POST['firstname']) && !empty($_POST['mail']) && !empty($_POST['tel']))
+        {
+            //print_r($name);
+            $name = $_POST['name'];
+            $firstname = $_POST['firstname'];
+            $mail = $_POST['mail'];
+            $tel = $_POST['tel'];
             
 
-//             echo "Vos informations ont bien été enregistrées. Merci pour votre confiance";
-            // ?> 
-            <!-- // <a href = "index.php"> Retourner à la page d'accueil</a> -->
+         echo "Vos informations ont bien été enregistrées. Merci pour votre confiance";
+           ?> 
+            <a href = "index.php"> Retourner à la page d'accueil</a> 
             <?php
-//         } else {
-//             echo "Veuillez remplir tous les champs svp";
-//         }
-//     }
-// }
+        } else {
+            echo "Veuillez remplir tous les champs svp";
+        }
+    }
+ }
 
 $flightNbr = $data->flightNbr;
 $capacity = $data->getCapacity();
@@ -81,21 +83,6 @@ if ($_SESSION['nbrPassenger'] > $capacity) {
 
     <body>
         <main>
-                                    <!-- <section class="carouseldest">
-                <div class="containerdestinations pb-3">
-                    <div class="carouseldestinations">
-                        <div class="carouseldestinations__face"><span class="spandestinations text-primary">Welcome</span></div>
-                        <div class="carouseldestinations__face"><span class="spandestinations text-primary">Aboard</span></div>
-                        <div class="carouseldestinations__face"><span class="spandestinations text-primary">Make</span></div>
-                        <div class="carouseldestinations__face"><span class="spandestinations text-primary">Your</span></div>
-                        <div class="carouseldestinations__face"><span class="spandestinations text-primary">Dream</span></div>
-                        <div class="carouseldestinations__face"><span class="spandestinations text-primary">Come</span></div>
-                        <div class="carouseldestinations__face"><span class="spandestinations text-primary">True</span></div>
-                        <div class="carouseldestinations__face"><span class="spandestinations text-primary">DonkAir</span></div>
-                        <div class="carouseldestinations__face"><span class="spandestinations text-primary">Does care</span></div>
-                    </div>
-                </div>
-            </section> -->
 
         <form class="container card col-6 pt-3 pb-3 mb-3" method="POST" action="">
 
@@ -107,16 +94,16 @@ if ($_SESSION['nbrPassenger'] > $capacity) {
         for ($i = 0; $i < $_SESSION['nbrPassenger']; $i++ ) { ?>
 <div class="card container pb-3 mb-3">
             <label class="text-primary pt-3" for="name_<?php echo $i; ?>" > Nom </label>
-            <input class="form-control" type="text" name="name[]" id="name_<?php echo $i; ?>" value="<?php if (isset($_POST['name'])){echo $_POST['name'][$i];} ?>" />
+            <input class="form-control" type="text" name="name[]" id="name_<?php echo $i; ?>" value="<?php if (isset($_POST['name'])){echo $_POST['name'][$i];} ?>" required />
 
             <label class="text-primary pt-3" for="firstname_<?php echo $i; ?>"> Prénom</label>
-            <input class="form-control" type="text" name="firstname[]" id="firstname_<?php echo $i; ?>" value="<?php if (isset($_POST['firstname'])){echo $_POST['firstname'][$i];} ?>" />
+            <input class="form-control" type="text" name="firstname[]" id="firstname_<?php echo $i; ?>" value="<?php if (isset($_POST['firstname'])){echo $_POST['firstname'][$i];} ?>" required />
     <br>
             <label class="text-primary pt-3" for="mail_<?php echo $i; ?>"> Email </label>
-            <input class="form-control" type="email" name="mail[]" id="mail_<?php echo $i; ?>" placeholder="donkair@hotmail.fr" value="<?php if (isset($_POST['mail'])){echo $_POST['mail'][$i];} ?>" />
+            <input class="form-control" type="email" name="mail[]" id="mail_<?php echo $i; ?>" placeholder="donkair@hotmail.fr" value="<?php if (isset($_POST['mail'])){echo $_POST['mail'][$i];} ?>" required />
 
             <label class="text-primary pt-3" for="tel_<?php echo $i; ?>"> Numéro de téléphone </label>
-            <input class="form-control" type="text" name="tel[]" id="tel_<?php echo $i; ?>" maxlength="15" value="<?php if (isset($_POST['tel'])){echo $_POST['tel'][$i];} ?>" />
+            <input class="form-control" type="text" name="tel[]" id="tel_<?php echo $i; ?>" pattern="[0-9]{8-15}" required value="<?php if (isset($_POST['tel'])){echo $_POST['tel'][$i];} ?>" />
         </div>
     <br/>  
 

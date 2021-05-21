@@ -3,18 +3,16 @@ require "db.php";
 require "session.php";
 require "head.php";
 
-$flightNbr = $_GET["fnbr"];
+$fresaNbr = $_GET["resa"];
 
 $PDO = openPDO();
-$sql = "DELETE FROM flight where flightNbr = ?";
+$sql = "DELETE FROM booking where id = ?";
 
 $del = $PDO->prepare($sql);
 
-$del->bindValue(1, $flightNbr, PDO::PARAM_STR);
+$del->bindValue(1, $fresaNbr, PDO::PARAM_STR);
 
 $del->execute();
 
 
 header('Location:/espaceAdmin/dashboard.php');
-
-?>

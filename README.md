@@ -12,44 +12,25 @@ Run php -S 0.0.0.0:8000
  To access the admin aera;go to this adress:
  http://localhost:8000/espaceAdmin/connexion.php
 
-
-
-
-
 #  Admin
 A - Mise en page -SACC - library pour mettre en forme
-L - !! Faire le SELECT (mise en forme) !!
 L - addCity.php -> modifier le lien pour retourner à la page d'accueil. (le lien ouvre une nouvelle page, on souhaite retourner à la page d'accueil)
-A-ok - Ajouter les photos!!!
 L - voir pour le "remplir tous les champs" -> addCity.php
-A - routeTab tableau avec edit et delet
-A-ok - sécuriser password  
 
 
-# Formulaire de Contact
-- SASS
-
-# HTML
-- Mise en page  SASS (bon courage lol)
+# Mise en page css + php
+- dashboard
+- forms d'enregistrement
 
 
 # Fiches -html
-- Photos
 - Avis client
-- destination
-
-# Barre de recheche
-- fiches
-- pagination
 
 # Client -> Selectionner un vol 
 - Un client ne peut s'enregistrer qu'une fois (if !==)
-- Fiche
 
-# Client -> Nombre de place RESERVATION
-- To do 
-- VOL complet = gestion de place, Si vol complet add j j+1
-- class = function (blabla)
+# JS 
+- index.php section 2, mettre une boucle à la function changeImg()
 
 
 

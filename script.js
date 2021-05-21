@@ -42,9 +42,7 @@ function openModal2(){
     overlay2.style.display = 'block';
 }
 
-
-
-//Animation des Avions
+//Animation des (icons) Avions
 
 function takeOff(){
     let takeOff = document.getElementById('takeOff');
@@ -66,3 +64,71 @@ takeOff();
 
 setInterval(takeOff, 7000);
 
+
+
+//Animation des photos section2
+
+// var image1 = document.getElementById("image1");
+// var image1 = document.getElementById("image1");
+// var image1 = document.getElementById("image1");
+// var image1 = document.getElementById("image1");
+// var image1 = document.getElementById("image1");
+// var image1 = document.getElementById("image1");
+// var image1 = document.getElementById("image1");
+
+var image1 = document.getElementById("image1");
+var image3 = document.getElementById("image3");
+var image6 = document.getElementById("image6");
+var currentPos = 0;
+var currentPos2 = 0;
+var currentPos3 = 0;
+var currentPos4 = 0;
+var images = ["img/cirrus/cirrus3.jpg", "img/cessna/cessna9.jpg", "img/cessna/cessna1.jpg", "img/cessna/cessna3.jpg", "img/cessna/cessna4.jpg", "img/cessna/cessna5.jpg"];
+var images2 = [ "img/cirrus/cirrus6.jpg", "img/cirrus/cirrus14.jpg","img/cirrus/cirrus7.jpg", "img/cirrus/cirrus9.jpg", "img/cirrus/cirrus11.jpg"];
+var images3 = [ "img/cessna/cessna8.jpg", "img/cessna/cessna9.jpg", "img/cessna/cessna12.jpg", "img/cessna/cessna13.jpg" , "img/cirrus/cirrus5.jpg",];
+
+function changeImg() {
+
+    if (++currentPos >= images.length)
+        currentPos = 0;
+    
+        image1.src = images[currentPos];
+
+    console.log(currentPos)
+}
+setInterval(changeImg, 3000);
+
+function changeImg3() {
+
+    if (++currentPos2 >= images2.length)
+        currentPos2 = 0;
+    
+        image3.src = images2[currentPos2];
+}
+setInterval(changeImg3, 3000);
+
+function changeImg6() {
+
+    if (++currentPos3 >= images3.length)
+        currentPos3 = 0;
+    
+        image6.src = images3[currentPos3];
+}
+setInterval(changeImg6, 3000);
+
+
+//MODAL AJOUTER UN AVIS
+let btnAddComment = document.querySelector('.btnAddComment');
+let overlayComment = document.querySelector('.overlayComment');
+let btnCloseComment = document.querySelector('.btnCloseComment');
+
+btnAddComment.addEventListener('click',openModaComment);
+btnCloseComment.addEventListener('click',closeComment);
+
+function openModaComment(){
+    overlayComment.style.display = 'block';
+}
+
+function closeComment(){
+    overlayComment.style.display = 'none';
+}

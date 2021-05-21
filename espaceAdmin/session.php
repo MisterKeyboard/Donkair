@@ -10,7 +10,7 @@ echo "Session:" . $_SESSION['admin'];
 
 <header>
     <div>
-        <a href="logout.php"> Déconnexion </a>
+        <a href="/espaceAdmin/logout.php"> Déconnexion </a>
     </div>
 </header>
 
