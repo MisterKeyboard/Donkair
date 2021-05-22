@@ -26,6 +26,8 @@ require 'headHeader.php';
             <div class="input-group addComment">
                 <textarea class="form-control addComment" aria-label="With textarea" name="avis" id="avis"></textarea>
             </div>
+
+
             <div class="fs-4 ms-3">
                 <input class=" btn btn-primary mb-3 " type="submit"  name="submit" value="Envoyer"/> 
             </div>
@@ -46,6 +48,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST' && empty($_POST['name']) || empty($_POS
         // $flightNbr = $_POST['flightNbr'];
         $avis = $_POST['avis'];
         $titleAvis = $_POST['titleAvis'];
+        
 
     $sql = $objetPdo->prepare('INSERT INTO comment (name, firstname, mail,  avis, titleAvis) VALUES (:name, :firstname, :mail, :avis, :titleAvis)');
     

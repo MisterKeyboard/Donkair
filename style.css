@@ -65,6 +65,7 @@ body{
 
 
 #flight {
+    width:  auto;
     background-color:#261742;
     background-image:
     radial-gradient(#6f42c1, rgba(255,255,255,.2) 2px, transparent 40px),
@@ -138,16 +139,9 @@ figure{
     background-image: linear-gradient(white, #9C83CC  ) ;
 }
 
+
+
 /* section5 */
-.cardAvis {
-        display: grid;
-        margin-left: 0;
-        grid-template-columns: repeat(6, 1fr);
-}
-
-
-
-/* section6 */
 
 .imgCedric {
     justify-content: left;
@@ -160,6 +154,32 @@ figure{
 .DoesCare {
     color:#6f42c1;
     font-size: 40px;
+}
+
+/* section6 */
+
+.section6 {
+    background-image: linear-gradient(#9C83CC, white  ) 
+}
+
+.containerAvis {
+    display: inline-block;
+    margin-top: 20px;
+    background-color:white;
+    width: 150px;
+    height: 200px;
+    border-radius: 10px;
+    overflow-y: auto;
+} 
+
+.titleAvis {
+    text-align: center;
+}
+
+.nameAvis {
+    font-size: 15px;
+    color: grey;
+    border-bottom: solid 1px #6F42C1;
 }
 
 /* footer */
@@ -210,9 +230,6 @@ footer {
     margin-top: 10px;
 }
 
-/* //add avis */
-
 .addComment {
-    width: 30%;
-    margin: 3px;
+    width: 350px;
 }

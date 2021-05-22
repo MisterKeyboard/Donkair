@@ -15,9 +15,9 @@ $data = $getFlightId->fetch();
 
 // gestion des erreurs
 
-if ($data->flightFull()) {
-    echo "Le nombre de place limité pour ce vol est de " . $data->getcapacity() . " places.";
-}
+// if ($data->flightFull()) {
+//     echo "Le nombre de place limité pour ce vol est de " . $data->getcapacity() . " places.";
+// }
 
 //GESTION des erreurs du forms 
 
@@ -38,7 +38,6 @@ if (isset($_POST['send']))
             $mail = $_POST['mail'];
             $tel = $_POST['tel'];
             
-
             header('Location:recOk.php');
            ?> 
             <a href = "index.php"> Retourner à la page d'accueil</a> 
@@ -49,8 +48,8 @@ if (isset($_POST['send']))
     }
  }
 
-$flightNbr = $data->flightNbr;
-$capacity = $data->getCapacity();
+//$flightNbr = $data->flightNbr;
+//$capacity = $data->getCapacity();
 
 $count = '
 SELECT tab.* FROM 
