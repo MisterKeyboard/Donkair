@@ -32,7 +32,6 @@ $query = $objetPdo->query($allFlights);
 //$query->execute($allFlights); 
 
 $idFlight = [];
-
     foreach ($objetPdo->query($allFlights) as $row) {
     $idFlight[] = $row['id'];
     }
@@ -128,50 +127,60 @@ $idFlight = [];
 
 ?> 
 
-        <div class="row container g-0 card my-3 pb-3">
-            <div class="col-sm-12 col-md-6 col-lg-6 pt-3">
-                <img class="w-100 rounded" src="img/uploadtownsimages/<?php echo $planeImage ?> " class="card-img-top" alt="photo avion">
+    <div class="cardResa row container card mb-3 mt-5 ">
+
+       
+            <div class="imgResa col-sm-12 col-md-6 col-lg-6 pt-3 row g-0">
+                <img class="w-100 rounded ps-3 pb-3" src="img/uploadtownsimages/<?php echo $planeImage ?> " class="card-img-top" alt="photo avion">
             </div>
-            <div class="col-sm-12 col-md-6 col-lg-6 pt-4">
-                <p class="vol"><span class="text-primary">Votre avion: </span><?php echo $flight['model'] ?></p>
-                <p class="vol"><span class="text-primary pl-3">Numéro de vol: </span><?php echo $flightNbr ?></p>
-                <p class="vol"><span class="text-primary pl-3">Date et heure du départ: </span><?php echo $date1->format('d-m-Y à H:i') ?></p>
-                <p class="vol"><span class="text-primary pl-3">Durée du vol: </span><?php echo $flight['TIMEDIFF(f.arrivalTime,f.departureTime)'] ?></p>
-                <div>
-                    <a class="btn btn-primary vol" href="customer.php?flightId=<?php echo $flightId; ?>"  target=_blank> Choisir ce vol </a>
+
+            <div class="textResa col-md-8">
+                <div class="card-body " >
+                    <p class="vol"><span class="text-primary">Votre avion: </span><?php echo $flight['model'] ?></p>
+                    <p class="vol"><span class="text-primary pl-3">Numéro de vol: </span><?php echo $flightNbr ?></p>
+                    <p class="vol"><span class="text-primary pl-3">Date et heure du départ: </span><?php echo $date1->format('d-m-Y à H:i') ?></p>
+                    <p class="vol"><span class="text-primary pl-3">Durée du vol: </span><?php echo $flight['TIMEDIFF(f.arrivalTime,f.departureTime)'] ?></p>
+
+                        <div>
+                            <a class="btn btn-primary vol mb-3 href="customer.php?flightId=<?php echo $flightId; ?>"  target=_blank> Choisir ce vol </a>
+                        </div>
                 </div>
             </div>
+            
+        
+
+    </div>
 
 <?php 
    if (!empty($flights)) { ?>
-        <div class="container pt-3 recherche:">
-            </div>
+        <div class="container pt-3 recherche:"></div>
+
             <div class="container card my-3 pb-3">
                 <div class="photos">
                     <div class="col-sm-12 col-md-12 col-lg-6 pt-2 float-start">
-                    <p><span class="text-primary">Ville de départ: </span><?php echo $departureCity ?></p>
+                    <p><span class="text-primary text-center fs-4">Ville de départ: </span><?php echo $departureCity ?></p>
                         <div class="flip-card">
                             <div class="flip-card-inner">
                                 <div class="flip-card-front">
                                     <img src="img/uploadtownsimages/<?php echo $departureImage ?> " class="card-img-top" alt="photo ville">
                                 </div>
                                 <div class="flip-card-back">
-                                    <p class="mt-3 container text-dark fw-bold"><?php echo $departureDescriptive ?></p>
+                                    <p class="mt-3 container text-dark fw-bold text-center"><?php echo $departureDescriptive ?></p>
                                 </div>
-                            </div>
-                        </div> 
                     </div>
+                 </div> 
+            </div>
         
         
                     <div class="col-sm-12 col-md-12 col-lg-6 pt-2 float-end">
-                    <p><span class="text-primary">Ville d'arrivée: </span><?php echo $arrivalCity ?></p>
+                    <p><span class="text-primary text-center fs-4" >Ville d'arrivée: </span><?php echo $arrivalCity ?></p>
                         <div class="flip-card">
                             <div class="flip-card-inner">
                                 <div class="flip-card-front">
                                     <img src="img/uploadtownsimages/<?php echo $arrivalImage ?> " class="card-img-top" alt="photo ville">
                                 </div>
                                 <div class="flip-card-back">
-                                    <p class="mt-3 container text-dark fw-bold"><?php echo $arrivalDescriptive ?></p>
+                                    <p class="mt-3 container text-dark fw-bold text-center"><?php echo $arrivalDescriptive ?></p>
                                 </div>
                             </div>
                         </div> 
@@ -181,6 +190,7 @@ $idFlight = [];
         }
     
     } 
+
     if (empty($flights)) { ?>
         
         <div class="pasVol card mt-4 text-center" style="width: 30rem;">
@@ -192,7 +202,7 @@ $idFlight = [];
             <div class="card-body ">
                 <h5 class="card-title">Nous sommes désolé pour la gêne occasionnée.</h5>
                 <p class="card-text">  
-                    Merci nous vous trouverons solution.</p>
+                    Merci de nous contacter, nous vous trouverons solution.</p>
 
                     <ul class="JoindrePasVol">
                         <li> <i class="fas fa-phone "> </i> 01 76 38 10 19 </li>

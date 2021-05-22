@@ -29,7 +29,6 @@
 
 .navbar {
     background-image: linear-gradient(#52318F, white) ;
-    border-radius: 10px;
     font-size: 30px;
 }
 
@@ -47,7 +46,7 @@
 /* GENERAL RULES IN THE BODY */
 
 body{
-    background-image: linear-gradient( rgba(219, 181, 238, 0.637), white) ;
+    background-image: linear-gradient( white, rgba(219, 181, 238, 0.637)) ;
     border-radius: 10px;
     font-family: Arial, Georgia, 'Times New Roman', Times, serif;
     /* background: url('../img/Bibliothèque-nationale-de-Rio-de-Janeiro-Brésil-0.jpg'); */
@@ -63,9 +62,7 @@ body{
 
 /* section1 */
 
-.section1 {
-    background-color: ;
-}
+
 
 #flight {
     background-color:#261742;
@@ -76,7 +73,7 @@ body{
     radial-gradient(rgba(255,255,255,.4), rgba(255,255,255,.1) 2px, transparent 30px);
     background-size: 550px 550px, 350px 350px, 250px 250px, 150px 150px;
     background-position: 0 0, 40px 60px, 130px 270px, 70px 100px;
-}
+} 
 
 .btnResv {
     background-color: rgba(241, 194, 237, 0.89);
@@ -100,6 +97,20 @@ body{
     font-size: 15px;
 }
 
+.cardResa {
+    margin: 0 auto;
+    width: auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.imgResa {
+    width: 500px;
+}
+
+.textResa {
+    margin: 0;
+}
 
 /* section2 images */
 
@@ -128,6 +139,13 @@ figure{
 }
 
 /* section5 */
+.cardAvis {
+        display: grid;
+        margin-left: 0;
+        grid-template-columns: repeat(6, 1fr);
+}
+
+
 
 /* section6 */
 
@@ -190,4 +208,11 @@ footer {
 .redirection {
     font-size: 25px;
     margin-top: 10px;
+}
+
+/* //add avis */
+
+.addComment {
+    width: 30%;
+    margin: 3px;
 }
