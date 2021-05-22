@@ -35,7 +35,7 @@ if(isset($_GET['accepte-cookie'])){
 
         <nav class="navbar">
 
-            <div class="container-fluid ">
+            <div class="container-fluid navbar ">
             <img src="img/donkeysunglassesRemovebg.png" alt="logo" class="logo">
                 <a class="text-decoration-none text-white" href="index.php#flight">Réservez un vol</a>
                 <a class="text-decoration-none text-white" href="index.php#planes">Nos modèles d'avions</a>

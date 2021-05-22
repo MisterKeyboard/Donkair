@@ -15,9 +15,9 @@ $data = $getFlightId->fetch();
 
 // gestion des erreurs
 
-if ($data->flightFull()) {
-    echo "Le nombre de place limité pour ce vol est de " . $data->getcapacity() . " places.";
-}
+// if ($data->flightFull()) {
+//     echo "Le nombre de place limité pour ce vol est de " . $data->getcapacity() . " places.";
+// }
 
 //GESTION des erreurs du forms 
 
@@ -38,8 +38,7 @@ if (isset($_POST['send']))
             $mail = $_POST['mail'];
             $tel = $_POST['tel'];
             
-
-         echo "Vos informations ont bien été enregistrées. Merci pour votre confiance";
+            header('Location:recOk.php');
            ?> 
             <a href = "index.php"> Retourner à la page d'accueil</a> 
             <?php
@@ -49,8 +48,8 @@ if (isset($_POST['send']))
     }
  }
 
-$flightNbr = $data->flightNbr;
-$capacity = $data->getCapacity();
+//$flightNbr = $data->flightNbr;
+//$capacity = $data->getCapacity();
 
 $count = '
 SELECT tab.* FROM 
@@ -150,49 +149,4 @@ $sql2->execute(array(':name' => $name, ':firstname' => $firstname, ':flightId' =
 
 }
 
-// $requestJoin = $objetPdo->prepare('SELECT customer.name, booking.customer_id FROM customer LEFT JOIN booking ON customer.id = booking.customer_id');
-// $requestJoin->execute();
-
-//  $join = $objetPdo->prepare('SELECT flight.flightNbr FROM flight LEFT JOIN customer ON flight.flightNbr = customer.flightNbr'); 
-//  $joinLeft = $join->execute();
-
-//  $customerId = 'SELECT customer.id, booking.customer_id FROM booking LEFT JOIN customer ON customer.id = booking.customer_id';
-//'SELECT flight.flightNbr FROM flight LEFT JOIN customer ON flight.flightNbr = customer.flightNbr'
-
-// $count = 'SELECT COUNT(*) FROM booking WHERE flightId = 2';
-// $countFectch = $objetPdo->query($count);
-// $counter = $countFectch->fetchColumn();
-// print($counter);
-
-// $count1 = 'SELECT COUNT(*) FROM booking WHERE flightId = 1';
-// $countFectch1 = $objetPdo->query($count1);
-// $counter1 = $countFectch->fetchColumn();
-// print($counter1);
-
-$count = '
-SELECT tab.* FROM 
-(SELECT 
-    flight.id,
-    plane.capacity,
-    COUNT(booking.name), 
-(plane.capacity - COUNT(booking.name)) placeDispo
-FROM flight
-INNER JOIN plane ON plane.id = flight.planeModel
-LEFT JOIN booking ON booking.flightId = flight.id
-GROUP BY flight.id) tab
-WHERE tab.placeDispo > 0;
-';
-$countFetch = $objetPdo->query($count);
-foreach ($countFetch as $row) {
-    $idF= $row['id']; 
-    $capacity = $row['capacity']; 
-    //$num = $row['num'];
-    $placeDispo = $row['placeDispo'];
-}
-
-//print($counter);
-require "footer.php";  
-?>
-
-</main>
-
+require "footer.php";

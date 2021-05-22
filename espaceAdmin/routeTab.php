@@ -13,6 +13,7 @@ $objetPdo=openPDO();
 // On détermine le nombre total de vols
 $sql = 'SELECT COUNT(*) AS nb_flights FROM `flight`;';
 
+
 // On prépare la requête
 $query = $objetPdo->prepare($sql);
 
@@ -25,7 +26,7 @@ $result = $query->fetch();
 $nbFlights = (int) $result['nb_flights'];
 
 // On détermine le nombre de vols par page
-$parPage = 5;
+$parPage = 3;
 
 // On calcule le nombre de pages total
 $pages = ceil($nbFlights / $parPage);
@@ -45,7 +46,7 @@ left join route departureRoute
 ON departureRoute.id = f.departureCity 
 LEFT JOIN route arrivalRoute 
 ON arrivalRoute.id = f.arrivalCity 
-ORDER BY `flightNbr` ASC;
+ORDER BY `flightNbr` 
 DESC LIMIT :premier, :parpage;';
 
 // On prépare la requête
@@ -91,8 +92,8 @@ foreach  ($flights as $row) :?>
                 <td><?php echo $row["departureTime"] ?></td>
                 <td><?php echo $row["arrivalTime"] ?></td>
                 <td><?php echo $row["date"]?></td>
-                <td> <a  href="/espaceAdmin/routeEdit.php?fnbr=<?php echo $row["flightNbr"] ?>">Edit</a>
-                <a href="/espaceAdmin/routeDel.php?fnbr=<?php echo $row["flightNbr"] ?>">Delete</a>
+                <td> <a  href="/espaceAdmin/routeEdit.php?fnbr=<?php echo $row["flightNbr"] ?>">Modifier</a> 
+                <a href="/espaceAdmin/routeDel.php?fnbr=<?php echo $row["flightNbr"] ?>" class="delete" data-confirm="Etes vous sur de vouloir supprimer cette ligne?">Supprimer</a> 
                 </td> 
             </tr>
 <?php endforeach; ?>
@@ -115,8 +116,6 @@ foreach  ($flights as $row) :?>
                             <a href="/espaceAdmin/dashboard.php/?page=<?= $currentPage + 1 ?>" class="page-link">Suivante</a>
                         </li>
         </ul>
-                </nav>
-
 
     </body>
 
@@ -129,53 +128,53 @@ foreach  ($flights as $row) :?>
 <?php
 
 // On détermine sur quelle page on se trouve
-
 if(isset($_GET['page']) && !empty($_GET['page'])){
     $currentPage = (int) strip_tags($_GET['page']);
 }else{
     $currentPage = 1;
 }
 
+
 $objetPdo=openPDO();
-// On détermine le nombre total de customer
-$customer = 'SELECT COUNT(*) AS nb_customer FROM `customer`';
+// On détermine le nombre total de vols
+$sql1 = 'SELECT COUNT(*) AS nb_customer FROM `customer`;';
+
 
 // On prépare la requête
-$query1 = $objetPdo->prepare($customer);
+$query1 = $objetPdo->prepare($sql1);
 
 // On exécute
 $query1->execute();
 
 // On récupère le nombre d'articles
-$result = $query1->fetch();
+$result1 = $query1->fetch();
 
-$nbCustomer = (int) $result['nb_customer'];
+$nbCustomers = (int) $result1['nb_customer'];
 
-// On détermine le nombre de customer par page
-$parPage = 5;
+// On détermine le nombre de vols par page
+$parPage = 3;
 
 // On calcule le nombre de pages total
-$pages = ceil($nbCustomer / $parPage);
+$pages = ceil($nbCustomers / $parPage);
 
-// Calcul du 1e customer de la page
+// Calcul du 1er vol de la page
 $premier = ($currentPage * $parPage) - $parPage;
 
-$customerDisplay = 'SELECT * FROM donkair.customer;
-ORDER BY id ASC;
+$sql = 'SELECT * FROM customer
+ORDER BY `name` 
 DESC LIMIT :premier, :parpage;';
 
 // On prépare la requête
-$query2 = $objetPdo->prepare($customerDisplay);
+$query = $objetPdo->prepare($sql);
 
-$query2->bindValue(':premier', $premier, PDO::PARAM_INT);
-$query2->bindValue(':parpage', $parPage, PDO::PARAM_INT);
+$query->bindValue(':premier', $premier, PDO::PARAM_INT);
+$query->bindValue(':parpage', $parPage, PDO::PARAM_INT);
 
 // On exécute
-$query2->execute();
+$query->execute();
 
 // On récupère les valeurs dans un tableau associatif
-$customers = $query2->fetchAll(PDO::FETCH_ASSOC);
-
+$customers = $query->fetchAll(PDO::FETCH_ASSOC);
 
 ?>
 
@@ -205,11 +204,12 @@ foreach  ($customers as $row1) :?>
                 <td><?php echo $row1["firstname"] ?></td>
                 <td><?php echo $row1["mail"] ?></td>
                 <td><?php echo $row1["tel"] ?></td>
-                <td><a  href="/espaceAdmin/customerEdit.php?cName=<?php echo $row1["name"] ?>">Edit</a>
-                <a href="/espaceAdmin/customerDelete.php?cName=<?php echo $row1["name"] ?>">Delete</a>
+                <td><a  href="/espaceAdmin/customerEdit.php?cName=<?php echo $row1["name"] ?>">Modifier</a>
+                <a href="/espaceAdmin/customerDelete.php?cName=<?php echo $row1["id"] ?>" class="delete" data-confirm="Etes vous sur de vouloir supprimer cette ligne?">Supprimer</a>
                 </td>
             </tr>
 <?php endforeach;?>
+
         </table>
         
         <ul class="pagination">
@@ -241,53 +241,55 @@ foreach  ($customers as $row1) :?>
 <?php
 
 // On détermine sur quelle page on se trouve
-
 if(isset($_GET['page']) && !empty($_GET['page'])){
     $currentPage = (int) strip_tags($_GET['page']);
 }else{
     $currentPage = 1;
 }
 
+
 $objetPdo=openPDO();
-// On détermine le nombre total de resa
-$booking = 'SELECT COUNT(*) AS nb_booking FROM booking';
+// On détermine le nombre total de vols
+$sql2 = 'SELECT COUNT(*) AS nb_resa FROM `booking`;';
+
 
 // On prépare la requête
-$query2 = $objetPdo->prepare($booking);
+$query2 = $objetPdo->prepare($sql2);
 
 // On exécute
 $query2->execute();
 
 // On récupère le nombre d'articles
-$result = $query2->fetch();
+$result2 = $query2->fetch();
 
-$nbBooking = (int) $result['nb_booking'];
+$nbResas = (int) $result2['nb_resa'];
 
-// On détermine le nombre de customer par page
-$parPage = 5;
+// On détermine le nombre de vols par page
+$parPage = 3;
 
 // On calcule le nombre de pages total
-$pages = ceil($nbBooking / $parPage);
+$pages = ceil($nbResas / $parPage);
 
-// Calcul du 1e booking de la page
+// Calcul du 1er vol de la page
 $premier = ($currentPage * $parPage) - $parPage;
 
-$bookingDisplay = 'SELECT * FROM donkair.booking;
-ORDER BY id ASC LIMIT 1;
+$sql = 'SELECT *
+FROM booking
+ORDER BY `id` 
 DESC LIMIT :premier, :parpage;';
 
-
 // On prépare la requête
-$query3 = $objetPdo->prepare($bookingDisplay);
+$query = $objetPdo->prepare($sql);
 
-$query3->bindValue(':premier', $premier, PDO::PARAM_INT);
-$query3->bindValue(':parpage', $parPage, PDO::PARAM_INT);
+$query->bindValue(':premier', $premier, PDO::PARAM_INT);
+$query->bindValue(':parpage', $parPage, PDO::PARAM_INT);
 
 // On exécute
-$query3->execute();
+$query->execute();
 
 // On récupère les valeurs dans un tableau associatif
-$resas = $query3->fetchAll(PDO::FETCH_ASSOC);
+$resas = $query->fetchAll(PDO::FETCH_ASSOC);
+
 ?>
 
 <body >
@@ -315,7 +317,7 @@ foreach  ($resas as $row2) :?>
                 <td><?php echo $row2["firstname"] ?></td>
                 <td> <?php echo $row2["flightId"] ?> </td>
                 <td>
-                <a href="/espaceAdmin/bookingDelete.php?resa=<?php echo $row2["id"] ?>">Delete</a>
+                <a href="/espaceAdmin/bookingDelete.php?resa=<?php echo $row2["id"] ?>" class="delete" data-confirm="Etes vous sur de vouloir supprimer cette ligne?">Supprimer</a>
                 </td>
             </tr>
 <?php endforeach; ?>
@@ -342,4 +344,22 @@ foreach  ($resas as $row2) :?>
 
     </body>
 
+<script>
+    var deleteLinks = document.querySelectorAll('.delete');
+
+for (var i = 0; i < deleteLinks.length; i++) {
+  deleteLinks[i].addEventListener('click', function(event) {
+      event.preventDefault();
+
+      var choice = confirm(this.getAttribute('data-confirm'));
+
+      if (choice) {
+        window.location.href = this.getAttribute('href');
+      }
+  });
+}
+
+</script>
+
 </html>
+

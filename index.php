@@ -18,22 +18,18 @@ require "headHeader.php";
     <main>
         <!-- *********       SECTION FORMULAIRE DE RECHERCHE DE VOLS      ********** -->
 <section  class="section1">
-
             <div id="flight" class="col-8 container card py-3 ">
                 <h2 class="text-white fw-bold text-center"> Reservez votre vol:<h2>
-
                 <form name="form" method="POST">
                     <div class="row">
                         <div class="col-sm-12 col-md-12 col-lg-6 text-white ">
                             <label class="pt-3" for="departureCity"> Ville de départ </label>
                             <select class="form-select" name="departureCity" id="departureCity">
-
                             <?php
                                 $objetPdo=openPDO();
                                 $selection = $objetPdo->query('SELECT town, id FROM route');
                                 while($donnees = $selection->fetch())
                                 {
-
                             ?>
                                 <option <?php if (isset($_POST['departureCity']) && $donnees['id'] == $_POST['departureCity']){echo "selected";} ?> value="<?= $donnees['id'] ?>"> <?= $donnees['town'] ?> </option>
                                 <?php
@@ -56,7 +52,6 @@ require "headHeader.php";
                             </select>
                         </div>
                     </div>
-
                     <div class="row">
                         <div class="col-sm-12 col-md-12 col-lg-6 text-white">
                             <label class="pt-3" for="date">Date de départ</label>
@@ -78,10 +73,9 @@ require "headHeader.php";
                 </form>    
             </div>
             
-
             <?php require_once "searchflight.php";
                     ?>
-</section> 
+</section>  
 
 <section  class="section2">
 
@@ -102,7 +96,7 @@ require "headHeader.php";
 
 <section  class="section3">
             <!-- *********       SECTION AVIONS/VIDEOS    ********** -->         
-            <section id="planes" class="planes container py-5">
+            <section id="planes" class="planes container ">
                 <h2 class="text-primary fw-bold pb-4 text-white"> Nos modèles d'avions:<h2>
                     <div class="row">
                         <div class="pb-4 col-sm-12 col-md-12 col-lg-6" >
@@ -350,44 +344,8 @@ require "headHeader.php";
 
 </section>
 
-<section class="section5">
 
-<h3 class="mt-3 text-center"> Vos avis sur <span class="title1"> Donk <span class="title2"> Air </span> </span> </h3>
-
-<?php
-$comment = 'SELECT * FROM donkair.comment';
-
-$stmt = $objetPdo->prepare($comment);
-$stmt->execute(); 
-$addComment = $stmt->fetchAll();
-
-if (isset($_POST)) { 
-
-    foreach ($addComment as $row) {
-
-        $name = $row['name'];
-        $firstname = $row['firstname'];
-        $mail = $row['mail'];
-        $titleAvis = $row['titleAvis'];
-        $avis = $row['avis']; 
-?>
-        <div class="card cardAvis" style="width: 18rem;">
-            <div class="card-body">
-                <h5 class="card-title"> <?php echo $titleAvis; ?> </h5>
-                <h6 class="card-subtitle mb-2 text-muted"> De : <?php echo $name . " " . $firstname; ?> </h6>
-                <p class="card-text"> <?php echo $avis; ?> </p>
-                <a href="addComment.php" class="card-link" target="_blank"> Ajoutez aussi Votre avis<a>   
-            </div>
-        </div>
-
-<?php
-
-    };
-}
-?>
-</section>                                    
-    
-<section  class="section6">
+<section  class="section5">
 
             <!-- *********       UN MOT DU PRESIDENT DE DONKAIR          ********** -->
             <section class="expert container" id="expert">
@@ -430,6 +388,57 @@ if (isset($_POST)) {
 
                 </div>
 </section>
+
+
+
+
+<section class="section6">
+
+<div class="container text-center pt-5 ">
+<h3 class="font-weight-light text-white">Vos avis sur <span class="title1"> Donk <span class="title2"> Air </span> </span></h3>
+
+<?php
+$comment = 'SELECT * FROM donkair.comment';
+
+$stmt = $objetPdo->prepare($comment);
+$stmt->execute(); 
+$addComment = $stmt->fetchAll();
+
+if (isset($_POST)) { 
+
+    foreach ($addComment as $row) {
+
+        $name = $row['name'];
+        $firstname = $row['firstname'];
+        $mail = $row['mail'];
+        $titleAvis = $row['titleAvis'];
+        $avis = $row['avis']; 
+?>
+    
+        <div class="containerAvis">
+        
+            <div class="sizeAvis">
+                <h5 class="titleAvis mt-2"> <?php echo $titleAvis ?> </h5>
+                <p class="nameAvis"> De : <?php echo $name . " " . $firstname ?> </p>
+
+                <div class="avis">
+                <p ><?php echo $avis ?></p>
+                </div>
+            </div>
+        </div>
+    
+
+
+
+<?php
+
+    };
+}
+?>
+ <a href="addComment.php" class="btn btn-primary mt-5 mb-5" target="_blank">Ajoutez un avis</a>
+</section>                                    
+    
+
         
 </main>
 

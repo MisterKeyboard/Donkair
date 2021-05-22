@@ -1,4 +1,7 @@
 'use strict';
+
+//const { Carousel } = require("bootstrap");
+
 //MODAL CONTACTER PAR MAIL
 let btnPopup1 = document.querySelector('.btnPopup1');
 let overlay1 = document.querySelector('.overlay1');
@@ -117,18 +120,3 @@ function changeImg6() {
 setInterval(changeImg6, 3000);
 
 
-//MODAL AJOUTER UN AVIS
-let btnAddComment = document.querySelector('.btnAddComment');
-let overlayComment = document.querySelector('.overlayComment');
-let btnCloseComment = document.querySelector('.btnCloseComment');
-
-btnAddComment.addEventListener('click',openModaComment);
-btnCloseComment.addEventListener('click',closeComment);
-
-function openModaComment(){
-    overlayComment.style.display = 'block';
-}
-
-function closeComment(){
-    overlayComment.style.display = 'none';
-}

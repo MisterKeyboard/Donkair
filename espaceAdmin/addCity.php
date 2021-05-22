@@ -35,9 +35,6 @@ require "head.php";
             </div>      
         </form>
 
-
-
-
 <?php
 
 //Récuperer les noms des villes et des airports

@@ -3,16 +3,16 @@ require "db.php";
 require "session.php";
 require "head.php";
 
-$custName = $_GET["cName"];
+$cust = $_GET["cName"];
 
 $PDO = openPDO();
-$sql1 = "DELETE FROM donkair.customer; WHERE name = ? LIMIT 1";
+$sql = "DELETE FROM customer where id = ?";
 
-$del1 = $objetPdo->prepare($sql1);
+$del = $PDO->prepare($sql);
 
-$del1->bindValue(1, $custName, PDO::PARAM_STR);
+$del->bindValue(1, $cust, PDO::PARAM_STR);
 
-$del1->execute();
+$del->execute();
 
 
 header('Location:/espaceAdmin/dashboard.php');
