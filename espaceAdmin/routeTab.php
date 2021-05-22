@@ -92,8 +92,8 @@ foreach  ($flights as $row) :?>
                 <td><?php echo $row["departureTime"] ?></td>
                 <td><?php echo $row["arrivalTime"] ?></td>
                 <td><?php echo $row["date"]?></td>
-                <td> <a  href="/espaceAdmin/routeEdit.php?fnbr=<?php echo $row["flightNbr"] ?>">Edit</a>
-                <a href="/espaceAdmin/routeDel.php?fnbr=<?php echo $row["flightNbr"] ?>">Delete</a>
+                <td> <a  href="/espaceAdmin/routeEdit.php?fnbr=<?php echo $row["flightNbr"] ?>">Modifier</a> 
+                <a href="/espaceAdmin/routeDel.php?fnbr=<?php echo $row["flightNbr"] ?>" class="delete" data-confirm="Etes vous sur de vouloir supprimer cette ligne?">Supprimer</a> 
                 </td> 
             </tr>
 <?php endforeach; ?>
@@ -204,8 +204,8 @@ foreach  ($customers as $row1) :?>
                 <td><?php echo $row1["firstname"] ?></td>
                 <td><?php echo $row1["mail"] ?></td>
                 <td><?php echo $row1["tel"] ?></td>
-                <td><a  href="/espaceAdmin/customerEdit.php?cName=<?php echo $row1["name"] ?>">Edit</a>
-                <a href="/espaceAdmin/customerDelete.php?cName=<?php echo $row1["id"] ?>">Delete</a>
+                <td><a  href="/espaceAdmin/customerEdit.php?cName=<?php echo $row1["name"] ?>">Modifier</a>
+                <a href="/espaceAdmin/customerDelete.php?cName=<?php echo $row1["id"] ?>" class="delete" data-confirm="Etes vous sur de vouloir supprimer cette ligne?">Supprimer</a>
                 </td>
             </tr>
 <?php endforeach;?>
@@ -317,7 +317,7 @@ foreach  ($resas as $row2) :?>
                 <td><?php echo $row2["firstname"] ?></td>
                 <td> <?php echo $row2["flightId"] ?> </td>
                 <td>
-                <a href="/espaceAdmin/bookingDelete.php?resa=<?php echo $row2["id"] ?>">Delete</a>
+                <a href="/espaceAdmin/bookingDelete.php?resa=<?php echo $row2["id"] ?>" class="delete" data-confirm="Etes vous sur de vouloir supprimer cette ligne?">Supprimer</a>
                 </td>
             </tr>
 <?php endforeach; ?>
@@ -344,4 +344,22 @@ foreach  ($resas as $row2) :?>
 
     </body>
 
+<script>
+    var deleteLinks = document.querySelectorAll('.delete');
+
+for (var i = 0; i < deleteLinks.length; i++) {
+  deleteLinks[i].addEventListener('click', function(event) {
+      event.preventDefault();
+
+      var choice = confirm(this.getAttribute('data-confirm'));
+
+      if (choice) {
+        window.location.href = this.getAttribute('href');
+      }
+  });
+}
+
+</script>
+
 </html>
+

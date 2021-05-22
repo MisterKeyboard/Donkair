@@ -149,3 +149,4 @@ $sql2->execute(array(':name' => $name, ':firstname' => $firstname, ':flightId' =
 
 }
 
+require "footer.php";
