@@ -48,3 +48,4 @@ Pas mal de ligne vides
 Pas de gestion des erreurs mysql (ce qui empêche l’affichage de la page d’ajout)
 Mieux nommer les variables dans les bindValue
 Vérification des $_GET / $_POST)
+# donkair-makeover
